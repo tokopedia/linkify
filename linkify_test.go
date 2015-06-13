@@ -1,6 +1,7 @@
 package linkify
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -42,6 +43,9 @@ func TestLinks(t *testing.T) {
 
 		// 2
 
+		{"google.com!", []Link{{Schema: "", Start: 0, End: 10}}},
+		{"google.com...", []Link{{Schema: "", Start: 0, End: 10}}},
+		{"google.com.", []Link{{Schema: "", Start: 0, End: 10}}},
 		{"google.com/?search", []Link{{Schema: "", Start: 0, End: 18}}},
 		{"some.host.name.com.net.abracadabra", nil},
 		{"some.host.name.com.net.org", []Link{{Schema: "", Start: 0, End: 26}}},
@@ -96,9 +100,9 @@ func TestLinks(t *testing.T) {
 		// 4
 
 		{"//127.0.0.1:80/", []Link{{Schema: "//", Start: 0, End: 15}}},
+		{"//google.com.", []Link{{Schema: "//", Start: 0, End: 12}}},
 		{"//ya.ru", []Link{{Schema: "//", Start: 0, End: 7}}},
 		{"://google.com", nil},
-		{"//google.com.", nil},
 		{"//google.com%", nil},
 		{"//google.com\x00", nil},
 		{"//google", nil},
@@ -144,6 +148,11 @@ func TestLinks(t *testing.T) {
 		{"http://google.com/[1)", []Link{{Schema: "http:", Start: 0, End: 18}}},
 		{"http://google.com/#[1)", []Link{{Schema: "http:", Start: 0, End: 19}}},
 		{"http://google.com ", []Link{{Schema: "http:", Start: 0, End: 17}}},
+		{"http://google.com--", []Link{{Schema: "http:", Start: 0, End: 17}}},
+		{"http://google.com-", []Link{{Schema: "http:", Start: 0, End: 17}}},
+		{"http://google.com!", []Link{{Schema: "http:", Start: 0, End: 17}}},
+		{"http://google.com...", []Link{{Schema: "http:", Start: 0, End: 17}}},
+		{"http://google.com.", []Link{{Schema: "http:", Start: 0, End: 17}}},
 		{"HtTp://gOoGlE.CoM", []Link{{Schema: "http:", Start: 0, End: 17}}},
 		{"http://google.com/--", []Link{{Schema: "http:", Start: 0, End: 18}}},
 		{"http://google.com/", []Link{{Schema: "http:", Start: 0, End: 18}}},
@@ -163,7 +172,6 @@ func TestLinks(t *testing.T) {
 		{"http://www.youtube.com/watch?v=EIBRdBVkDHQ.", []Link{{Schema: "http:", Start: 0, End: 42}}},
 		{"http://goo---gle.com", nil},
 		{"http://google-.com", nil},
-		{"http://google.com-", nil},
 		{"http://google.com\\", nil},
 		{"http:google.com", nil},
 		{"http://google.com/search?q%0z", nil},

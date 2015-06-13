@@ -351,6 +351,7 @@ func findHostnameEnd(s string, start int) (_ int, _ int, _ bool) {
 	lastDot := false
 	lastDotPos := -1
 	nHyphen := 0
+loop:
 	for end < len(s) {
 		r, rlen := utf8.DecodeRuneInString(s[end:])
 		if r == utf8.RuneError {
@@ -365,10 +366,14 @@ func findHostnameEnd(s string, start int) (_ int, _ int, _ bool) {
 			if nHyphen > 0 {
 				return
 			}
+			if lastDot {
+				break loop
+			}
 			lastDot = true
 			lastDotPos = end
 			nHyphen = 0
 		case r == '-':
+			lastDot = false
 			if end == start {
 				return
 			}
@@ -377,7 +382,7 @@ func findHostnameEnd(s string, start int) (_ int, _ int, _ bool) {
 			}
 			nHyphen++
 			if nHyphen == 3 {
-				return
+				break loop
 			}
 		case r == '\\' || r == '_':
 			return
@@ -388,8 +393,21 @@ func findHostnameEnd(s string, start int) (_ int, _ int, _ bool) {
 		}
 		end += rlen
 	}
-	if lastDot || nHyphen > 0 {
-		return
+
+	if nHyphen > 0 {
+		end -= nHyphen
+	} else if lastDot {
+		if s[end-1] == '.' {
+			end--
+		}
+		lastDotPos = end - 1
+		for lastDotPos >= start && s[lastDotPos] != '.' {
+			lastDotPos--
+		}
+		if lastDotPos < start {
+			lastDotPos = -1
+		}
 	}
+
 	return end, lastDotPos, true
 }
