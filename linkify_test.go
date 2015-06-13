@@ -1,7 +1,6 @@
 package linkify
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
