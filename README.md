@@ -9,7 +9,7 @@ Linkify package provides a way to find what looks like links in plain text.
 
 ## Usage
 
-See an [example](https://github.com/opennota/linkify/raw/master/linkify_example_test.go).
+See an [example](https://github.com/opennota/linkify/blob/master/linkify_example_test.go).
 
 ## License
 
