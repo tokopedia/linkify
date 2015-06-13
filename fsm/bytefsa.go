@@ -35,41 +35,6 @@ type node struct {
 	f bool    // final state?
 }
 
-var stateCharsets = make(map[int][256]bool)
-
-func generateCharsets(root *node) {
-	if len(root.c) > 1 {
-		var cs [256]bool
-		for _, c := range root.c {
-			cs[c.b] = true
-			cs[byteutil.ByteToUpper(c.b)] = true
-		}
-		stateCharsets[root.s] = cs
-	}
-	for _, c := range root.c {
-		generateCharsets(c)
-	}
-}
-
-func arrayToString(a [256]bool) string {
-	s := "[256]bool {"
-	for i := 0; i < len(a); i++ {
-		if a[i] {
-			s += "true"
-		} else {
-			s += "false"
-		}
-		if (i+1)%16 == 0 {
-			s += ",\n"
-		} else {
-			s += ", "
-		}
-	}
-
-	s += "}"
-	return s
-}
-
 func main() {
 	log.SetFlags(0)
 	flag.Usage = func() {
@@ -131,16 +96,11 @@ func main() {
 		}
 	}
 
-	generateCharsets(root)
-
 	buf := bytes.NewBuffer(nil)
 
 	fmt.Fprintf(buf, `package %s
 			import "github.com/opennota/byteutil"
 	`, pkg)
-	for st, cs := range stateCharsets {
-		fmt.Fprintf(buf, "var cs%d = %s\n", st, arrayToString(cs))
-	}
 	fmt.Fprintf(buf, `
 	func %s(s string) int {
 	st := 0
@@ -154,13 +114,17 @@ func main() {
 	for _, n := range nodes {
 		if len(n.c) > 0 {
 			fmt.Fprintf(buf, "case %d:\n", n.s)
-			if _, ok := stateCharsets[n.s]; ok {
-				fmt.Fprintf(buf, `if !cs%d[b] {
-							return length
-						}
-						`, n.s)
+			hasLetter := false
+			for _, c := range n.c {
+				if byteutil.IsLetter(c.b) {
+					hasLetter = true
+				}
 			}
-			fmt.Fprintf(buf, "switch byteutil.ByteToLower(b) {\n")
+			if hasLetter {
+				fmt.Fprintf(buf, "switch byteutil.ByteToLower(b) {\n")
+			} else {
+				fmt.Fprintf(buf, "switch b {\n")
+			}
 
 			for _, c := range n.c {
 				fmt.Fprintf(buf, "case '%c':\n", c.b)
