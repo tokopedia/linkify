@@ -7,7 +7,9 @@ func BenchmarkLinks(b *testing.B) {
 	Check out this link to http://google.com
 You can also email support@example.com to view more.
 
-Some more links: fsf.org http://www.gnu.org/licenses/gpl-3.0.en.html 127.0.0.1 localhost:80 github.com/trending //reddit.com/r/golang mailto:r@golang.org some.nonexistent.host.name flibustahezeous3.onion
+Some more links: fsf.org http://www.gnu.org/licenses/gpl-3.0.en.html 127.0.0.1
+                 localhost:80	github.com/trending	//reddit.com/r/golang
+mailto:r@golang.org some.nonexistent.host.name flibustahezeous3.onion
 `
 
 	for i := 0; i < b.N; i++ {

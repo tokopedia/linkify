@@ -149,6 +149,7 @@ func TestLinks(t *testing.T) {
 		{"http://google.com/", []Link{{Schema: "http:", Start: 0, End: 18}}},
 		{`"http://google.com"`, []Link{{Schema: "http:", Start: 1, End: 18}}},
 		{"(http://google.com)", []Link{{Schema: "http:", Start: 1, End: 18}}},
+		{"http://google.com\n", []Link{{Schema: "http:", Start: 0, End: 17}}},
 		{"http://google.com/?query=[1(2", []Link{{Schema: "http:", Start: 0, End: 25}}},
 		{"http://google.com/?query=[1](2)", []Link{{Schema: "http:", Start: 0, End: 31}}},
 		{"http://google.com/?query=[1)", []Link{{Schema: "http:", Start: 0, End: 25}}},
@@ -254,7 +255,7 @@ func TestLinks(t *testing.T) {
 	for _, tc := range testCases {
 		got := Links(tc.in)
 		if !reflect.DeepEqual(got, tc.want) {
-			t.Errorf("Links(%q) = %#v, want %#v", tc.in, got, tc.want)
+			t.Errorf("Links(%q):\n got %#v\nwant %#v", tc.in, got, tc.want)
 		}
 	}
 }

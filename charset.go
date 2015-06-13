@@ -24,7 +24,7 @@ var (
 )
 
 func init() {
-	for _, b := range "./:@l" {
+	for _, b := range "./:@" {
 		trigger[b] = true
 	}
 	for _, b := range "-._~" {

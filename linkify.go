@@ -248,9 +248,51 @@ func Links(s string) (links []Link) {
 			})
 			i = end
 
-		case ':': // http, https, ftp, mailto
+		case ':': // http, https, ftp, mailto or localhost
 			if i < 3 { // at least ftp:
 				continue
+			}
+
+			if i >= 9 && s[i-1] == 't' && s[i-9:i] == "localhost" {
+				j := i - 9
+				if !byteutil.IsDigit(s[j+10]) {
+					continue
+				}
+				if j > 0 {
+					r, _ := utf8.DecodeLastRuneInString(s[:j])
+					if !isPunctOrSpaceOrControl(r) {
+						i++
+						continue // should be preceded by punctuation or space
+					}
+				}
+
+				start := j
+				pos := j + 9
+				end := skipPort(s, pos)
+				if end == pos {
+					continue // invalid port
+				}
+				end = skipPath(s, end)
+				end = skipQuery(s, end)
+				end = skipFragment(s, end)
+				end = unskipPunct(s, end)
+
+				if end < len(s) {
+					r, _ := utf8.DecodeRuneInString(s[end:])
+					if !isPunctOrSpaceOrControl(r) || r == '%' {
+						i++
+						continue // should be followed by punctuation or space
+					}
+				}
+
+				links = append(links, Link{
+					Schema: "",
+					Start:  start,
+					End:    end,
+				})
+				i = end
+
+				break
 			}
 
 			j := i - 1
@@ -418,50 +460,6 @@ func Links(s string) (links []Link) {
 
 			links = append(links, Link{
 				Schema: "mailto:",
-				Start:  start,
-				End:    end,
-			})
-			i = end
-
-		case 'l':
-			if len(s)-i < 11 {
-				continue // insufficient length
-			}
-			if s[i:i+10] != "localhost:" {
-				continue
-			}
-			if !byteutil.IsDigit(s[i+10]) {
-				continue
-			}
-			if i > 0 {
-				r, _ := utf8.DecodeLastRuneInString(s[:i])
-				if !isPunctOrSpaceOrControl(r) {
-					i += 11
-					continue // should be preceded by punctuation or space
-				}
-			}
-
-			start := i
-			pos := i + 9
-			end := skipPort(s, pos)
-			if end == pos {
-				continue // invalid port
-			}
-			end = skipPath(s, end)
-			end = skipQuery(s, end)
-			end = skipFragment(s, end)
-			end = unskipPunct(s, end)
-
-			if end < len(s) {
-				r, _ := utf8.DecodeRuneInString(s[end:])
-				if !isPunctOrSpaceOrControl(r) || r == '%' {
-					i += 11
-					continue // should be followed by punctuation or space
-				}
-			}
-
-			links = append(links, Link{
-				Schema: "",
 				Start:  start,
 				End:    end,
 			})
