@@ -75,6 +75,7 @@ bid
 bike
 bingo
 bio
+bit
 biz
 bj
 black
@@ -262,6 +263,7 @@ eus
 events
 everbank
 exchange
+exit
 expert
 exposed
 express
@@ -330,6 +332,7 @@ gmail
 gmo
 gmx
 gn
+gnu
 gold
 goldpoint
 golf
@@ -381,6 +384,7 @@ how
 hr
 ht
 hu
+i2p
 ibm
 icbc
 icu
@@ -466,6 +470,7 @@ link
 lk
 loan
 loans
+local
 lol
 london
 lotte
@@ -574,6 +579,7 @@ okinawa
 om
 one
 ong
+onion
 onl
 online
 ooo
@@ -860,6 +866,7 @@ youtube
 yt
 za
 zip
+zkey
 zm
 zone
 zuerich
