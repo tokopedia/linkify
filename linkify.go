@@ -36,9 +36,7 @@ func max(a, b int) int {
 // Links returns links found in s.
 func Links(s string) (links []Link) {
 	for i := 0; i < len(s)-2; i++ {
-		b := s[i]
-
-		switch b {
+		switch s[i] {
 		case '.': // IP address or domain name
 			if i == 0 {
 				continue // . at the start of a line
