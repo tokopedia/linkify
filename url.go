@@ -333,7 +333,7 @@ loop:
 			}
 		case r == ':' || r == '/' || r == '\\' || r == '_':
 			return
-		case isPunctOrSpace(r):
+		case isPunctOrSpaceOrControl(r):
 			break loop
 		default:
 			return
@@ -381,7 +381,7 @@ func findHostnameEnd(s string, start int) (_ int, _ int, _ bool) {
 			}
 		case r == '\\' || r == '_':
 			return
-		case isPunctOrSpace(r):
+		case isPunctOrSpaceOrControl(r):
 			return end, lastDotPos, true
 		default:
 			return

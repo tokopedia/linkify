@@ -49,8 +49,8 @@ func isLetterOrDigit(r rune) bool {
 	return unicode.In(r, unicode.Letter, unicode.Digit)
 }
 
-func isPunctOrSpace(r rune) bool {
-	return unicode.In(r, unicode.Punct, unicode.Space)
+func isPunctOrSpaceOrControl(r rune) bool {
+	return unicode.In(r, unicode.Punct, unicode.Space, unicode.Cc)
 }
 
 func isUnreserved(r rune) bool {

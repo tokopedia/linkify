@@ -76,7 +76,7 @@ func Links(s string) (links []Link) {
 					start := 0
 					if j >= 0 {
 						r, rlen := utf8.DecodeLastRuneInString(s[:j+1])
-						if !isPunctOrSpace(r) {
+						if !isPunctOrSpaceOrControl(r) {
 							i = pos + 1
 							continue
 						}
@@ -104,7 +104,7 @@ func Links(s string) (links []Link) {
 					}
 
 					r, _ := utf8.DecodeRuneInString(s[end:])
-					if !isPunctOrSpace(r) {
+					if !isPunctOrSpaceOrControl(r) {
 						continue
 					}
 
@@ -116,7 +116,7 @@ func Links(s string) (links []Link) {
 
 					if end < len(s) {
 						r, _ = utf8.DecodeRuneInString(s[end:])
-						if !isPunctOrSpace(r) || r == '%' {
+						if !isPunctOrSpaceOrControl(r) || r == '%' {
 							continue
 						}
 					}
@@ -175,7 +175,7 @@ func Links(s string) (links []Link) {
 
 					if end < len(s) {
 						r, _ = utf8.DecodeRuneInString(s[end:])
-						if !isPunctOrSpace(r) || r == '%' {
+						if !isPunctOrSpaceOrControl(r) || r == '%' {
 							continue // should be followed by punctuation or space
 						}
 					}
@@ -200,7 +200,7 @@ func Links(s string) (links []Link) {
 					continue // should not be preceded by a colon
 				}
 				r, _ := utf8.DecodeLastRuneInString(s[:i])
-				if !isPunctOrSpace(r) {
+				if !isPunctOrSpaceOrControl(r) {
 					i++
 					continue // should be preceded by punctuation or space
 				}
@@ -236,7 +236,7 @@ func Links(s string) (links []Link) {
 
 			if end < len(s) {
 				r, _ = utf8.DecodeRuneInString(s[end:])
-				if !isPunctOrSpace(r) || r == '%' {
+				if !isPunctOrSpaceOrControl(r) || r == '%' {
 					continue // should be followed by punctuation or space
 				}
 			}
@@ -336,7 +336,7 @@ func Links(s string) (links []Link) {
 
 			if start > 0 {
 				r, _ := utf8.DecodeLastRuneInString(s[:start])
-				if !isPunctOrSpace(r) {
+				if !isPunctOrSpaceOrControl(r) {
 					continue // should be preceded by punctuation or space
 				}
 			}
@@ -369,7 +369,7 @@ func Links(s string) (links []Link) {
 
 			if end < len(s) {
 				r, _ = utf8.DecodeRuneInString(s[end:])
-				if !isPunctOrSpace(r) || r == '%' {
+				if !isPunctOrSpaceOrControl(r) || r == '%' {
 					continue // should be followed by punctuation or space
 				}
 			}
@@ -435,7 +435,7 @@ func Links(s string) (links []Link) {
 			}
 			if i > 0 {
 				r, _ := utf8.DecodeLastRuneInString(s[:i])
-				if !isPunctOrSpace(r) {
+				if !isPunctOrSpaceOrControl(r) {
 					i += 11
 					continue // should be preceded by punctuation or space
 				}
@@ -454,7 +454,7 @@ func Links(s string) (links []Link) {
 
 			if end < len(s) {
 				r, _ := utf8.DecodeRuneInString(s[end:])
-				if !isPunctOrSpace(r) || r == '%' {
+				if !isPunctOrSpaceOrControl(r) || r == '%' {
 					i += 11
 					continue // should be followed by punctuation or space
 				}
