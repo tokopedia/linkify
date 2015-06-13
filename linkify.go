@@ -38,10 +38,6 @@ func Links(s string) (links []Link) {
 	for i := 0; i < len(s)-2; i++ {
 		b := s[i]
 
-		if !trigger[b] {
-			continue
-		}
-
 		switch b {
 		case '.': // IP address or domain name
 			if i == 0 {

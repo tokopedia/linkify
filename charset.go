@@ -24,9 +24,6 @@ var (
 )
 
 func init() {
-	for _, b := range "./:@" {
-		trigger[b] = true
-	}
 	for _, b := range "-._~" {
 		unreserved[b] = true
 	}
