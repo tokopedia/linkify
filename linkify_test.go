@@ -257,7 +257,7 @@ func TestLinks(t *testing.T) {
 		{":00", nil},
 		{"skype://nickname", nil},
 		{"SKYPE://NICKNAME", nil},
-		{"XXX http://google.com r@golang.org localhost:80 mailto:r@golang.org //google.com XXX", []Link{Link{Schema: "http:", Start: 4, End: 21}, Link{Schema: "mailto:", Start: 22, End: 34}, Link{Schema: "", Start: 35, End: 47}, Link{Schema: "mailto:", Start: 48, End: 67}, Link{Schema: "//", Start: 68, End: 80}}},
+		{"XXX http://google.com r@golang.org localhost:80 mailto:r@golang.org //google.com XXX", []Link{Link{Schema: "http:", Start: 4, End: 21}, {Schema: "mailto:", Start: 22, End: 34}, {Schema: "", Start: 35, End: 47}, {Schema: "mailto:", Start: 48, End: 67}, {Schema: "//", Start: 68, End: 80}}},
 
 		// from twitter-text
 
