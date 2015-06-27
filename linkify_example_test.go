@@ -8,7 +8,7 @@ func Example() {
 You can also email support@example.com to view more.
 
 Some more links: fsf.org http://www.gnu.org/licenses/gpl-3.0.en.html 127.0.0.1
-                 localhost:80	github.com/trending	//reddit.com/r/golang
+                 localhost:80	github.com/trending?l=Go	//reddit.com/r/golang
 mailto:r@golang.org some.nonexistent.host.name flibustahezeous3.onion
 `
 	for _, l := range Links(input) {
@@ -22,7 +22,7 @@ mailto:r@golang.org some.nonexistent.host.name flibustahezeous3.onion
 	// Schema: http:     URL: http://www.gnu.org/licenses/gpl-3.0.en.html
 	// Schema:           URL: 127.0.0.1
 	// Schema:           URL: localhost:80
-	// Schema:           URL: github.com/trending
+	// Schema:           URL: github.com/trending?l=Go
 	// Schema: //        URL: //reddit.com/r/golang
 	// Schema: mailto:   URL: mailto:r@golang.org
 	// Schema:           URL: some.nonexistent.host.name
