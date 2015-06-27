@@ -13,4 +13,4 @@ See an [example](https://github.com/opennota/linkify/blob/master/linkify_example
 
 ## Similar projects
 
-* [mvdan/xurls](https://github.com/mvdan/xurls) - Extract urls from text
+[mvdan/xurls](https://github.com/mvdan/xurls) - Extract urls from text
