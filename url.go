@@ -139,7 +139,9 @@ loop:
 			end += 2
 		default:
 			nHyphen = 0
-			break loop
+			if r != ' ' || len(stack) == 0 {
+				break loop
+			}
 		}
 		end += rlen
 	}
@@ -210,7 +212,9 @@ loop:
 			end += 2
 		default:
 			nHyphen = 0
-			break loop
+			if r != ' ' || len(stack) == 0 {
+				break loop
+			}
 		}
 		end += rlen
 	}
@@ -281,7 +285,9 @@ loop:
 			end += 2
 		default:
 			nHyphen = 0
-			break loop
+			if r != ' ' || len(stack) == 0 {
+				break loop
+			}
 		}
 		end += rlen
 	}
@@ -318,8 +324,10 @@ loop:
 			lastDot = false
 			nHyphen = 0
 		case r == '.':
+			if nHyphen > 0 {
+				return
+			}
 			lastDot = true
-			nHyphen = 0
 		case r == '-':
 			if end == start {
 				return
@@ -387,7 +395,7 @@ loop:
 		case r == '\\' || r == '_':
 			return
 		case isPunctOrSpaceOrControl(r):
-			return end, lastDotPos, true
+			break loop
 		default:
 			return
 		}
