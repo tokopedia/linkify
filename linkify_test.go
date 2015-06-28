@@ -17,6 +17,7 @@ func TestLinks(t *testing.T) {
 
 		{"127.0.0.1:8080/path?query=xxx#fragment", []Link{{Schema: "", Start: 0, End: 38}}},
 		{"127.0.0.1", []Link{{Schema: "", Start: 0, End: 9}}},
+		{">127.0.0.1<", []Link{{Schema: "", Start: 1, End: 10}}},
 		{"xxx 127.0.0.1", []Link{{Schema: "", Start: 4, End: 13}}},
 		{"1.0001.0.1", nil},
 		{"1234.0.0", nil},
@@ -45,6 +46,7 @@ func TestLinks(t *testing.T) {
 		{"google.com!", []Link{{Schema: "", Start: 0, End: 10}}},
 		{"google.com...", []Link{{Schema: "", Start: 0, End: 10}}},
 		{"google.com.", []Link{{Schema: "", Start: 0, End: 10}}},
+		{">google.com<", []Link{{Schema: "", Start: 1, End: 11}}},
 		{"google.com/?search", []Link{{Schema: "", Start: 0, End: 18}}},
 		{"some.host.name.com.net.abracadabra", nil},
 		{"some.host.name.com.net.org", []Link{{Schema: "", Start: 0, End: 26}}},
@@ -156,6 +158,7 @@ func TestLinks(t *testing.T) {
 		{"http://google.com/--", []Link{{Schema: "http:", Start: 0, End: 18}}},
 		{"http://google.com/", []Link{{Schema: "http:", Start: 0, End: 18}}},
 		{`"http://google.com"`, []Link{{Schema: "http:", Start: 1, End: 18}}},
+		{">http://google.com<", []Link{{Schema: "http:", Start: 1, End: 18}}},
 		{"(http://google.com)", []Link{{Schema: "http:", Start: 1, End: 18}}},
 		{"http://google.com\n", []Link{{Schema: "http:", Start: 0, End: 17}}},
 		{"http://google.com/?query=[1(2", []Link{{Schema: "http:", Start: 0, End: 25}}},
@@ -226,7 +229,9 @@ func TestLinks(t *testing.T) {
 
 		// 9
 
+		{">http://example.com<", []Link{{Schema: "http:", Start: 1, End: 19}}},
 		{"http://localhost:80/", []Link{{Schema: "http:", Start: 0, End: 20}}},
+		{">http://localhost:80<", []Link{{Schema: "http:", Start: 1, End: 20}}},
 		{"localhost:3128/path?query=xxx#fragment", []Link{{Schema: "", Start: 0, End: 38}}},
 		{"//localhost:80/", []Link{{Schema: "//", Start: 0, End: 15}}},
 		{"localhost:80/!$&'()*+,;=/:@", []Link{{Schema: "", Start: 0, End: 27}}},
@@ -288,6 +293,7 @@ func TestLinks(t *testing.T) {
 		{"I think it's proper to end sentences with a period http://tell.me.com. Even when they contain a URL.", []Link{{Schema: "http:", Start: 51, End: 69}}},
 		{"I think it's proper to end sentences with a period http://tell.me/why?=because.i.want.it. Even when they contain a URL.", []Link{{Schema: "http:", Start: 51, End: 88}}},
 		{"I think it's proper to end sentences with a period http://tell.me/why. Even when they contain a URL.", []Link{{Schema: "http:", Start: 51, End: 69}}},
+		{"<link rel='true'>http://example.com</link>", []Link{{Schema: "http:", Start: 17, End: 35}}},
 		{"Parenthetically bad http://example.com/i_has_a_) thing", []Link{{Schema: "http:", Start: 20, End: 47}}},
 		{"See: http://example.com/café", []Link{{Schema: "http:", Start: 5, End: 29}}},
 		{"See: http://example.com/@user", []Link{{Schema: "http:", Start: 5, End: 29}}},
@@ -330,7 +336,6 @@ func TestLinks(t *testing.T) {
 
 		//{"いまなにしてるhttp://example.comいまなにしてる", []Link{}},
 		//{"I enjoy Macintosh Brand computers: http://✪df.ws/ejp", []Link{}},
-		//{"<link rel='true'>http://example.com</link>", []Link{}},
 		//{"See also: http://xn--80abe5aohbnkjb.xn--p1ai/", []Link{}},
 		//{"See: http://t.co/abcde's page", []Link{{Schema: "http:", Start: 5, End: 22}}},
 		//{"text http://example.com=", []Link{{Schema: "http:", Start: 5, End: 23}}},
