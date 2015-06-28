@@ -33,7 +33,7 @@ func init() {
 	for _, b := range "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+/=?^_`{|}~-" {
 		emailcs[b] = true
 	}
-	for _, b := range ".,?!" {
+	for _, b := range ".,?!;:" {
 		basicPunct[b] = true
 	}
 }
