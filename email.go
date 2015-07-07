@@ -90,6 +90,10 @@ loop:
 		return
 	}
 
+	if dot+5 <= len(s) && s[dot+1:dot+5] == "xn--" {
+		return end, true
+	}
+
 	if length := match(s[dot+1:]); dot+length+1 != end {
 		return
 	}

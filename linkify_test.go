@@ -334,9 +334,15 @@ func TestLinks(t *testing.T) {
 		{"@user Try http:// example.com/path", []Link{{Schema: "", Start: 18, End: 34}}},
 		{"@user Try http:// example.com/path", []Link{{Schema: "", Start: 19, End: 35}}},
 
+		// punycode
+
+		{"See also: http://xn--80abe5aohbnkjb.xn--p1ai/", []Link{{Schema: "http:", Start: 10, End: 45}}},
+		{"xn--80abe5aohbnkjb.xn--p1ai/", []Link{{Schema: "", Start: 0, End: 28}}},
+		{"admin@xn--80abe5aohbnkjb.xn--p1ai", []Link{{Schema: "mailto:", Start: 0, End: 33}}},
+		{"mailto:admin@xn--80abe5aohbnkjb.xn--p1ai", []Link{{Schema: "mailto:", Start: 0, End: 40}}},
+
 		//{"いまなにしてるhttp://example.comいまなにしてる", []Link{}},
 		//{"I enjoy Macintosh Brand computers: http://✪df.ws/ejp", []Link{}},
-		//{"See also: http://xn--80abe5aohbnkjb.xn--p1ai/", []Link{}},
 		//{"See: http://t.co/abcde's page", []Link{{Schema: "http:", Start: 5, End: 22}}},
 		//{"text http://example.com=", []Link{{Schema: "http:", Start: 5, End: 23}}},
 		//{"text http://example.com/pipe|character?yes|pipe|character", []Link{{Schema: "http:", Start: 5, End: 57}}},

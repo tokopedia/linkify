@@ -141,9 +141,11 @@ func Links(s string) (links []Link) {
 						return
 					}
 
-					r, _ = utf8.DecodeRuneInString(s[pos:])
-					if isLetterOrDigit(r) {
-						continue // should not be followed by a letter or a digit
+					if s[i+1:pos] != "xn--" {
+						r, _ = utf8.DecodeRuneInString(s[pos:])
+						if isLetterOrDigit(r) {
+							continue // should not be followed by a letter or a digit
+						}
 					}
 
 					end, dot, ok := findHostnameEnd(s, pos)
@@ -152,8 +154,10 @@ func Links(s string) (links []Link) {
 					}
 					dot = max(dot, i)
 
-					if length := match(s[dot+1:]); dot+length+1 != end {
-						continue
+					if !(dot+5 <= len(s) && s[dot+1:dot+5] == "xn--") {
+						if length := match(s[dot+1:]); dot+length+1 != end {
+							continue
+						}
 					}
 
 					start, ok := findHostnameStart(s, i)
@@ -391,8 +395,10 @@ func Links(s string) (links []Link) {
 					continue // no dot
 				}
 				if length, ok := skipIPv4(s[j+4:]); !ok || j+4+length != end {
-					if length := match(s[dot+1:]); dot+length+1 != end {
-						continue
+					if !(dot+5 <= len(s) && s[dot+1:dot+5] == "xn--") {
+						if length := match(s[dot+1:]); dot+length+1 != end {
+							continue
+						}
 					}
 				}
 			}
@@ -448,8 +454,10 @@ func Links(s string) (links []Link) {
 			if dot == -1 {
 				continue // no dot
 			}
-			if length := match(s[dot+1:]); dot+length+1 != end {
-				continue
+			if !(dot+5 <= len(s) && s[dot+1:dot+5] == "xn--") {
+				if length := match(s[dot+1:]); dot+length+1 != end {
+					continue
+				}
 			}
 
 			links = append(links, Link{

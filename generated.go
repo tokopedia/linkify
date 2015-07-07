@@ -14951,6 +14951,8 @@ func match(s string) int {
 				st = 2293
 			case 'y':
 				st = 2295
+			case 'n':
+				st = 2860
 			default:
 				return length
 			}
@@ -18145,6 +18147,23 @@ func match(s string) int {
 			case '.':
 				length = i + 1
 				st = 2859
+			default:
+				return length
+			}
+
+		case 2860:
+			switch b {
+			case '-':
+				st = 2861
+			default:
+				return length
+			}
+
+		case 2861:
+			switch b {
+			case '-':
+				length = i + 1
+				st = 2862
 			default:
 				return length
 			}
