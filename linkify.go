@@ -22,7 +22,7 @@ import (
 
 // Link represents a link found in a string with a schema and a position in the string.
 type Link struct {
-	Schema     string
+	Scheme     string
 	Start, End int
 }
 
@@ -90,7 +90,7 @@ func Links(s string) (links []Link) {
 					end := start + length
 					if end == len(s) {
 						links = append(links, Link{
-							Schema: "",
+							Scheme: "",
 							Start:  start,
 							End:    end,
 						})
@@ -116,7 +116,7 @@ func Links(s string) (links []Link) {
 					}
 
 					links = append(links, Link{
-						Schema: "",
+						Scheme: "",
 						Start:  start,
 						End:    end,
 					})
@@ -134,7 +134,7 @@ func Links(s string) (links []Link) {
 							continue
 						}
 						links = append(links, Link{
-							Schema: "",
+							Scheme: "",
 							Start:  start,
 							End:    pos,
 						})
@@ -179,7 +179,7 @@ func Links(s string) (links []Link) {
 					}
 
 					links = append(links, Link{
-						Schema: "",
+						Scheme: "",
 						Start:  start,
 						End:    end,
 					})
@@ -240,7 +240,7 @@ func Links(s string) (links []Link) {
 			}
 
 			links = append(links, Link{
-				Schema: "//",
+				Scheme: "//",
 				Start:  start,
 				End:    end,
 			})
@@ -284,7 +284,7 @@ func Links(s string) (links []Link) {
 				}
 
 				links = append(links, Link{
-					Schema: "",
+					Scheme: "",
 					Start:  start,
 					End:    end,
 				})
@@ -324,7 +324,7 @@ func Links(s string) (links []Link) {
 				}
 
 				links = append(links, Link{
-					Schema: "mailto:",
+					Scheme: "mailto:",
 					Start:  start,
 					End:    end,
 				})
@@ -417,7 +417,7 @@ func Links(s string) (links []Link) {
 			}
 
 			links = append(links, Link{
-				Schema: schema,
+				Scheme: schema,
 				Start:  start,
 				End:    end,
 			})
@@ -461,7 +461,7 @@ func Links(s string) (links []Link) {
 			}
 
 			links = append(links, Link{
-				Schema: "mailto:",
+				Scheme: "mailto:",
 				Start:  start,
 				End:    end,
 			})
