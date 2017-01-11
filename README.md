@@ -3,11 +3,11 @@ linkify [![License](http://img.shields.io/:license-gpl3-blue.svg)](http://www.gn
 
 Package linkify provides a way to find what looks like links in plain text.
 
-## Installation
+## Install
 
     go get github.com/opennota/linkify
 
-## Usage
+## Use
 
 See an [example](https://github.com/opennota/linkify/blob/master/linkify_example_test.go).
 
