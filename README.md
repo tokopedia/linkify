@@ -5,7 +5,7 @@ Package linkify provides a way to find what looks like links in plain text.
 
 ## Install
 
-    go get github.com/opennota/linkify
+    go get -u github.com/opennota/linkify
 
 ## Use
 
