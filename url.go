@@ -46,11 +46,11 @@ func skipIPv4(s string) (_ int, _ bool) {
 			}
 			j++
 		}
-		if n, ok := atoi3(s, j); !ok {
+		n, ok := atoi3(s, j)
+		if !ok {
 			return
-		} else {
-			j = n
 		}
+		j = n
 	}
 	return j, true
 }
