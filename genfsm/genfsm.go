@@ -148,8 +148,7 @@ func main() {
 	}
 
 	return length
-}
-`)
+}`)
 	source, err := format.Source(buf.Bytes())
 	if err != nil {
 		log.Fatal(err)
