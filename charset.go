@@ -16,7 +16,6 @@ package linkify
 import "unicode"
 
 var (
-	trigger    [256]bool
 	unreserved [256]bool
 	subdelims  [256]bool
 	emailcs    [256]bool
