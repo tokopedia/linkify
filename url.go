@@ -1,28 +1,15 @@
-// This program is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option)
-// any later version.
-//
-// This program is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-// Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along
-// with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright 2015 The Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
 package linkify
 
-import (
-	"unicode/utf8"
-
-	"github.com/opennota/byteutil"
-)
+import "unicode/utf8"
 
 func atoi3(s string, start int) (int, bool) {
 	n := 0
 	var i int
-	for i = start; i < len(s) && byteutil.IsDigit(s[i]); i++ {
+	for i = start; i < len(s) && digit(s[i]); i++ {
 		n = n*10 + int(s[i]-'0')
 		if n > 255 {
 			return 0, false
@@ -58,7 +45,7 @@ func skipIPv4(s string) (_ int, _ bool) {
 func atoi5(s string, start int) (int, bool) {
 	n := 0
 	var i int
-	for i = start; i < len(s) && byteutil.IsDigit(s[i]); i++ {
+	for i = start; i < len(s) && digit(s[i]); i++ {
 		n = n*10 + int(s[i]-'0')
 		if n > 65535 {
 			return 0, false
@@ -132,8 +119,8 @@ loop:
 			if end+2 >= len(s) {
 				break loop
 			}
-			if !(byteutil.IsHexDigit(s[end+1]) &&
-				byteutil.IsHexDigit(s[end+2])) {
+			if !(hexDigit(s[end+1]) &&
+				hexDigit(s[end+2])) {
 				break loop
 			}
 			end += 2
@@ -205,8 +192,8 @@ loop:
 			if end+2 >= len(s) {
 				break loop
 			}
-			if !(byteutil.IsHexDigit(s[end+1]) &&
-				byteutil.IsHexDigit(s[end+2])) {
+			if !(hexDigit(s[end+1]) &&
+				hexDigit(s[end+2])) {
 				break loop
 			}
 			end += 2
@@ -278,8 +265,8 @@ loop:
 			if end+2 >= len(s) {
 				break loop
 			}
-			if !(byteutil.IsHexDigit(s[end+1]) &&
-				byteutil.IsHexDigit(s[end+2])) {
+			if !(hexDigit(s[end+1]) &&
+				hexDigit(s[end+2])) {
 				break loop
 			}
 			end += 2

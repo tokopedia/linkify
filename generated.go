@@ -2,8 +2,6 @@
 
 package linkify
 
-import "github.com/opennota/byteutil"
-
 func match(s string) int {
 	st := 0
 	length := -1
@@ -13,7 +11,7 @@ func match(s string) int {
 
 		switch st {
 		case 0:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1
 			case 'b':
@@ -91,7 +89,7 @@ func match(s string) int {
 			}
 
 		case 1:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2
 			case 'c':
@@ -155,7 +153,7 @@ func match(s string) int {
 			}
 
 		case 2:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 3
@@ -166,7 +164,7 @@ func match(s string) int {
 			}
 
 		case 3:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 4
 			default:
@@ -174,7 +172,7 @@ func match(s string) int {
 			}
 
 		case 4:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 5
 			default:
@@ -182,7 +180,7 @@ func match(s string) int {
 			}
 
 		case 5:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 6
@@ -191,7 +189,7 @@ func match(s string) int {
 			}
 
 		case 7:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 8
 			default:
@@ -199,7 +197,7 @@ func match(s string) int {
 			}
 
 		case 8:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 9
 			default:
@@ -207,7 +205,7 @@ func match(s string) int {
 			}
 
 		case 9:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 10
 			default:
@@ -215,7 +213,7 @@ func match(s string) int {
 			}
 
 		case 10:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 11
@@ -224,7 +222,7 @@ func match(s string) int {
 			}
 
 		case 12:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 13
 			case 'c':
@@ -236,7 +234,7 @@ func match(s string) int {
 			}
 
 		case 13:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 14
 			default:
@@ -244,7 +242,7 @@ func match(s string) int {
 			}
 
 		case 14:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 15
 			default:
@@ -252,7 +250,7 @@ func match(s string) int {
 			}
 
 		case 15:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 16
 			default:
@@ -260,7 +258,7 @@ func match(s string) int {
 			}
 
 		case 16:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 17
@@ -269,7 +267,7 @@ func match(s string) int {
 			}
 
 		case 18:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 19
 			case 'o':
@@ -279,7 +277,7 @@ func match(s string) int {
 			}
 
 		case 19:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 20
 			default:
@@ -287,7 +285,7 @@ func match(s string) int {
 			}
 
 		case 20:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 21
 			default:
@@ -295,7 +293,7 @@ func match(s string) int {
 			}
 
 		case 21:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 22
 			default:
@@ -303,7 +301,7 @@ func match(s string) int {
 			}
 
 		case 22:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 23
 			default:
@@ -311,7 +309,7 @@ func match(s string) int {
 			}
 
 		case 23:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 24
@@ -320,7 +318,7 @@ func match(s string) int {
 			}
 
 		case 25:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 26
 			default:
@@ -328,7 +326,7 @@ func match(s string) int {
 			}
 
 		case 26:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 27
 			default:
@@ -336,7 +334,7 @@ func match(s string) int {
 			}
 
 		case 27:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 28
 			default:
@@ -344,7 +342,7 @@ func match(s string) int {
 			}
 
 		case 28:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 29
 			default:
@@ -352,7 +350,7 @@ func match(s string) int {
 			}
 
 		case 29:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 30
 			default:
@@ -360,7 +358,7 @@ func match(s string) int {
 			}
 
 		case 30:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 31
@@ -369,7 +367,7 @@ func match(s string) int {
 			}
 
 		case 31:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 32
@@ -378,7 +376,7 @@ func match(s string) int {
 			}
 
 		case 33:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 34
 			case 'o':
@@ -388,7 +386,7 @@ func match(s string) int {
 			}
 
 		case 34:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 35
 			default:
@@ -396,7 +394,7 @@ func match(s string) int {
 			}
 
 		case 35:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 36
@@ -405,7 +403,7 @@ func match(s string) int {
 			}
 
 		case 37:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 38
@@ -414,7 +412,7 @@ func match(s string) int {
 			}
 
 		case 39:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 40
@@ -425,7 +423,7 @@ func match(s string) int {
 			}
 
 		case 41:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 42
 			default:
@@ -433,7 +431,7 @@ func match(s string) int {
 			}
 
 		case 42:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 43
@@ -442,7 +440,7 @@ func match(s string) int {
 			}
 
 		case 44:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 45
 			default:
@@ -450,7 +448,7 @@ func match(s string) int {
 			}
 
 		case 45:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 46
@@ -459,7 +457,7 @@ func match(s string) int {
 			}
 
 		case 47:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 48
@@ -468,7 +466,7 @@ func match(s string) int {
 			}
 
 		case 49:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 50
 			default:
@@ -476,7 +474,7 @@ func match(s string) int {
 			}
 
 		case 50:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 51
 			default:
@@ -484,7 +482,7 @@ func match(s string) int {
 			}
 
 		case 51:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 52
 			default:
@@ -492,7 +490,7 @@ func match(s string) int {
 			}
 
 		case 52:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 53
@@ -501,7 +499,7 @@ func match(s string) int {
 			}
 
 		case 54:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 55
@@ -512,7 +510,7 @@ func match(s string) int {
 			}
 
 		case 56:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 57
 			default:
@@ -520,7 +518,7 @@ func match(s string) int {
 			}
 
 		case 57:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 58
 			default:
@@ -528,7 +526,7 @@ func match(s string) int {
 			}
 
 		case 58:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 59
 			default:
@@ -536,7 +534,7 @@ func match(s string) int {
 			}
 
 		case 59:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 60
 			default:
@@ -544,7 +542,7 @@ func match(s string) int {
 			}
 
 		case 60:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 61
@@ -553,7 +551,7 @@ func match(s string) int {
 			}
 
 		case 62:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 63
 			case 's':
@@ -563,7 +561,7 @@ func match(s string) int {
 			}
 
 		case 63:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 64
 			default:
@@ -571,7 +569,7 @@ func match(s string) int {
 			}
 
 		case 64:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 65
 			default:
@@ -579,7 +577,7 @@ func match(s string) int {
 			}
 
 		case 65:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 66
 			default:
@@ -587,7 +585,7 @@ func match(s string) int {
 			}
 
 		case 66:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 67
 			default:
@@ -595,7 +593,7 @@ func match(s string) int {
 			}
 
 		case 67:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 68
 			default:
@@ -603,7 +601,7 @@ func match(s string) int {
 			}
 
 		case 68:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				length = i + 1
 				st = 69
@@ -612,7 +610,7 @@ func match(s string) int {
 			}
 
 		case 70:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 71
 			default:
@@ -620,7 +618,7 @@ func match(s string) int {
 			}
 
 		case 71:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 72
 			default:
@@ -628,7 +626,7 @@ func match(s string) int {
 			}
 
 		case 72:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 73
@@ -637,7 +635,7 @@ func match(s string) int {
 			}
 
 		case 74:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 75
 			default:
@@ -645,7 +643,7 @@ func match(s string) int {
 			}
 
 		case 75:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 76
 			default:
@@ -653,7 +651,7 @@ func match(s string) int {
 			}
 
 		case 76:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 77
 			default:
@@ -661,7 +659,7 @@ func match(s string) int {
 			}
 
 		case 77:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 78
 			default:
@@ -669,7 +667,7 @@ func match(s string) int {
 			}
 
 		case 78:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 79
 			default:
@@ -677,7 +675,7 @@ func match(s string) int {
 			}
 
 		case 79:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 80
 			default:
@@ -685,7 +683,7 @@ func match(s string) int {
 			}
 
 		case 80:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 81
@@ -694,7 +692,7 @@ func match(s string) int {
 			}
 
 		case 82:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 83
 			default:
@@ -702,7 +700,7 @@ func match(s string) int {
 			}
 
 		case 83:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 84
 			default:
@@ -710,7 +708,7 @@ func match(s string) int {
 			}
 
 		case 84:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 85
 			default:
@@ -718,7 +716,7 @@ func match(s string) int {
 			}
 
 		case 85:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 86
 			default:
@@ -726,7 +724,7 @@ func match(s string) int {
 			}
 
 		case 86:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 87
@@ -735,7 +733,7 @@ func match(s string) int {
 			}
 
 		case 89:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 90
 			default:
@@ -743,7 +741,7 @@ func match(s string) int {
 			}
 
 		case 90:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 91
 			default:
@@ -751,7 +749,7 @@ func match(s string) int {
 			}
 
 		case 91:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 92
 			default:
@@ -759,7 +757,7 @@ func match(s string) int {
 			}
 
 		case 92:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 93
 			default:
@@ -767,7 +765,7 @@ func match(s string) int {
 			}
 
 		case 93:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 94
 			default:
@@ -775,7 +773,7 @@ func match(s string) int {
 			}
 
 		case 94:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 95
 			default:
@@ -783,7 +781,7 @@ func match(s string) int {
 			}
 
 		case 95:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 96
 			default:
@@ -791,7 +789,7 @@ func match(s string) int {
 			}
 
 		case 96:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 97
@@ -800,7 +798,7 @@ func match(s string) int {
 			}
 
 		case 98:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 99
 			default:
@@ -808,7 +806,7 @@ func match(s string) int {
 			}
 
 		case 99:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 100
 			default:
@@ -816,7 +814,7 @@ func match(s string) int {
 			}
 
 		case 100:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 101
 			default:
@@ -824,7 +822,7 @@ func match(s string) int {
 			}
 
 		case 101:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 102
 			default:
@@ -832,7 +830,7 @@ func match(s string) int {
 			}
 
 		case 102:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 103
 			default:
@@ -840,7 +838,7 @@ func match(s string) int {
 			}
 
 		case 103:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 104
 			default:
@@ -848,7 +846,7 @@ func match(s string) int {
 			}
 
 		case 104:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 105
@@ -857,7 +855,7 @@ func match(s string) int {
 			}
 
 		case 106:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 107
 			case 'm':
@@ -869,7 +867,7 @@ func match(s string) int {
 			}
 
 		case 107:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 108
 			default:
@@ -877,7 +875,7 @@ func match(s string) int {
 			}
 
 		case 108:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 109
@@ -886,7 +884,7 @@ func match(s string) int {
 			}
 
 		case 110:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 111
@@ -895,7 +893,7 @@ func match(s string) int {
 			}
 
 		case 112:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 113
@@ -904,7 +902,7 @@ func match(s string) int {
 			}
 
 		case 114:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 115
 			case 's':
@@ -914,7 +912,7 @@ func match(s string) int {
 			}
 
 		case 115:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 116
@@ -923,7 +921,7 @@ func match(s string) int {
 			}
 
 		case 117:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 118
 			default:
@@ -931,7 +929,7 @@ func match(s string) int {
 			}
 
 		case 118:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 119
 			default:
@@ -939,7 +937,7 @@ func match(s string) int {
 			}
 
 		case 119:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 120
 			default:
@@ -947,7 +945,7 @@ func match(s string) int {
 			}
 
 		case 120:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 121
 			default:
@@ -955,7 +953,7 @@ func match(s string) int {
 			}
 
 		case 121:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 122
 			default:
@@ -963,7 +961,7 @@ func match(s string) int {
 			}
 
 		case 122:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 123
 			default:
@@ -971,7 +969,7 @@ func match(s string) int {
 			}
 
 		case 123:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 124
@@ -980,7 +978,7 @@ func match(s string) int {
 			}
 
 		case 125:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 126
 			default:
@@ -988,7 +986,7 @@ func match(s string) int {
 			}
 
 		case 126:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 127
 			default:
@@ -996,7 +994,7 @@ func match(s string) int {
 			}
 
 		case 127:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 128
 			default:
@@ -1004,7 +1002,7 @@ func match(s string) int {
 			}
 
 		case 128:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 129
 			default:
@@ -1012,7 +1010,7 @@ func match(s string) int {
 			}
 
 		case 129:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 130
 			default:
@@ -1020,7 +1018,7 @@ func match(s string) int {
 			}
 
 		case 130:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 131
@@ -1029,7 +1027,7 @@ func match(s string) int {
 			}
 
 		case 132:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 133
 			case 'd':
@@ -1041,7 +1039,7 @@ func match(s string) int {
 			}
 
 		case 133:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 134
 			default:
@@ -1049,7 +1047,7 @@ func match(s string) int {
 			}
 
 		case 134:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 135
 			default:
@@ -1057,7 +1055,7 @@ func match(s string) int {
 			}
 
 		case 135:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 136
 			default:
@@ -1065,7 +1063,7 @@ func match(s string) int {
 			}
 
 		case 136:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 137
@@ -1074,7 +1072,7 @@ func match(s string) int {
 			}
 
 		case 138:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 139
 			default:
@@ -1082,7 +1080,7 @@ func match(s string) int {
 			}
 
 		case 139:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 140
@@ -1091,7 +1089,7 @@ func match(s string) int {
 			}
 
 		case 141:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 142
@@ -1100,7 +1098,7 @@ func match(s string) int {
 			}
 
 		case 142:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 143
@@ -1109,7 +1107,7 @@ func match(s string) int {
 			}
 
 		case 145:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 146
@@ -1118,7 +1116,7 @@ func match(s string) int {
 			}
 
 		case 148:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 149
@@ -1185,7 +1183,7 @@ func match(s string) int {
 			}
 
 		case 149:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 150
 			case 'r':
@@ -1200,7 +1198,7 @@ func match(s string) int {
 			}
 
 		case 150:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 151
@@ -1212,7 +1210,7 @@ func match(s string) int {
 			}
 
 		case 153:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 154
 			case 'g':
@@ -1222,7 +1220,7 @@ func match(s string) int {
 			}
 
 		case 154:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 155
 			default:
@@ -1230,7 +1228,7 @@ func match(s string) int {
 			}
 
 		case 155:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 156
 			default:
@@ -1238,7 +1236,7 @@ func match(s string) int {
 			}
 
 		case 156:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 157
 			default:
@@ -1246,7 +1244,7 @@ func match(s string) int {
 			}
 
 		case 157:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 158
 			case 's':
@@ -1257,7 +1255,7 @@ func match(s string) int {
 			}
 
 		case 158:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 159
 			default:
@@ -1265,7 +1263,7 @@ func match(s string) int {
 			}
 
 		case 159:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 160
 			default:
@@ -1273,7 +1271,7 @@ func match(s string) int {
 			}
 
 		case 160:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 161
@@ -1282,7 +1280,7 @@ func match(s string) int {
 			}
 
 		case 163:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 164
 			default:
@@ -1290,7 +1288,7 @@ func match(s string) int {
 			}
 
 		case 164:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 165
 			default:
@@ -1298,7 +1296,7 @@ func match(s string) int {
 			}
 
 		case 165:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 166
 			default:
@@ -1306,7 +1304,7 @@ func match(s string) int {
 			}
 
 		case 166:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 167
@@ -1315,7 +1313,7 @@ func match(s string) int {
 			}
 
 		case 168:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 169
 			default:
@@ -1323,7 +1321,7 @@ func match(s string) int {
 			}
 
 		case 169:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 170
 			default:
@@ -1331,7 +1329,7 @@ func match(s string) int {
 			}
 
 		case 170:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 171
 			default:
@@ -1339,7 +1337,7 @@ func match(s string) int {
 			}
 
 		case 171:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 172
@@ -1348,7 +1346,7 @@ func match(s string) int {
 			}
 
 		case 173:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 174
 			default:
@@ -1356,7 +1354,7 @@ func match(s string) int {
 			}
 
 		case 174:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 175
 			default:
@@ -1364,7 +1362,7 @@ func match(s string) int {
 			}
 
 		case 175:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 176
@@ -1373,7 +1371,7 @@ func match(s string) int {
 			}
 
 		case 177:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 178
@@ -1384,7 +1382,7 @@ func match(s string) int {
 			}
 
 		case 179:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 180
@@ -1393,7 +1391,7 @@ func match(s string) int {
 			}
 
 		case 182:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 183
 			case 'r':
@@ -1405,7 +1403,7 @@ func match(s string) int {
 			}
 
 		case 183:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 184
@@ -1414,7 +1412,7 @@ func match(s string) int {
 			}
 
 		case 185:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 186
 			default:
@@ -1422,7 +1420,7 @@ func match(s string) int {
 			}
 
 		case 186:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 187
 			default:
@@ -1430,7 +1428,7 @@ func match(s string) int {
 			}
 
 		case 187:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 188
@@ -1439,7 +1437,7 @@ func match(s string) int {
 			}
 
 		case 189:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 190
@@ -1448,7 +1446,7 @@ func match(s string) int {
 			}
 
 		case 194:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 195
 			case 'd':
@@ -1472,7 +1470,7 @@ func match(s string) int {
 			}
 
 		case 195:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 196
 			default:
@@ -1480,7 +1478,7 @@ func match(s string) int {
 			}
 
 		case 196:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 197
@@ -1489,7 +1487,7 @@ func match(s string) int {
 			}
 
 		case 199:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 200
@@ -1498,7 +1496,7 @@ func match(s string) int {
 			}
 
 		case 201:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 202
 			default:
@@ -1506,7 +1504,7 @@ func match(s string) int {
 			}
 
 		case 202:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 203
@@ -1515,7 +1513,7 @@ func match(s string) int {
 			}
 
 		case 208:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 209
 			case 'o':
@@ -1527,7 +1525,7 @@ func match(s string) int {
 			}
 
 		case 209:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 210
 			default:
@@ -1535,7 +1533,7 @@ func match(s string) int {
 			}
 
 		case 210:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 211
@@ -1544,7 +1542,7 @@ func match(s string) int {
 			}
 
 		case 211:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 212
 			default:
@@ -1552,7 +1550,7 @@ func match(s string) int {
 			}
 
 		case 212:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 213
 			default:
@@ -1560,7 +1558,7 @@ func match(s string) int {
 			}
 
 		case 213:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 214
 			default:
@@ -1568,7 +1566,7 @@ func match(s string) int {
 			}
 
 		case 214:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 215
 			default:
@@ -1576,7 +1574,7 @@ func match(s string) int {
 			}
 
 		case 215:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 216
 			default:
@@ -1584,7 +1582,7 @@ func match(s string) int {
 			}
 
 		case 216:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 217
@@ -1593,7 +1591,7 @@ func match(s string) int {
 			}
 
 		case 218:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 219
 			default:
@@ -1601,7 +1599,7 @@ func match(s string) int {
 			}
 
 		case 219:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 220
 			default:
@@ -1609,7 +1607,7 @@ func match(s string) int {
 			}
 
 		case 220:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 221
 			default:
@@ -1617,7 +1615,7 @@ func match(s string) int {
 			}
 
 		case 221:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 222
 			default:
@@ -1625,7 +1623,7 @@ func match(s string) int {
 			}
 
 		case 222:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 223
 			default:
@@ -1633,7 +1631,7 @@ func match(s string) int {
 			}
 
 		case 223:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 224
@@ -1642,7 +1640,7 @@ func match(s string) int {
 			}
 
 		case 225:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 226
@@ -1651,7 +1649,7 @@ func match(s string) int {
 			}
 
 		case 227:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				length = i + 1
 				st = 228
@@ -1660,7 +1658,7 @@ func match(s string) int {
 			}
 
 		case 229:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 230
 			default:
@@ -1668,7 +1666,7 @@ func match(s string) int {
 			}
 
 		case 230:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 231
 			default:
@@ -1676,7 +1674,7 @@ func match(s string) int {
 			}
 
 		case 231:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 232
 			default:
@@ -1684,7 +1682,7 @@ func match(s string) int {
 			}
 
 		case 232:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 233
 			default:
@@ -1692,7 +1690,7 @@ func match(s string) int {
 			}
 
 		case 233:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 234
 			default:
@@ -1700,7 +1698,7 @@ func match(s string) int {
 			}
 
 		case 234:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 235
 			default:
@@ -1708,7 +1706,7 @@ func match(s string) int {
 			}
 
 		case 235:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 236
 			default:
@@ -1716,7 +1714,7 @@ func match(s string) int {
 			}
 
 		case 236:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 237
@@ -1725,7 +1723,7 @@ func match(s string) int {
 			}
 
 		case 238:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 239
 			case 'n':
@@ -1740,7 +1738,7 @@ func match(s string) int {
 			}
 
 		case 239:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 240
 			default:
@@ -1748,7 +1746,7 @@ func match(s string) int {
 			}
 
 		case 240:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 241
@@ -1757,7 +1755,7 @@ func match(s string) int {
 			}
 
 		case 242:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 243
@@ -1766,7 +1764,7 @@ func match(s string) int {
 			}
 
 		case 245:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 246
 			default:
@@ -1774,7 +1772,7 @@ func match(s string) int {
 			}
 
 		case 246:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 247
 			default:
@@ -1782,7 +1780,7 @@ func match(s string) int {
 			}
 
 		case 247:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'q':
 				st = 248
 			default:
@@ -1790,7 +1788,7 @@ func match(s string) int {
 			}
 
 		case 248:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 249
 			default:
@@ -1798,7 +1796,7 @@ func match(s string) int {
 			}
 
 		case 249:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 250
@@ -1807,7 +1805,7 @@ func match(s string) int {
 			}
 
 		case 251:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 252
 			case 'o':
@@ -1819,7 +1817,7 @@ func match(s string) int {
 			}
 
 		case 252:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 253
 			default:
@@ -1827,7 +1825,7 @@ func match(s string) int {
 			}
 
 		case 253:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 254
 			default:
@@ -1835,7 +1833,7 @@ func match(s string) int {
 			}
 
 		case 254:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 255
 			default:
@@ -1843,7 +1841,7 @@ func match(s string) int {
 			}
 
 		case 255:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 256
 			default:
@@ -1851,7 +1849,7 @@ func match(s string) int {
 			}
 
 		case 256:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 257
 			default:
@@ -1859,7 +1857,7 @@ func match(s string) int {
 			}
 
 		case 257:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 258
 			default:
@@ -1867,7 +1865,7 @@ func match(s string) int {
 			}
 
 		case 258:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 259
 			default:
@@ -1875,7 +1873,7 @@ func match(s string) int {
 			}
 
 		case 259:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 260
@@ -1884,7 +1882,7 @@ func match(s string) int {
 			}
 
 		case 261:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 262
 			case 't':
@@ -1894,7 +1892,7 @@ func match(s string) int {
 			}
 
 		case 262:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 263
 			default:
@@ -1902,7 +1900,7 @@ func match(s string) int {
 			}
 
 		case 263:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 264
@@ -1911,7 +1909,7 @@ func match(s string) int {
 			}
 
 		case 265:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 266
 			default:
@@ -1919,7 +1917,7 @@ func match(s string) int {
 			}
 
 		case 266:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 267
 			default:
@@ -1927,7 +1925,7 @@ func match(s string) int {
 			}
 
 		case 267:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 268
@@ -1936,7 +1934,7 @@ func match(s string) int {
 			}
 
 		case 269:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 270
 			default:
@@ -1944,7 +1942,7 @@ func match(s string) int {
 			}
 
 		case 270:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 271
 			default:
@@ -1952,7 +1950,7 @@ func match(s string) int {
 			}
 
 		case 271:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 272
 			default:
@@ -1960,7 +1958,7 @@ func match(s string) int {
 			}
 
 		case 272:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 273
 			default:
@@ -1968,7 +1966,7 @@ func match(s string) int {
 			}
 
 		case 273:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 274
@@ -1977,7 +1975,7 @@ func match(s string) int {
 			}
 
 		case 277:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 278
 			case 'i':
@@ -1991,7 +1989,7 @@ func match(s string) int {
 			}
 
 		case 278:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 279
 			default:
@@ -1999,7 +1997,7 @@ func match(s string) int {
 			}
 
 		case 279:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 280
 			default:
@@ -2007,7 +2005,7 @@ func match(s string) int {
 			}
 
 		case 280:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 281
 			default:
@@ -2015,7 +2013,7 @@ func match(s string) int {
 			}
 
 		case 281:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 282
 			default:
@@ -2023,7 +2021,7 @@ func match(s string) int {
 			}
 
 		case 282:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 283
@@ -2032,7 +2030,7 @@ func match(s string) int {
 			}
 
 		case 284:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 285
 			default:
@@ -2040,7 +2038,7 @@ func match(s string) int {
 			}
 
 		case 285:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 286
@@ -2049,7 +2047,7 @@ func match(s string) int {
 			}
 
 		case 286:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 287
 			default:
@@ -2057,7 +2055,7 @@ func match(s string) int {
 			}
 
 		case 287:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 288
 			default:
@@ -2065,7 +2063,7 @@ func match(s string) int {
 			}
 
 		case 288:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 289
@@ -2074,7 +2072,7 @@ func match(s string) int {
 			}
 
 		case 290:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 291
 			default:
@@ -2082,7 +2080,7 @@ func match(s string) int {
 			}
 
 		case 291:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 292
 			default:
@@ -2090,7 +2088,7 @@ func match(s string) int {
 			}
 
 		case 292:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 293
 			default:
@@ -2098,7 +2096,7 @@ func match(s string) int {
 			}
 
 		case 293:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 294
 			default:
@@ -2106,7 +2104,7 @@ func match(s string) int {
 			}
 
 		case 294:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 295
@@ -2115,7 +2113,7 @@ func match(s string) int {
 			}
 
 		case 296:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				length = i + 1
 				st = 297
@@ -2124,7 +2122,7 @@ func match(s string) int {
 			}
 
 		case 301:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 302
@@ -2133,7 +2131,7 @@ func match(s string) int {
 			}
 
 		case 303:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 304
@@ -2200,7 +2198,7 @@ func match(s string) int {
 			}
 
 		case 304:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 305
@@ -2227,7 +2225,7 @@ func match(s string) int {
 			}
 
 		case 306:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 307
@@ -2236,7 +2234,7 @@ func match(s string) int {
 			}
 
 		case 309:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 310
 			case 'p':
@@ -2247,7 +2245,7 @@ func match(s string) int {
 			}
 
 		case 310:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 311
 			default:
@@ -2255,7 +2253,7 @@ func match(s string) int {
 			}
 
 		case 311:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 312
@@ -2264,7 +2262,7 @@ func match(s string) int {
 			}
 
 		case 314:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 315
 			case 'o':
@@ -2274,7 +2272,7 @@ func match(s string) int {
 			}
 
 		case 315:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 316
 			default:
@@ -2282,7 +2280,7 @@ func match(s string) int {
 			}
 
 		case 316:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 317
 			default:
@@ -2290,7 +2288,7 @@ func match(s string) int {
 			}
 
 		case 317:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 318
 			default:
@@ -2298,7 +2296,7 @@ func match(s string) int {
 			}
 
 		case 318:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 319
 			default:
@@ -2306,7 +2304,7 @@ func match(s string) int {
 			}
 
 		case 319:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 320
 			default:
@@ -2314,7 +2312,7 @@ func match(s string) int {
 			}
 
 		case 320:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 321
 			default:
@@ -2322,7 +2320,7 @@ func match(s string) int {
 			}
 
 		case 321:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 322
 			default:
@@ -2330,7 +2328,7 @@ func match(s string) int {
 			}
 
 		case 322:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 323
 			default:
@@ -2338,7 +2336,7 @@ func match(s string) int {
 			}
 
 		case 323:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 324
 			default:
@@ -2346,7 +2344,7 @@ func match(s string) int {
 			}
 
 		case 324:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 325
@@ -2355,7 +2353,7 @@ func match(s string) int {
 			}
 
 		case 326:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 327
@@ -2364,7 +2362,7 @@ func match(s string) int {
 			}
 
 		case 328:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 329
 			case 'i':
@@ -2374,7 +2372,7 @@ func match(s string) int {
 			}
 
 		case 329:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 330
 			default:
@@ -2382,7 +2380,7 @@ func match(s string) int {
 			}
 
 		case 330:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 331
 			default:
@@ -2390,7 +2388,7 @@ func match(s string) int {
 			}
 
 		case 331:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				st = 332
 			default:
@@ -2398,7 +2396,7 @@ func match(s string) int {
 			}
 
 		case 332:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 333
@@ -2407,7 +2405,7 @@ func match(s string) int {
 			}
 
 		case 334:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 335
 			default:
@@ -2415,7 +2413,7 @@ func match(s string) int {
 			}
 
 		case 335:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 336
 			default:
@@ -2423,7 +2421,7 @@ func match(s string) int {
 			}
 
 		case 336:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 337
@@ -2432,7 +2430,7 @@ func match(s string) int {
 			}
 
 		case 338:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 339
 			case 'd':
@@ -2450,7 +2448,7 @@ func match(s string) int {
 			}
 
 		case 339:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 340
 			default:
@@ -2458,7 +2456,7 @@ func match(s string) int {
 			}
 
 		case 340:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 341
 			default:
@@ -2466,7 +2464,7 @@ func match(s string) int {
 			}
 
 		case 341:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 342
@@ -2475,7 +2473,7 @@ func match(s string) int {
 			}
 
 		case 343:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 344
@@ -2484,7 +2482,7 @@ func match(s string) int {
 			}
 
 		case 345:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 346
 			default:
@@ -2492,7 +2490,7 @@ func match(s string) int {
 			}
 
 		case 346:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 347
@@ -2501,7 +2499,7 @@ func match(s string) int {
 			}
 
 		case 347:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 348
@@ -2510,7 +2508,7 @@ func match(s string) int {
 			}
 
 		case 350:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 351
 			default:
@@ -2518,7 +2516,7 @@ func match(s string) int {
 			}
 
 		case 351:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 352
 			default:
@@ -2526,7 +2524,7 @@ func match(s string) int {
 			}
 
 		case 352:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 353
@@ -2535,7 +2533,7 @@ func match(s string) int {
 			}
 
 		case 354:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 355
@@ -2549,7 +2547,7 @@ func match(s string) int {
 			}
 
 		case 357:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 358
 			default:
@@ -2557,7 +2555,7 @@ func match(s string) int {
 			}
 
 		case 358:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 359
@@ -2566,7 +2564,7 @@ func match(s string) int {
 			}
 
 		case 360:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 361
 			default:
@@ -2574,7 +2572,7 @@ func match(s string) int {
 			}
 
 		case 361:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 362
 			default:
@@ -2582,7 +2580,7 @@ func match(s string) int {
 			}
 
 		case 362:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 363
 			default:
@@ -2590,7 +2588,7 @@ func match(s string) int {
 			}
 
 		case 363:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 364
 			default:
@@ -2598,7 +2596,7 @@ func match(s string) int {
 			}
 
 		case 364:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 365
@@ -2607,7 +2605,7 @@ func match(s string) int {
 			}
 
 		case 366:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 367
@@ -2616,7 +2614,7 @@ func match(s string) int {
 			}
 
 		case 370:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 371
 			case 'o':
@@ -2629,7 +2627,7 @@ func match(s string) int {
 			}
 
 		case 371:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 372
 			default:
@@ -2637,7 +2635,7 @@ func match(s string) int {
 			}
 
 		case 372:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 373
 			default:
@@ -2645,7 +2643,7 @@ func match(s string) int {
 			}
 
 		case 373:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 374
@@ -2654,7 +2652,7 @@ func match(s string) int {
 			}
 
 		case 376:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 377
@@ -2663,7 +2661,7 @@ func match(s string) int {
 			}
 
 		case 378:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 379
@@ -2675,7 +2673,7 @@ func match(s string) int {
 			}
 
 		case 382:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 383
 			case 'e':
@@ -2691,7 +2689,7 @@ func match(s string) int {
 			}
 
 		case 383:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 384
 			case 't':
@@ -2702,7 +2700,7 @@ func match(s string) int {
 			}
 
 		case 384:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 385
 			default:
@@ -2710,7 +2708,7 @@ func match(s string) int {
 			}
 
 		case 385:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 386
 			default:
@@ -2718,7 +2716,7 @@ func match(s string) int {
 			}
 
 		case 386:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 387
@@ -2727,7 +2725,7 @@ func match(s string) int {
 			}
 
 		case 389:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 390
 			default:
@@ -2735,7 +2733,7 @@ func match(s string) int {
 			}
 
 		case 390:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 391
@@ -2744,7 +2742,7 @@ func match(s string) int {
 			}
 
 		case 392:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 393
 			default:
@@ -2752,7 +2750,7 @@ func match(s string) int {
 			}
 
 		case 393:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 394
@@ -2761,7 +2759,7 @@ func match(s string) int {
 			}
 
 		case 395:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 396
 			case 'o':
@@ -2771,7 +2769,7 @@ func match(s string) int {
 			}
 
 		case 396:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 397
 			default:
@@ -2779,7 +2777,7 @@ func match(s string) int {
 			}
 
 		case 397:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 398
 			default:
@@ -2787,7 +2785,7 @@ func match(s string) int {
 			}
 
 		case 398:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 399
 			default:
@@ -2795,7 +2793,7 @@ func match(s string) int {
 			}
 
 		case 399:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 400
 			default:
@@ -2803,7 +2801,7 @@ func match(s string) int {
 			}
 
 		case 400:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 401
@@ -2812,7 +2810,7 @@ func match(s string) int {
 			}
 
 		case 402:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 403
 			default:
@@ -2820,7 +2818,7 @@ func match(s string) int {
 			}
 
 		case 403:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 404
@@ -2829,7 +2827,7 @@ func match(s string) int {
 			}
 
 		case 405:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 406
 			default:
@@ -2837,7 +2835,7 @@ func match(s string) int {
 			}
 
 		case 406:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 407
 			default:
@@ -2845,7 +2843,7 @@ func match(s string) int {
 			}
 
 		case 407:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 408
@@ -2854,7 +2852,7 @@ func match(s string) int {
 			}
 
 		case 409:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 410
 			case 't':
@@ -2864,7 +2862,7 @@ func match(s string) int {
 			}
 
 		case 410:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 411
 			default:
@@ -2872,7 +2870,7 @@ func match(s string) int {
 			}
 
 		case 411:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 412
@@ -2881,7 +2879,7 @@ func match(s string) int {
 			}
 
 		case 413:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 414
 			case 'y':
@@ -2892,7 +2890,7 @@ func match(s string) int {
 			}
 
 		case 414:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 415
@@ -2901,7 +2899,7 @@ func match(s string) int {
 			}
 
 		case 418:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 419
 			case 'e':
@@ -2917,7 +2915,7 @@ func match(s string) int {
 			}
 
 		case 419:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 420
 			default:
@@ -2925,7 +2923,7 @@ func match(s string) int {
 			}
 
 		case 420:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 421
 			default:
@@ -2933,7 +2931,7 @@ func match(s string) int {
 			}
 
 		case 421:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 422
@@ -2942,7 +2940,7 @@ func match(s string) int {
 			}
 
 		case 423:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 424
 			default:
@@ -2950,7 +2948,7 @@ func match(s string) int {
 			}
 
 		case 424:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 425
 			default:
@@ -2958,7 +2956,7 @@ func match(s string) int {
 			}
 
 		case 425:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 426
 			default:
@@ -2966,7 +2964,7 @@ func match(s string) int {
 			}
 
 		case 426:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 427
 			default:
@@ -2974,7 +2972,7 @@ func match(s string) int {
 			}
 
 		case 427:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 428
@@ -2983,7 +2981,7 @@ func match(s string) int {
 			}
 
 		case 429:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 430
 			case 'n':
@@ -2993,7 +2991,7 @@ func match(s string) int {
 			}
 
 		case 430:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 431
@@ -3002,7 +3000,7 @@ func match(s string) int {
 			}
 
 		case 432:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 433
 			default:
@@ -3010,7 +3008,7 @@ func match(s string) int {
 			}
 
 		case 433:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 434
@@ -3019,7 +3017,7 @@ func match(s string) int {
 			}
 
 		case 435:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 436
 			default:
@@ -3027,7 +3025,7 @@ func match(s string) int {
 			}
 
 		case 436:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 437
 			default:
@@ -3035,7 +3033,7 @@ func match(s string) int {
 			}
 
 		case 437:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 438
 			default:
@@ -3043,7 +3041,7 @@ func match(s string) int {
 			}
 
 		case 438:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 439
 			default:
@@ -3051,7 +3049,7 @@ func match(s string) int {
 			}
 
 		case 439:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 440
@@ -3060,7 +3058,7 @@ func match(s string) int {
 			}
 
 		case 441:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 442
@@ -3069,7 +3067,7 @@ func match(s string) int {
 			}
 
 		case 445:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 446
 			case 'd':
@@ -3094,7 +3092,7 @@ func match(s string) int {
 			}
 
 		case 446:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 447
 			default:
@@ -3102,7 +3100,7 @@ func match(s string) int {
 			}
 
 		case 447:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 448
@@ -3111,7 +3109,7 @@ func match(s string) int {
 			}
 
 		case 449:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 450
 			default:
@@ -3119,7 +3117,7 @@ func match(s string) int {
 			}
 
 		case 450:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 451
@@ -3128,7 +3126,7 @@ func match(s string) int {
 			}
 
 		case 452:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 453
 			default:
@@ -3136,7 +3134,7 @@ func match(s string) int {
 			}
 
 		case 453:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 454
 			default:
@@ -3144,7 +3142,7 @@ func match(s string) int {
 			}
 
 		case 454:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 455
@@ -3153,7 +3151,7 @@ func match(s string) int {
 			}
 
 		case 456:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 457
 			case 'o':
@@ -3163,7 +3161,7 @@ func match(s string) int {
 			}
 
 		case 457:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 458
 			default:
@@ -3171,7 +3169,7 @@ func match(s string) int {
 			}
 
 		case 458:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 459
 			default:
@@ -3179,7 +3177,7 @@ func match(s string) int {
 			}
 
 		case 459:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 460
@@ -3188,7 +3186,7 @@ func match(s string) int {
 			}
 
 		case 461:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 462
 			default:
@@ -3196,7 +3194,7 @@ func match(s string) int {
 			}
 
 		case 462:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 463
 			default:
@@ -3204,7 +3202,7 @@ func match(s string) int {
 			}
 
 		case 463:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 464
@@ -3213,7 +3211,7 @@ func match(s string) int {
 			}
 
 		case 465:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 466
 			case 'p':
@@ -3223,7 +3221,7 @@ func match(s string) int {
 			}
 
 		case 466:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 467
 			default:
@@ -3231,7 +3229,7 @@ func match(s string) int {
 			}
 
 		case 467:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 468
 			default:
@@ -3239,7 +3237,7 @@ func match(s string) int {
 			}
 
 		case 468:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 469
 			default:
@@ -3247,7 +3245,7 @@ func match(s string) int {
 			}
 
 		case 469:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 470
 			default:
@@ -3255,7 +3253,7 @@ func match(s string) int {
 			}
 
 		case 470:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 471
@@ -3264,7 +3262,7 @@ func match(s string) int {
 			}
 
 		case 472:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 473
 			case 'u':
@@ -3274,7 +3272,7 @@ func match(s string) int {
 			}
 
 		case 473:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 474
 			default:
@@ -3282,7 +3280,7 @@ func match(s string) int {
 			}
 
 		case 474:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 475
@@ -3291,7 +3289,7 @@ func match(s string) int {
 			}
 
 		case 476:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 477
 			default:
@@ -3299,7 +3297,7 @@ func match(s string) int {
 			}
 
 		case 477:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 478
 			default:
@@ -3307,7 +3305,7 @@ func match(s string) int {
 			}
 
 		case 478:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 479
@@ -3316,7 +3314,7 @@ func match(s string) int {
 			}
 
 		case 480:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 481
 			case 's':
@@ -3328,7 +3326,7 @@ func match(s string) int {
 			}
 
 		case 481:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 482
 			default:
@@ -3336,7 +3334,7 @@ func match(s string) int {
 			}
 
 		case 482:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 483
@@ -3345,7 +3343,7 @@ func match(s string) int {
 			}
 
 		case 484:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 485
 			case 'u':
@@ -3355,7 +3353,7 @@ func match(s string) int {
 			}
 
 		case 485:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 486
 			default:
@@ -3363,7 +3361,7 @@ func match(s string) int {
 			}
 
 		case 486:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 487
 			default:
@@ -3371,7 +3369,7 @@ func match(s string) int {
 			}
 
 		case 487:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 488
 			default:
@@ -3379,7 +3377,7 @@ func match(s string) int {
 			}
 
 		case 488:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 489
 			default:
@@ -3387,7 +3385,7 @@ func match(s string) int {
 			}
 
 		case 489:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 490
 			default:
@@ -3395,7 +3393,7 @@ func match(s string) int {
 			}
 
 		case 490:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 491
 			default:
@@ -3403,7 +3401,7 @@ func match(s string) int {
 			}
 
 		case 491:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 492
@@ -3412,7 +3410,7 @@ func match(s string) int {
 			}
 
 		case 493:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 494
 			default:
@@ -3420,7 +3418,7 @@ func match(s string) int {
 			}
 
 		case 494:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 495
 			default:
@@ -3428,7 +3426,7 @@ func match(s string) int {
 			}
 
 		case 495:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 496
 			default:
@@ -3436,7 +3434,7 @@ func match(s string) int {
 			}
 
 		case 496:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 497
 			default:
@@ -3444,7 +3442,7 @@ func match(s string) int {
 			}
 
 		case 497:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 498
@@ -3453,7 +3451,7 @@ func match(s string) int {
 			}
 
 		case 499:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 500
 			default:
@@ -3461,7 +3459,7 @@ func match(s string) int {
 			}
 
 		case 500:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 501
 			default:
@@ -3469,7 +3467,7 @@ func match(s string) int {
 			}
 
 		case 501:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 502
 			default:
@@ -3477,7 +3475,7 @@ func match(s string) int {
 			}
 
 		case 502:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 503
 			default:
@@ -3485,7 +3483,7 @@ func match(s string) int {
 			}
 
 		case 503:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 504
 			default:
@@ -3493,7 +3491,7 @@ func match(s string) int {
 			}
 
 		case 504:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 505
 			default:
@@ -3501,7 +3499,7 @@ func match(s string) int {
 			}
 
 		case 505:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 506
@@ -3510,7 +3508,7 @@ func match(s string) int {
 			}
 
 		case 507:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 508
 			case 'l':
@@ -3524,7 +3522,7 @@ func match(s string) int {
 			}
 
 		case 508:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 509
 			default:
@@ -3532,7 +3530,7 @@ func match(s string) int {
 			}
 
 		case 509:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 510
 			default:
@@ -3540,7 +3538,7 @@ func match(s string) int {
 			}
 
 		case 510:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 511
@@ -3549,7 +3547,7 @@ func match(s string) int {
 			}
 
 		case 514:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 515
 			default:
@@ -3557,7 +3555,7 @@ func match(s string) int {
 			}
 
 		case 515:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 516
 			default:
@@ -3565,7 +3563,7 @@ func match(s string) int {
 			}
 
 		case 516:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 517
 			default:
@@ -3573,7 +3571,7 @@ func match(s string) int {
 			}
 
 		case 517:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 518
@@ -3582,7 +3580,7 @@ func match(s string) int {
 			}
 
 		case 519:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 520
 			case 'p':
@@ -3594,7 +3592,7 @@ func match(s string) int {
 			}
 
 		case 520:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 521
 			default:
@@ -3602,7 +3600,7 @@ func match(s string) int {
 			}
 
 		case 521:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 522
 			default:
@@ -3610,7 +3608,7 @@ func match(s string) int {
 			}
 
 		case 522:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 523
@@ -3619,7 +3617,7 @@ func match(s string) int {
 			}
 
 		case 524:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 525
 			default:
@@ -3627,7 +3625,7 @@ func match(s string) int {
 			}
 
 		case 525:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 526
 			default:
@@ -3635,7 +3633,7 @@ func match(s string) int {
 			}
 
 		case 526:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 527
@@ -3644,7 +3642,7 @@ func match(s string) int {
 			}
 
 		case 528:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 529
 			default:
@@ -3652,7 +3650,7 @@ func match(s string) int {
 			}
 
 		case 529:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 530
 			default:
@@ -3660,7 +3658,7 @@ func match(s string) int {
 			}
 
 		case 530:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 531
@@ -3669,7 +3667,7 @@ func match(s string) int {
 			}
 
 		case 532:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 533
 			case 'i':
@@ -3684,7 +3682,7 @@ func match(s string) int {
 			}
 
 		case 533:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 534
 			default:
@@ -3692,7 +3690,7 @@ func match(s string) int {
 			}
 
 		case 534:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 535
 			default:
@@ -3700,7 +3698,7 @@ func match(s string) int {
 			}
 
 		case 535:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 536
@@ -3709,7 +3707,7 @@ func match(s string) int {
 			}
 
 		case 536:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 537
 			default:
@@ -3717,7 +3715,7 @@ func match(s string) int {
 			}
 
 		case 537:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 538
 			default:
@@ -3725,7 +3723,7 @@ func match(s string) int {
 			}
 
 		case 538:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 539
 			default:
@@ -3733,7 +3731,7 @@ func match(s string) int {
 			}
 
 		case 539:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 540
@@ -3742,7 +3740,7 @@ func match(s string) int {
 			}
 
 		case 541:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 542
 			default:
@@ -3750,7 +3748,7 @@ func match(s string) int {
 			}
 
 		case 542:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 543
 			default:
@@ -3758,7 +3756,7 @@ func match(s string) int {
 			}
 
 		case 543:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 544
 			default:
@@ -3766,7 +3764,7 @@ func match(s string) int {
 			}
 
 		case 544:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 545
@@ -3775,7 +3773,7 @@ func match(s string) int {
 			}
 
 		case 547:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 548
 			default:
@@ -3783,7 +3781,7 @@ func match(s string) int {
 			}
 
 		case 548:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 549
 			default:
@@ -3791,7 +3789,7 @@ func match(s string) int {
 			}
 
 		case 549:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 550
 			default:
@@ -3799,7 +3797,7 @@ func match(s string) int {
 			}
 
 		case 550:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 551
@@ -3808,7 +3806,7 @@ func match(s string) int {
 			}
 
 		case 552:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 553
 			default:
@@ -3816,7 +3814,7 @@ func match(s string) int {
 			}
 
 		case 553:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 554
 			default:
@@ -3824,7 +3822,7 @@ func match(s string) int {
 			}
 
 		case 554:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 555
 			default:
@@ -3832,7 +3830,7 @@ func match(s string) int {
 			}
 
 		case 555:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 556
 			default:
@@ -3840,7 +3838,7 @@ func match(s string) int {
 			}
 
 		case 556:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 557
 			default:
@@ -3848,7 +3846,7 @@ func match(s string) int {
 			}
 
 		case 557:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 558
 			default:
@@ -3856,7 +3854,7 @@ func match(s string) int {
 			}
 
 		case 558:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 559
 			default:
@@ -3864,7 +3862,7 @@ func match(s string) int {
 			}
 
 		case 559:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 560
@@ -3873,7 +3871,7 @@ func match(s string) int {
 			}
 
 		case 564:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 565
 			case 'o':
@@ -3883,7 +3881,7 @@ func match(s string) int {
 			}
 
 		case 565:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 566
 			default:
@@ -3891,7 +3889,7 @@ func match(s string) int {
 			}
 
 		case 566:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 567
@@ -3900,7 +3898,7 @@ func match(s string) int {
 			}
 
 		case 568:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 569
@@ -3909,7 +3907,7 @@ func match(s string) int {
 			}
 
 		case 571:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 572
 			case 'c':
@@ -3945,7 +3943,7 @@ func match(s string) int {
 			}
 
 		case 572:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 573
 			case 'd':
@@ -3963,7 +3961,7 @@ func match(s string) int {
 			}
 
 		case 573:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 574
 			default:
@@ -3971,7 +3969,7 @@ func match(s string) int {
 			}
 
 		case 574:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 575
@@ -3980,7 +3978,7 @@ func match(s string) int {
 			}
 
 		case 577:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 578
 			default:
@@ -3988,7 +3986,7 @@ func match(s string) int {
 			}
 
 		case 578:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 579
@@ -3997,7 +3995,7 @@ func match(s string) int {
 			}
 
 		case 580:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 581
@@ -4010,7 +4008,7 @@ func match(s string) int {
 			}
 
 		case 582:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 583
 			default:
@@ -4018,7 +4016,7 @@ func match(s string) int {
 			}
 
 		case 583:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 584
@@ -4027,7 +4025,7 @@ func match(s string) int {
 			}
 
 		case 585:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 586
 			default:
@@ -4035,7 +4033,7 @@ func match(s string) int {
 			}
 
 		case 586:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 587
@@ -4044,7 +4042,7 @@ func match(s string) int {
 			}
 
 		case 589:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 590
 			default:
@@ -4052,7 +4050,7 @@ func match(s string) int {
 			}
 
 		case 590:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 591
@@ -4061,7 +4059,7 @@ func match(s string) int {
 			}
 
 		case 592:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 593
 			case 'g':
@@ -4082,7 +4080,7 @@ func match(s string) int {
 			}
 
 		case 593:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 594
 			default:
@@ -4090,7 +4088,7 @@ func match(s string) int {
 			}
 
 		case 594:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 595
@@ -4099,7 +4097,7 @@ func match(s string) int {
 			}
 
 		case 596:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 597
 			default:
@@ -4107,7 +4105,7 @@ func match(s string) int {
 			}
 
 		case 597:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 598
 			default:
@@ -4115,7 +4113,7 @@ func match(s string) int {
 			}
 
 		case 598:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 599
@@ -4124,7 +4122,7 @@ func match(s string) int {
 			}
 
 		case 600:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 601
 			default:
@@ -4132,7 +4130,7 @@ func match(s string) int {
 			}
 
 		case 601:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 602
 			default:
@@ -4140,7 +4138,7 @@ func match(s string) int {
 			}
 
 		case 602:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 603
 			default:
@@ -4148,7 +4146,7 @@ func match(s string) int {
 			}
 
 		case 603:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 604
 			default:
@@ -4156,7 +4154,7 @@ func match(s string) int {
 			}
 
 		case 604:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 605
@@ -4165,7 +4163,7 @@ func match(s string) int {
 			}
 
 		case 606:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 607
 			default:
@@ -4173,7 +4171,7 @@ func match(s string) int {
 			}
 
 		case 607:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 608
 			default:
@@ -4181,7 +4179,7 @@ func match(s string) int {
 			}
 
 		case 608:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 609
 			default:
@@ -4189,7 +4187,7 @@ func match(s string) int {
 			}
 
 		case 609:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 610
 			default:
@@ -4197,7 +4195,7 @@ func match(s string) int {
 			}
 
 		case 610:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 611
@@ -4206,7 +4204,7 @@ func match(s string) int {
 			}
 
 		case 612:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 613
 			default:
@@ -4214,7 +4212,7 @@ func match(s string) int {
 			}
 
 		case 613:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 614
 			case 'i':
@@ -4224,7 +4222,7 @@ func match(s string) int {
 			}
 
 		case 614:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 615
@@ -4233,7 +4231,7 @@ func match(s string) int {
 			}
 
 		case 616:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 617
 			default:
@@ -4241,7 +4239,7 @@ func match(s string) int {
 			}
 
 		case 617:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 618
@@ -4250,7 +4248,7 @@ func match(s string) int {
 			}
 
 		case 619:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 620
@@ -4259,7 +4257,7 @@ func match(s string) int {
 			}
 
 		case 620:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 621
 			default:
@@ -4267,7 +4265,7 @@ func match(s string) int {
 			}
 
 		case 621:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 622
@@ -4276,7 +4274,7 @@ func match(s string) int {
 			}
 
 		case 624:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 625
 			case 'e':
@@ -4292,7 +4290,7 @@ func match(s string) int {
 			}
 
 		case 625:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 626
 			default:
@@ -4300,7 +4298,7 @@ func match(s string) int {
 			}
 
 		case 626:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 627
 			default:
@@ -4308,7 +4306,7 @@ func match(s string) int {
 			}
 
 		case 627:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 628
 			default:
@@ -4316,7 +4314,7 @@ func match(s string) int {
 			}
 
 		case 628:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 629
 			default:
@@ -4324,7 +4322,7 @@ func match(s string) int {
 			}
 
 		case 629:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 630
@@ -4333,7 +4331,7 @@ func match(s string) int {
 			}
 
 		case 631:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 632
@@ -4342,7 +4340,7 @@ func match(s string) int {
 			}
 
 		case 633:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 634
 			default:
@@ -4350,7 +4348,7 @@ func match(s string) int {
 			}
 
 		case 634:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 635
 			default:
@@ -4358,7 +4356,7 @@ func match(s string) int {
 			}
 
 		case 635:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 636
 			default:
@@ -4366,7 +4364,7 @@ func match(s string) int {
 			}
 
 		case 636:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 637
@@ -4375,7 +4373,7 @@ func match(s string) int {
 			}
 
 		case 638:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 639
 			default:
@@ -4383,7 +4381,7 @@ func match(s string) int {
 			}
 
 		case 639:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 640
 			default:
@@ -4391,7 +4389,7 @@ func match(s string) int {
 			}
 
 		case 640:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 641
@@ -4400,7 +4398,7 @@ func match(s string) int {
 			}
 
 		case 641:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 642
 			default:
@@ -4408,7 +4406,7 @@ func match(s string) int {
 			}
 
 		case 642:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 643
 			default:
@@ -4416,7 +4414,7 @@ func match(s string) int {
 			}
 
 		case 643:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 644
@@ -4425,7 +4423,7 @@ func match(s string) int {
 			}
 
 		case 645:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 646
 			default:
@@ -4433,7 +4431,7 @@ func match(s string) int {
 			}
 
 		case 646:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 647
 			default:
@@ -4441,7 +4439,7 @@ func match(s string) int {
 			}
 
 		case 647:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 648
 			default:
@@ -4449,7 +4447,7 @@ func match(s string) int {
 			}
 
 		case 648:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 649
 			default:
@@ -4457,7 +4455,7 @@ func match(s string) int {
 			}
 
 		case 649:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 650
@@ -4466,7 +4464,7 @@ func match(s string) int {
 			}
 
 		case 654:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 655
@@ -4475,7 +4473,7 @@ func match(s string) int {
 			}
 
 		case 656:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 657
 			case 'g':
@@ -4494,7 +4492,7 @@ func match(s string) int {
 			}
 
 		case 657:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 658
@@ -4503,7 +4501,7 @@ func match(s string) int {
 			}
 
 		case 660:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 661
@@ -4512,7 +4510,7 @@ func match(s string) int {
 			}
 
 		case 662:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 663
 			default:
@@ -4520,7 +4518,7 @@ func match(s string) int {
 			}
 
 		case 663:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 664
 			default:
@@ -4528,7 +4526,7 @@ func match(s string) int {
 			}
 
 		case 664:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 665
 			default:
@@ -4536,7 +4534,7 @@ func match(s string) int {
 			}
 
 		case 665:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 666
@@ -4545,7 +4543,7 @@ func match(s string) int {
 			}
 
 		case 667:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 668
 			default:
@@ -4553,7 +4551,7 @@ func match(s string) int {
 			}
 
 		case 668:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 669
 			default:
@@ -4561,7 +4559,7 @@ func match(s string) int {
 			}
 
 		case 669:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 670
@@ -4570,7 +4568,7 @@ func match(s string) int {
 			}
 
 		case 671:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 672
 			default:
@@ -4578,7 +4576,7 @@ func match(s string) int {
 			}
 
 		case 672:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 673
 			default:
@@ -4586,7 +4584,7 @@ func match(s string) int {
 			}
 
 		case 673:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 674
 			default:
@@ -4594,7 +4592,7 @@ func match(s string) int {
 			}
 
 		case 674:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 675
 			default:
@@ -4602,7 +4600,7 @@ func match(s string) int {
 			}
 
 		case 675:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 676
@@ -4611,7 +4609,7 @@ func match(s string) int {
 			}
 
 		case 677:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 678
 			default:
@@ -4619,7 +4617,7 @@ func match(s string) int {
 			}
 
 		case 678:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 679
 			default:
@@ -4627,7 +4625,7 @@ func match(s string) int {
 			}
 
 		case 679:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 680
 			default:
@@ -4635,7 +4633,7 @@ func match(s string) int {
 			}
 
 		case 680:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 681
@@ -4644,7 +4642,7 @@ func match(s string) int {
 			}
 
 		case 682:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 683
 			default:
@@ -4652,7 +4650,7 @@ func match(s string) int {
 			}
 
 		case 683:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 684
@@ -4661,7 +4659,7 @@ func match(s string) int {
 			}
 
 		case 686:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 687
 			case 'c':
@@ -4704,7 +4702,7 @@ func match(s string) int {
 			}
 
 		case 687:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 688
 			case 't':
@@ -4715,7 +4713,7 @@ func match(s string) int {
 			}
 
 		case 688:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 689
 			default:
@@ -4723,7 +4721,7 @@ func match(s string) int {
 			}
 
 		case 689:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 690
@@ -4732,7 +4730,7 @@ func match(s string) int {
 			}
 
 		case 693:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 694
@@ -4741,7 +4739,7 @@ func match(s string) int {
 			}
 
 		case 694:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 695
 			default:
@@ -4749,7 +4747,7 @@ func match(s string) int {
 			}
 
 		case 695:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 696
 			default:
@@ -4757,7 +4755,7 @@ func match(s string) int {
 			}
 
 		case 696:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 697
 			default:
@@ -4765,7 +4763,7 @@ func match(s string) int {
 			}
 
 		case 697:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 698
 			default:
@@ -4773,7 +4771,7 @@ func match(s string) int {
 			}
 
 		case 698:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 699
 			default:
@@ -4781,7 +4779,7 @@ func match(s string) int {
 			}
 
 		case 699:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 700
@@ -4790,7 +4788,7 @@ func match(s string) int {
 			}
 
 		case 703:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 704
 			case 'e':
@@ -4800,7 +4798,7 @@ func match(s string) int {
 			}
 
 		case 704:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 705
 			default:
@@ -4808,7 +4806,7 @@ func match(s string) int {
 			}
 
 		case 705:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 706
@@ -4817,7 +4815,7 @@ func match(s string) int {
 			}
 
 		case 707:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 708
 			default:
@@ -4825,7 +4823,7 @@ func match(s string) int {
 			}
 
 		case 708:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 709
 			default:
@@ -4833,7 +4831,7 @@ func match(s string) int {
 			}
 
 		case 709:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 710
@@ -4842,7 +4840,7 @@ func match(s string) int {
 			}
 
 		case 711:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 712
 			case 'g':
@@ -4854,7 +4852,7 @@ func match(s string) int {
 			}
 
 		case 712:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 713
 			default:
@@ -4862,7 +4860,7 @@ func match(s string) int {
 			}
 
 		case 713:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 714
 			default:
@@ -4870,7 +4868,7 @@ func match(s string) int {
 			}
 
 		case 714:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 715
@@ -4879,7 +4877,7 @@ func match(s string) int {
 			}
 
 		case 716:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 717
 			default:
@@ -4887,7 +4885,7 @@ func match(s string) int {
 			}
 
 		case 717:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 718
 			default:
@@ -4895,7 +4893,7 @@ func match(s string) int {
 			}
 
 		case 718:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 719
 			default:
@@ -4903,7 +4901,7 @@ func match(s string) int {
 			}
 
 		case 719:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 720
 			default:
@@ -4911,7 +4909,7 @@ func match(s string) int {
 			}
 
 		case 720:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 721
@@ -4920,7 +4918,7 @@ func match(s string) int {
 			}
 
 		case 721:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 722
 			default:
@@ -4928,7 +4926,7 @@ func match(s string) int {
 			}
 
 		case 722:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 723
 			default:
@@ -4936,7 +4934,7 @@ func match(s string) int {
 			}
 
 		case 723:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 724
@@ -4945,7 +4943,7 @@ func match(s string) int {
 			}
 
 		case 725:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 726
 			default:
@@ -4953,7 +4951,7 @@ func match(s string) int {
 			}
 
 		case 726:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 727
 			default:
@@ -4961,7 +4959,7 @@ func match(s string) int {
 			}
 
 		case 727:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 728
 			default:
@@ -4969,7 +4967,7 @@ func match(s string) int {
 			}
 
 		case 728:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 729
 			default:
@@ -4977,7 +4975,7 @@ func match(s string) int {
 			}
 
 		case 729:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 730
 			default:
@@ -4985,7 +4983,7 @@ func match(s string) int {
 			}
 
 		case 730:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 731
 			default:
@@ -4993,7 +4991,7 @@ func match(s string) int {
 			}
 
 		case 731:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 732
 			default:
@@ -5001,7 +4999,7 @@ func match(s string) int {
 			}
 
 		case 732:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 733
@@ -5010,7 +5008,7 @@ func match(s string) int {
 			}
 
 		case 734:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 735
 			default:
@@ -5018,7 +5016,7 @@ func match(s string) int {
 			}
 
 		case 735:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 736
 			default:
@@ -5026,7 +5024,7 @@ func match(s string) int {
 			}
 
 		case 736:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 737
@@ -5035,7 +5033,7 @@ func match(s string) int {
 			}
 
 		case 738:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 739
 			default:
@@ -5043,7 +5041,7 @@ func match(s string) int {
 			}
 
 		case 739:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 740
 			default:
@@ -5051,7 +5049,7 @@ func match(s string) int {
 			}
 
 		case 740:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 741
 			default:
@@ -5059,7 +5057,7 @@ func match(s string) int {
 			}
 
 		case 741:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 742
 			default:
@@ -5067,7 +5065,7 @@ func match(s string) int {
 			}
 
 		case 742:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 743
 			default:
@@ -5075,7 +5073,7 @@ func match(s string) int {
 			}
 
 		case 743:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 744
 			default:
@@ -5083,7 +5081,7 @@ func match(s string) int {
 			}
 
 		case 744:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 745
@@ -5092,7 +5090,7 @@ func match(s string) int {
 			}
 
 		case 746:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 747
 			default:
@@ -5100,7 +5098,7 @@ func match(s string) int {
 			}
 
 		case 747:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 748
@@ -5109,7 +5107,7 @@ func match(s string) int {
 			}
 
 		case 749:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'q':
 				length = i + 1
 				st = 750
@@ -5120,7 +5118,7 @@ func match(s string) int {
 			}
 
 		case 751:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 752
 			default:
@@ -5128,7 +5126,7 @@ func match(s string) int {
 			}
 
 		case 752:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 753
 			default:
@@ -5136,7 +5134,7 @@ func match(s string) int {
 			}
 
 		case 753:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 754
@@ -5145,7 +5143,7 @@ func match(s string) int {
 			}
 
 		case 756:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 757
 			case 's':
@@ -5156,7 +5154,7 @@ func match(s string) int {
 			}
 
 		case 757:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 758
 			default:
@@ -5164,7 +5162,7 @@ func match(s string) int {
 			}
 
 		case 758:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 759
 			default:
@@ -5172,7 +5170,7 @@ func match(s string) int {
 			}
 
 		case 759:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 760
 			default:
@@ -5180,7 +5178,7 @@ func match(s string) int {
 			}
 
 		case 760:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 761
 			default:
@@ -5188,7 +5186,7 @@ func match(s string) int {
 			}
 
 		case 761:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 762
 			default:
@@ -5196,7 +5194,7 @@ func match(s string) int {
 			}
 
 		case 762:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 763
 			default:
@@ -5204,7 +5202,7 @@ func match(s string) int {
 			}
 
 		case 763:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 764
@@ -5213,7 +5211,7 @@ func match(s string) int {
 			}
 
 		case 766:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 767
 			default:
@@ -5221,7 +5219,7 @@ func match(s string) int {
 			}
 
 		case 767:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 768
 			case 'r':
@@ -5231,7 +5229,7 @@ func match(s string) int {
 			}
 
 		case 768:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 769
 			default:
@@ -5239,7 +5237,7 @@ func match(s string) int {
 			}
 
 		case 769:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 770
@@ -5248,7 +5246,7 @@ func match(s string) int {
 			}
 
 		case 771:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 772
 			default:
@@ -5256,7 +5254,7 @@ func match(s string) int {
 			}
 
 		case 772:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 773
 			default:
@@ -5264,7 +5262,7 @@ func match(s string) int {
 			}
 
 		case 773:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 774
 			default:
@@ -5272,7 +5270,7 @@ func match(s string) int {
 			}
 
 		case 774:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 775
@@ -5281,7 +5279,7 @@ func match(s string) int {
 			}
 
 		case 776:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 777
 			case 'i':
@@ -5293,7 +5291,7 @@ func match(s string) int {
 			}
 
 		case 777:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 778
 			default:
@@ -5301,7 +5299,7 @@ func match(s string) int {
 			}
 
 		case 778:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 779
 			default:
@@ -5309,7 +5307,7 @@ func match(s string) int {
 			}
 
 		case 779:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 780
 			default:
@@ -5317,7 +5315,7 @@ func match(s string) int {
 			}
 
 		case 780:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 781
 			default:
@@ -5325,7 +5323,7 @@ func match(s string) int {
 			}
 
 		case 781:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 782
@@ -5334,7 +5332,7 @@ func match(s string) int {
 			}
 
 		case 783:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 784
@@ -5343,7 +5341,7 @@ func match(s string) int {
 			}
 
 		case 785:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 786
 			case 'o':
@@ -5355,7 +5353,7 @@ func match(s string) int {
 			}
 
 		case 786:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 787
 			default:
@@ -5363,7 +5361,7 @@ func match(s string) int {
 			}
 
 		case 787:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 788
@@ -5372,7 +5370,7 @@ func match(s string) int {
 			}
 
 		case 789:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 790
 			default:
@@ -5380,7 +5378,7 @@ func match(s string) int {
 			}
 
 		case 790:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 791
 			default:
@@ -5388,7 +5386,7 @@ func match(s string) int {
 			}
 
 		case 791:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 792
@@ -5397,7 +5395,7 @@ func match(s string) int {
 			}
 
 		case 793:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 794
 			default:
@@ -5405,7 +5403,7 @@ func match(s string) int {
 			}
 
 		case 794:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 795
 			default:
@@ -5413,7 +5411,7 @@ func match(s string) int {
 			}
 
 		case 795:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 796
@@ -5422,7 +5420,7 @@ func match(s string) int {
 			}
 
 		case 797:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 798
 			case 'e':
@@ -5456,7 +5454,7 @@ func match(s string) int {
 			}
 
 		case 798:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 799
 			case 'n':
@@ -5471,7 +5469,7 @@ func match(s string) int {
 			}
 
 		case 799:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 800
@@ -5482,7 +5480,7 @@ func match(s string) int {
 			}
 
 		case 801:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 802
@@ -5491,7 +5489,7 @@ func match(s string) int {
 			}
 
 		case 803:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 804
@@ -5500,7 +5498,7 @@ func match(s string) int {
 			}
 
 		case 805:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 806
@@ -5509,7 +5507,7 @@ func match(s string) int {
 			}
 
 		case 807:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 808
 			default:
@@ -5517,7 +5515,7 @@ func match(s string) int {
 			}
 
 		case 808:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 809
 			default:
@@ -5525,7 +5523,7 @@ func match(s string) int {
 			}
 
 		case 809:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 810
 			default:
@@ -5533,7 +5531,7 @@ func match(s string) int {
 			}
 
 		case 810:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 811
@@ -5542,7 +5540,7 @@ func match(s string) int {
 			}
 
 		case 812:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 813
 			default:
@@ -5550,7 +5548,7 @@ func match(s string) int {
 			}
 
 		case 813:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 814
 			default:
@@ -5558,7 +5556,7 @@ func match(s string) int {
 			}
 
 		case 814:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 815
 			default:
@@ -5566,7 +5564,7 @@ func match(s string) int {
 			}
 
 		case 815:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 816
 			default:
@@ -5574,7 +5572,7 @@ func match(s string) int {
 			}
 
 		case 816:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 817
 			default:
@@ -5582,7 +5580,7 @@ func match(s string) int {
 			}
 
 		case 817:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 818
@@ -5591,7 +5589,7 @@ func match(s string) int {
 			}
 
 		case 819:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 820
 			case 'n':
@@ -5608,7 +5606,7 @@ func match(s string) int {
 			}
 
 		case 820:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 821
@@ -5617,7 +5615,7 @@ func match(s string) int {
 			}
 
 		case 822:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 823
 			default:
@@ -5625,7 +5623,7 @@ func match(s string) int {
 			}
 
 		case 823:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 824
 			default:
@@ -5633,7 +5631,7 @@ func match(s string) int {
 			}
 
 		case 824:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 825
 			default:
@@ -5641,7 +5639,7 @@ func match(s string) int {
 			}
 
 		case 825:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 826
@@ -5652,7 +5650,7 @@ func match(s string) int {
 			}
 
 		case 827:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 828
 			default:
@@ -5660,7 +5658,7 @@ func match(s string) int {
 			}
 
 		case 828:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 829
@@ -5669,7 +5667,7 @@ func match(s string) int {
 			}
 
 		case 830:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 831
 			default:
@@ -5677,7 +5675,7 @@ func match(s string) int {
 			}
 
 		case 831:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 832
 			default:
@@ -5685,7 +5683,7 @@ func match(s string) int {
 			}
 
 		case 832:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 833
 			default:
@@ -5693,7 +5691,7 @@ func match(s string) int {
 			}
 
 		case 833:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 834
 			default:
@@ -5701,7 +5699,7 @@ func match(s string) int {
 			}
 
 		case 834:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 835
@@ -5710,7 +5708,7 @@ func match(s string) int {
 			}
 
 		case 836:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 837
@@ -5719,7 +5717,7 @@ func match(s string) int {
 			}
 
 		case 837:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 838
 			default:
@@ -5727,7 +5725,7 @@ func match(s string) int {
 			}
 
 		case 838:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 839
 			default:
@@ -5735,7 +5733,7 @@ func match(s string) int {
 			}
 
 		case 839:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 840
@@ -5744,7 +5742,7 @@ func match(s string) int {
 			}
 
 		case 841:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 842
 			default:
@@ -5752,7 +5750,7 @@ func match(s string) int {
 			}
 
 		case 842:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 843
 			default:
@@ -5760,7 +5758,7 @@ func match(s string) int {
 			}
 
 		case 843:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 844
 			default:
@@ -5768,7 +5766,7 @@ func match(s string) int {
 			}
 
 		case 844:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 845
@@ -5777,7 +5775,7 @@ func match(s string) int {
 			}
 
 		case 848:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 849
 			case 'o':
@@ -5792,7 +5790,7 @@ func match(s string) int {
 			}
 
 		case 849:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 850
 			default:
@@ -5800,7 +5798,7 @@ func match(s string) int {
 			}
 
 		case 850:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 851
 			default:
@@ -5808,7 +5806,7 @@ func match(s string) int {
 			}
 
 		case 851:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 852
 			default:
@@ -5816,7 +5814,7 @@ func match(s string) int {
 			}
 
 		case 852:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 853
@@ -5825,7 +5823,7 @@ func match(s string) int {
 			}
 
 		case 854:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 855
 			case 'w':
@@ -5835,7 +5833,7 @@ func match(s string) int {
 			}
 
 		case 855:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 856
 			default:
@@ -5843,7 +5841,7 @@ func match(s string) int {
 			}
 
 		case 856:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 857
 			default:
@@ -5851,7 +5849,7 @@ func match(s string) int {
 			}
 
 		case 857:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 858
@@ -5860,7 +5858,7 @@ func match(s string) int {
 			}
 
 		case 859:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 860
 			default:
@@ -5868,7 +5866,7 @@ func match(s string) int {
 			}
 
 		case 860:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 861
 			default:
@@ -5876,7 +5874,7 @@ func match(s string) int {
 			}
 
 		case 861:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 862
@@ -5885,7 +5883,7 @@ func match(s string) int {
 			}
 
 		case 863:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 864
 			default:
@@ -5893,7 +5891,7 @@ func match(s string) int {
 			}
 
 		case 864:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 865
 			default:
@@ -5901,7 +5899,7 @@ func match(s string) int {
 			}
 
 		case 865:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 866
 			default:
@@ -5909,7 +5907,7 @@ func match(s string) int {
 			}
 
 		case 866:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 867
 			default:
@@ -5917,7 +5915,7 @@ func match(s string) int {
 			}
 
 		case 867:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 868
@@ -5926,7 +5924,7 @@ func match(s string) int {
 			}
 
 		case 871:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 872
@@ -5939,7 +5937,7 @@ func match(s string) int {
 			}
 
 		case 872:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 873
 			default:
@@ -5947,7 +5945,7 @@ func match(s string) int {
 			}
 
 		case 873:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 874
 			default:
@@ -5955,7 +5953,7 @@ func match(s string) int {
 			}
 
 		case 874:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 875
 			default:
@@ -5963,7 +5961,7 @@ func match(s string) int {
 			}
 
 		case 875:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 876
 			default:
@@ -5971,7 +5969,7 @@ func match(s string) int {
 			}
 
 		case 876:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 877
@@ -5980,7 +5978,7 @@ func match(s string) int {
 			}
 
 		case 878:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 879
 			case 's':
@@ -5990,7 +5988,7 @@ func match(s string) int {
 			}
 
 		case 879:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 880
@@ -5999,7 +5997,7 @@ func match(s string) int {
 			}
 
 		case 881:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 882
 			default:
@@ -6007,7 +6005,7 @@ func match(s string) int {
 			}
 
 		case 882:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 883
 			default:
@@ -6015,7 +6013,7 @@ func match(s string) int {
 			}
 
 		case 883:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 884
@@ -6024,7 +6022,7 @@ func match(s string) int {
 			}
 
 		case 885:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 886
 			default:
@@ -6032,7 +6030,7 @@ func match(s string) int {
 			}
 
 		case 886:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 887
 			default:
@@ -6040,7 +6038,7 @@ func match(s string) int {
 			}
 
 		case 887:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 888
 			default:
@@ -6048,7 +6046,7 @@ func match(s string) int {
 			}
 
 		case 888:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 889
 			default:
@@ -6056,7 +6054,7 @@ func match(s string) int {
 			}
 
 		case 889:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 890
 			default:
@@ -6064,7 +6062,7 @@ func match(s string) int {
 			}
 
 		case 890:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 891
 			default:
@@ -6072,7 +6070,7 @@ func match(s string) int {
 			}
 
 		case 891:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 892
@@ -6081,7 +6079,7 @@ func match(s string) int {
 			}
 
 		case 893:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 894
@@ -6092,7 +6090,7 @@ func match(s string) int {
 			}
 
 		case 895:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 896
 			default:
@@ -6100,7 +6098,7 @@ func match(s string) int {
 			}
 
 		case 896:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 897
 			default:
@@ -6108,7 +6106,7 @@ func match(s string) int {
 			}
 
 		case 897:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 898
 			default:
@@ -6116,7 +6114,7 @@ func match(s string) int {
 			}
 
 		case 898:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 899
@@ -6125,7 +6123,7 @@ func match(s string) int {
 			}
 
 		case 900:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 901
 			case 'r':
@@ -6137,7 +6135,7 @@ func match(s string) int {
 			}
 
 		case 901:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 902
@@ -6146,7 +6144,7 @@ func match(s string) int {
 			}
 
 		case 903:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 904
 			default:
@@ -6154,7 +6152,7 @@ func match(s string) int {
 			}
 
 		case 904:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 905
 			default:
@@ -6162,7 +6160,7 @@ func match(s string) int {
 			}
 
 		case 905:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 906
 			default:
@@ -6170,7 +6168,7 @@ func match(s string) int {
 			}
 
 		case 906:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 907
 			default:
@@ -6178,7 +6176,7 @@ func match(s string) int {
 			}
 
 		case 907:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 908
 			default:
@@ -6186,7 +6184,7 @@ func match(s string) int {
 			}
 
 		case 908:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 909
@@ -6195,7 +6193,7 @@ func match(s string) int {
 			}
 
 		case 910:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 911
 			default:
@@ -6203,7 +6201,7 @@ func match(s string) int {
 			}
 
 		case 911:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 912
 			default:
@@ -6211,7 +6209,7 @@ func match(s string) int {
 			}
 
 		case 912:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 913
@@ -6220,7 +6218,7 @@ func match(s string) int {
 			}
 
 		case 914:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 915
@@ -6229,7 +6227,7 @@ func match(s string) int {
 			}
 
 		case 916:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 917
@@ -6294,7 +6292,7 @@ func match(s string) int {
 			}
 
 		case 917:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 918
@@ -6305,7 +6303,7 @@ func match(s string) int {
 			}
 
 		case 918:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 919
 			default:
@@ -6313,7 +6311,7 @@ func match(s string) int {
 			}
 
 		case 919:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 920
 			default:
@@ -6321,7 +6319,7 @@ func match(s string) int {
 			}
 
 		case 920:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 921
 			default:
@@ -6329,7 +6327,7 @@ func match(s string) int {
 			}
 
 		case 921:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 922
@@ -6338,7 +6336,7 @@ func match(s string) int {
 			}
 
 		case 923:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 924
 			default:
@@ -6346,7 +6344,7 @@ func match(s string) int {
 			}
 
 		case 924:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 925
 			default:
@@ -6354,7 +6352,7 @@ func match(s string) int {
 			}
 
 		case 925:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 926
@@ -6363,7 +6361,7 @@ func match(s string) int {
 			}
 
 		case 927:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 928
 			default:
@@ -6371,7 +6369,7 @@ func match(s string) int {
 			}
 
 		case 928:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				length = i + 1
 				st = 929
@@ -6380,7 +6378,7 @@ func match(s string) int {
 			}
 
 		case 930:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 931
@@ -6389,7 +6387,7 @@ func match(s string) int {
 			}
 
 		case 932:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 933
 			default:
@@ -6397,7 +6395,7 @@ func match(s string) int {
 			}
 
 		case 933:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 934
@@ -6406,7 +6404,7 @@ func match(s string) int {
 			}
 
 		case 936:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 937
 			default:
@@ -6414,7 +6412,7 @@ func match(s string) int {
 			}
 
 		case 937:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 938
@@ -6423,7 +6421,7 @@ func match(s string) int {
 			}
 
 		case 940:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 941
 			case 'v':
@@ -6433,7 +6431,7 @@ func match(s string) int {
 			}
 
 		case 941:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 942
@@ -6442,7 +6440,7 @@ func match(s string) int {
 			}
 
 		case 942:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 943
@@ -6451,7 +6449,7 @@ func match(s string) int {
 			}
 
 		case 944:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 945
 			default:
@@ -6459,7 +6457,7 @@ func match(s string) int {
 			}
 
 		case 945:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 946
@@ -6468,7 +6466,7 @@ func match(s string) int {
 			}
 
 		case 947:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 948
 			case 'e':
@@ -6481,7 +6479,7 @@ func match(s string) int {
 			}
 
 		case 948:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 949
 			default:
@@ -6489,7 +6487,7 @@ func match(s string) int {
 			}
 
 		case 949:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 950
@@ -6498,7 +6496,7 @@ func match(s string) int {
 			}
 
 		case 952:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 953
 			default:
@@ -6506,7 +6504,7 @@ func match(s string) int {
 			}
 
 		case 953:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 954
 			case 'o':
@@ -6517,7 +6515,7 @@ func match(s string) int {
 			}
 
 		case 954:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 955
@@ -6526,7 +6524,7 @@ func match(s string) int {
 			}
 
 		case 957:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 958
 			case 'o':
@@ -6540,7 +6538,7 @@ func match(s string) int {
 			}
 
 		case 958:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 959
 			default:
@@ -6548,7 +6546,7 @@ func match(s string) int {
 			}
 
 		case 959:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 960
@@ -6557,7 +6555,7 @@ func match(s string) int {
 			}
 
 		case 963:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 964
@@ -6566,7 +6564,7 @@ func match(s string) int {
 			}
 
 		case 965:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 966
 			case 'o':
@@ -6583,7 +6581,7 @@ func match(s string) int {
 			}
 
 		case 966:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 967
@@ -6595,7 +6593,7 @@ func match(s string) int {
 			}
 
 		case 967:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 968
 			default:
@@ -6603,7 +6601,7 @@ func match(s string) int {
 			}
 
 		case 968:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 969
 			default:
@@ -6611,7 +6609,7 @@ func match(s string) int {
 			}
 
 		case 969:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 970
 			default:
@@ -6619,7 +6617,7 @@ func match(s string) int {
 			}
 
 		case 970:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 971
 			default:
@@ -6627,7 +6625,7 @@ func match(s string) int {
 			}
 
 		case 971:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 972
@@ -6636,7 +6634,7 @@ func match(s string) int {
 			}
 
 		case 974:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 975
@@ -6645,7 +6643,7 @@ func match(s string) int {
 			}
 
 		case 975:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 976
 			default:
@@ -6653,7 +6651,7 @@ func match(s string) int {
 			}
 
 		case 976:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 977
@@ -6662,7 +6660,7 @@ func match(s string) int {
 			}
 
 		case 982:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 983
 			case 'e':
@@ -6674,7 +6672,7 @@ func match(s string) int {
 			}
 
 		case 983:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 984
 			case 't':
@@ -6684,7 +6682,7 @@ func match(s string) int {
 			}
 
 		case 984:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 985
 			default:
@@ -6692,7 +6690,7 @@ func match(s string) int {
 			}
 
 		case 985:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 986
 			default:
@@ -6700,7 +6698,7 @@ func match(s string) int {
 			}
 
 		case 986:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 987
 			default:
@@ -6708,7 +6706,7 @@ func match(s string) int {
 			}
 
 		case 987:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 988
@@ -6717,7 +6715,7 @@ func match(s string) int {
 			}
 
 		case 989:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 990
 			default:
@@ -6725,7 +6723,7 @@ func match(s string) int {
 			}
 
 		case 990:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 991
@@ -6734,7 +6732,7 @@ func match(s string) int {
 			}
 
 		case 992:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 993
 			default:
@@ -6742,7 +6740,7 @@ func match(s string) int {
 			}
 
 		case 993:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 994
@@ -6751,7 +6749,7 @@ func match(s string) int {
 			}
 
 		case 995:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 996
 			default:
@@ -6759,7 +6757,7 @@ func match(s string) int {
 			}
 
 		case 996:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 997
@@ -6768,7 +6766,7 @@ func match(s string) int {
 			}
 
 		case 1000:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1001
 			case 'i':
@@ -6780,7 +6778,7 @@ func match(s string) int {
 			}
 
 		case 1001:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1002
@@ -6789,7 +6787,7 @@ func match(s string) int {
 			}
 
 		case 1003:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1004
 			case 't':
@@ -6799,7 +6797,7 @@ func match(s string) int {
 			}
 
 		case 1004:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1005
@@ -6808,7 +6806,7 @@ func match(s string) int {
 			}
 
 		case 1006:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1007
 			default:
@@ -6816,7 +6814,7 @@ func match(s string) int {
 			}
 
 		case 1007:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1008
 			default:
@@ -6824,7 +6822,7 @@ func match(s string) int {
 			}
 
 		case 1008:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1009
@@ -6833,7 +6831,7 @@ func match(s string) int {
 			}
 
 		case 1010:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 1011
@@ -6842,7 +6840,7 @@ func match(s string) int {
 			}
 
 		case 1014:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1015
 			case 'e':
@@ -6874,7 +6872,7 @@ func match(s string) int {
 			}
 
 		case 1015:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1016
 			case 'n':
@@ -6886,7 +6884,7 @@ func match(s string) int {
 			}
 
 		case 1016:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1017
 			default:
@@ -6894,7 +6892,7 @@ func match(s string) int {
 			}
 
 		case 1017:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1018
 			default:
@@ -6902,7 +6900,7 @@ func match(s string) int {
 			}
 
 		case 1018:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1019
 			default:
@@ -6910,7 +6908,7 @@ func match(s string) int {
 			}
 
 		case 1019:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1020
@@ -6919,7 +6917,7 @@ func match(s string) int {
 			}
 
 		case 1021:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1022
 			default:
@@ -6927,7 +6925,7 @@ func match(s string) int {
 			}
 
 		case 1022:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1023
 			default:
@@ -6935,7 +6933,7 @@ func match(s string) int {
 			}
 
 		case 1023:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1024
 			default:
@@ -6943,7 +6941,7 @@ func match(s string) int {
 			}
 
 		case 1024:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1025
@@ -6952,7 +6950,7 @@ func match(s string) int {
 			}
 
 		case 1026:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1027
@@ -6961,7 +6959,7 @@ func match(s string) int {
 			}
 
 		case 1028:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1029
 			case 'l':
@@ -6973,7 +6971,7 @@ func match(s string) int {
 			}
 
 		case 1029:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1030
 			default:
@@ -6981,7 +6979,7 @@ func match(s string) int {
 			}
 
 		case 1030:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1031
 			default:
@@ -6989,7 +6987,7 @@ func match(s string) int {
 			}
 
 		case 1031:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1032
 			default:
@@ -6997,7 +6995,7 @@ func match(s string) int {
 			}
 
 		case 1032:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1033
 			default:
@@ -7005,7 +7003,7 @@ func match(s string) int {
 			}
 
 		case 1033:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1034
 			default:
@@ -7013,7 +7011,7 @@ func match(s string) int {
 			}
 
 		case 1034:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1035
 			default:
@@ -7021,7 +7019,7 @@ func match(s string) int {
 			}
 
 		case 1035:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1036
@@ -7030,7 +7028,7 @@ func match(s string) int {
 			}
 
 		case 1037:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 1038
@@ -7039,7 +7037,7 @@ func match(s string) int {
 			}
 
 		case 1039:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1040
@@ -7050,7 +7048,7 @@ func match(s string) int {
 			}
 
 		case 1041:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1042
 			default:
@@ -7058,7 +7056,7 @@ func match(s string) int {
 			}
 
 		case 1042:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1043
@@ -7067,7 +7065,7 @@ func match(s string) int {
 			}
 
 		case 1044:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1045
 			case 't':
@@ -7080,7 +7078,7 @@ func match(s string) int {
 			}
 
 		case 1045:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1046
 			default:
@@ -7088,7 +7086,7 @@ func match(s string) int {
 			}
 
 		case 1046:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1047
 			default:
@@ -7096,7 +7094,7 @@ func match(s string) int {
 			}
 
 		case 1047:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 1048
@@ -7105,7 +7103,7 @@ func match(s string) int {
 			}
 
 		case 1049:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1050
 			default:
@@ -7113,7 +7111,7 @@ func match(s string) int {
 			}
 
 		case 1050:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1051
 			default:
@@ -7121,7 +7119,7 @@ func match(s string) int {
 			}
 
 		case 1051:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1052
 			default:
@@ -7129,7 +7127,7 @@ func match(s string) int {
 			}
 
 		case 1052:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1053
@@ -7138,7 +7136,7 @@ func match(s string) int {
 			}
 
 		case 1058:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1059
 			case 'l':
@@ -7161,7 +7159,7 @@ func match(s string) int {
 			}
 
 		case 1059:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1060
 			default:
@@ -7169,7 +7167,7 @@ func match(s string) int {
 			}
 
 		case 1060:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1061
 			default:
@@ -7177,7 +7175,7 @@ func match(s string) int {
 			}
 
 		case 1061:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1062
@@ -7186,7 +7184,7 @@ func match(s string) int {
 			}
 
 		case 1063:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1064
 			case 'i':
@@ -7196,7 +7194,7 @@ func match(s string) int {
 			}
 
 		case 1064:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1065
 			default:
@@ -7204,7 +7202,7 @@ func match(s string) int {
 			}
 
 		case 1065:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1066
 			default:
@@ -7212,7 +7210,7 @@ func match(s string) int {
 			}
 
 		case 1066:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1067
 			default:
@@ -7220,7 +7218,7 @@ func match(s string) int {
 			}
 
 		case 1067:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1068
@@ -7229,7 +7227,7 @@ func match(s string) int {
 			}
 
 		case 1069:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1070
 			default:
@@ -7237,7 +7235,7 @@ func match(s string) int {
 			}
 
 		case 1070:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1071
 			default:
@@ -7245,7 +7243,7 @@ func match(s string) int {
 			}
 
 		case 1071:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1072
@@ -7254,7 +7252,7 @@ func match(s string) int {
 			}
 
 		case 1073:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1074
 			default:
@@ -7262,7 +7260,7 @@ func match(s string) int {
 			}
 
 		case 1074:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1075
 			case 's':
@@ -7273,7 +7271,7 @@ func match(s string) int {
 			}
 
 		case 1075:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1076
 			default:
@@ -7281,7 +7279,7 @@ func match(s string) int {
 			}
 
 		case 1076:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1077
 			default:
@@ -7289,7 +7287,7 @@ func match(s string) int {
 			}
 
 		case 1077:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1078
 			default:
@@ -7297,7 +7295,7 @@ func match(s string) int {
 			}
 
 		case 1078:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1079
@@ -7306,7 +7304,7 @@ func match(s string) int {
 			}
 
 		case 1081:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1082
 			default:
@@ -7314,7 +7312,7 @@ func match(s string) int {
 			}
 
 		case 1082:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1083
@@ -7323,7 +7321,7 @@ func match(s string) int {
 			}
 
 		case 1084:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1085
 			default:
@@ -7331,7 +7329,7 @@ func match(s string) int {
 			}
 
 		case 1085:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1086
@@ -7340,7 +7338,7 @@ func match(s string) int {
 			}
 
 		case 1087:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1088
@@ -7349,7 +7347,7 @@ func match(s string) int {
 			}
 
 		case 1088:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1089
 			default:
@@ -7357,7 +7355,7 @@ func match(s string) int {
 			}
 
 		case 1089:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1090
 			default:
@@ -7365,7 +7363,7 @@ func match(s string) int {
 			}
 
 		case 1090:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1091
@@ -7374,7 +7372,7 @@ func match(s string) int {
 			}
 
 		case 1092:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1093
 			default:
@@ -7382,7 +7380,7 @@ func match(s string) int {
 			}
 
 		case 1093:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1094
@@ -7391,7 +7389,7 @@ func match(s string) int {
 			}
 
 		case 1099:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case '2':
 				st = 1100
 			case 'b':
@@ -7437,7 +7435,7 @@ func match(s string) int {
 			}
 
 		case 1100:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 1101
@@ -7446,7 +7444,7 @@ func match(s string) int {
 			}
 
 		case 1102:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 1103
@@ -7455,7 +7453,7 @@ func match(s string) int {
 			}
 
 		case 1104:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1105
 			case 'u':
@@ -7466,7 +7464,7 @@ func match(s string) int {
 			}
 
 		case 1105:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1106
@@ -7475,7 +7473,7 @@ func match(s string) int {
 			}
 
 		case 1110:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 1111
@@ -7484,7 +7482,7 @@ func match(s string) int {
 			}
 
 		case 1113:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1114
 			default:
@@ -7492,7 +7490,7 @@ func match(s string) int {
 			}
 
 		case 1114:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1115
@@ -7501,7 +7499,7 @@ func match(s string) int {
 			}
 
 		case 1115:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1116
 			default:
@@ -7509,7 +7507,7 @@ func match(s string) int {
 			}
 
 		case 1116:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1117
 			default:
@@ -7517,7 +7515,7 @@ func match(s string) int {
 			}
 
 		case 1117:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1118
 			default:
@@ -7525,7 +7523,7 @@ func match(s string) int {
 			}
 
 		case 1118:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1119
 			default:
@@ -7533,7 +7531,7 @@ func match(s string) int {
 			}
 
 		case 1119:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1120
 			default:
@@ -7541,7 +7539,7 @@ func match(s string) int {
 			}
 
 		case 1120:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1121
@@ -7550,7 +7548,7 @@ func match(s string) int {
 			}
 
 		case 1122:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1123
 			case 'f':
@@ -7573,7 +7571,7 @@ func match(s string) int {
 			}
 
 		case 1123:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1124
 			default:
@@ -7581,7 +7579,7 @@ func match(s string) int {
 			}
 
 		case 1124:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1125
 			default:
@@ -7589,7 +7587,7 @@ func match(s string) int {
 			}
 
 		case 1125:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1126
 			default:
@@ -7597,7 +7595,7 @@ func match(s string) int {
 			}
 
 		case 1126:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1127
 			default:
@@ -7605,7 +7603,7 @@ func match(s string) int {
 			}
 
 		case 1127:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1128
 			default:
@@ -7613,7 +7611,7 @@ func match(s string) int {
 			}
 
 		case 1128:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1129
 			default:
@@ -7621,7 +7619,7 @@ func match(s string) int {
 			}
 
 		case 1129:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1130
@@ -7630,7 +7628,7 @@ func match(s string) int {
 			}
 
 		case 1131:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1132
 			case 'o':
@@ -7641,7 +7639,7 @@ func match(s string) int {
 			}
 
 		case 1132:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1133
 			default:
@@ -7649,7 +7647,7 @@ func match(s string) int {
 			}
 
 		case 1133:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1134
 			default:
@@ -7657,7 +7655,7 @@ func match(s string) int {
 			}
 
 		case 1134:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1135
 			default:
@@ -7665,7 +7663,7 @@ func match(s string) int {
 			}
 
 		case 1135:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1136
@@ -7674,7 +7672,7 @@ func match(s string) int {
 			}
 
 		case 1140:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1141
 			case 'u':
@@ -7684,7 +7682,7 @@ func match(s string) int {
 			}
 
 		case 1141:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1142
 			default:
@@ -7692,7 +7690,7 @@ func match(s string) int {
 			}
 
 		case 1142:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1143
 			default:
@@ -7700,7 +7698,7 @@ func match(s string) int {
 			}
 
 		case 1143:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1144
 			default:
@@ -7708,7 +7706,7 @@ func match(s string) int {
 			}
 
 		case 1144:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1145
 			default:
@@ -7716,7 +7714,7 @@ func match(s string) int {
 			}
 
 		case 1145:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1146
@@ -7725,7 +7723,7 @@ func match(s string) int {
 			}
 
 		case 1147:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1148
 			default:
@@ -7733,7 +7731,7 @@ func match(s string) int {
 			}
 
 		case 1148:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1149
@@ -7742,7 +7740,7 @@ func match(s string) int {
 			}
 
 		case 1150:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1151
 			default:
@@ -7750,7 +7748,7 @@ func match(s string) int {
 			}
 
 		case 1151:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1152
 			default:
@@ -7758,7 +7756,7 @@ func match(s string) int {
 			}
 
 		case 1152:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1153
 			default:
@@ -7766,7 +7764,7 @@ func match(s string) int {
 			}
 
 		case 1153:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1154
 			default:
@@ -7774,7 +7772,7 @@ func match(s string) int {
 			}
 
 		case 1154:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1155
 			default:
@@ -7782,7 +7780,7 @@ func match(s string) int {
 			}
 
 		case 1155:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1156
 			default:
@@ -7790,7 +7788,7 @@ func match(s string) int {
 			}
 
 		case 1156:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1157
 			default:
@@ -7798,7 +7796,7 @@ func match(s string) int {
 			}
 
 		case 1157:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1158
 			default:
@@ -7806,7 +7804,7 @@ func match(s string) int {
 			}
 
 		case 1158:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1159
 			default:
@@ -7814,7 +7812,7 @@ func match(s string) int {
 			}
 
 		case 1159:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1160
@@ -7823,7 +7821,7 @@ func match(s string) int {
 			}
 
 		case 1161:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1162
 			default:
@@ -7831,7 +7829,7 @@ func match(s string) int {
 			}
 
 		case 1162:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1163
 			default:
@@ -7839,7 +7837,7 @@ func match(s string) int {
 			}
 
 		case 1163:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1164
 			default:
@@ -7847,7 +7845,7 @@ func match(s string) int {
 			}
 
 		case 1164:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1165
 			default:
@@ -7855,7 +7853,7 @@ func match(s string) int {
 			}
 
 		case 1165:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1166
 			default:
@@ -7863,7 +7861,7 @@ func match(s string) int {
 			}
 
 		case 1166:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1167
 			default:
@@ -7871,7 +7869,7 @@ func match(s string) int {
 			}
 
 		case 1167:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1168
 			default:
@@ -7879,7 +7877,7 @@ func match(s string) int {
 			}
 
 		case 1168:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1169
@@ -7888,7 +7886,7 @@ func match(s string) int {
 			}
 
 		case 1172:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1173
 			default:
@@ -7896,7 +7894,7 @@ func match(s string) int {
 			}
 
 		case 1173:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1174
 			default:
@@ -7904,7 +7902,7 @@ func match(s string) int {
 			}
 
 		case 1174:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 1175
@@ -7913,7 +7911,7 @@ func match(s string) int {
 			}
 
 		case 1178:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1179
@@ -7922,7 +7920,7 @@ func match(s string) int {
 			}
 
 		case 1180:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1181
 			case 'c':
@@ -7948,7 +7946,7 @@ func match(s string) int {
 			}
 
 		case 1181:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 1182
 			default:
@@ -7956,7 +7954,7 @@ func match(s string) int {
 			}
 
 		case 1182:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1183
@@ -7965,7 +7963,7 @@ func match(s string) int {
 			}
 
 		case 1184:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 1185
@@ -7974,7 +7972,7 @@ func match(s string) int {
 			}
 
 		case 1186:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1187
 			case 'w':
@@ -7984,7 +7982,7 @@ func match(s string) int {
 			}
 
 		case 1187:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				st = 1188
 			default:
@@ -7992,7 +7990,7 @@ func match(s string) int {
 			}
 
 		case 1188:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1189
@@ -8001,7 +7999,7 @@ func match(s string) int {
 			}
 
 		case 1190:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1191
 			default:
@@ -8009,7 +8007,7 @@ func match(s string) int {
 			}
 
 		case 1191:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1192
 			default:
@@ -8017,7 +8015,7 @@ func match(s string) int {
 			}
 
 		case 1192:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1193
 			default:
@@ -8025,7 +8023,7 @@ func match(s string) int {
 			}
 
 		case 1193:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1194
@@ -8034,7 +8032,7 @@ func match(s string) int {
 			}
 
 		case 1195:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1196
@@ -8043,7 +8041,7 @@ func match(s string) int {
 			}
 
 		case 1198:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1199
 			default:
@@ -8051,7 +8049,7 @@ func match(s string) int {
 			}
 
 		case 1199:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1200
@@ -8062,7 +8060,7 @@ func match(s string) int {
 			}
 
 		case 1201:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1202
 			default:
@@ -8070,7 +8068,7 @@ func match(s string) int {
 			}
 
 		case 1202:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1203
@@ -8079,7 +8077,7 @@ func match(s string) int {
 			}
 
 		case 1205:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1206
 			default:
@@ -8087,7 +8085,7 @@ func match(s string) int {
 			}
 
 		case 1206:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1207
 			default:
@@ -8095,7 +8093,7 @@ func match(s string) int {
 			}
 
 		case 1207:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1208
 			default:
@@ -8103,7 +8101,7 @@ func match(s string) int {
 			}
 
 		case 1208:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1209
@@ -8112,7 +8110,7 @@ func match(s string) int {
 			}
 
 		case 1210:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1211
 			case 'd':
@@ -8157,7 +8155,7 @@ func match(s string) int {
 			}
 
 		case 1211:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1212
 			default:
@@ -8165,7 +8163,7 @@ func match(s string) int {
 			}
 
 		case 1212:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				st = 1213
 			default:
@@ -8173,7 +8171,7 @@ func match(s string) int {
 			}
 
 		case 1213:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1214
 			default:
@@ -8181,7 +8179,7 @@ func match(s string) int {
 			}
 
 		case 1214:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1215
@@ -8190,7 +8188,7 @@ func match(s string) int {
 			}
 
 		case 1216:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1217
 			default:
@@ -8198,7 +8196,7 @@ func match(s string) int {
 			}
 
 		case 1217:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1218
@@ -8207,7 +8205,7 @@ func match(s string) int {
 			}
 
 		case 1222:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 1223
@@ -8220,7 +8218,7 @@ func match(s string) int {
 			}
 
 		case 1224:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1225
 			default:
@@ -8228,7 +8226,7 @@ func match(s string) int {
 			}
 
 		case 1225:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1226
 			default:
@@ -8236,7 +8234,7 @@ func match(s string) int {
 			}
 
 		case 1226:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1227
 			default:
@@ -8244,7 +8242,7 @@ func match(s string) int {
 			}
 
 		case 1227:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1228
@@ -8253,7 +8251,7 @@ func match(s string) int {
 			}
 
 		case 1229:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1230
@@ -8262,7 +8260,7 @@ func match(s string) int {
 			}
 
 		case 1233:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1234
 			case 'm':
@@ -8272,7 +8270,7 @@ func match(s string) int {
 			}
 
 		case 1234:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1235
 			default:
@@ -8280,7 +8278,7 @@ func match(s string) int {
 			}
 
 		case 1235:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1236
@@ -8289,7 +8287,7 @@ func match(s string) int {
 			}
 
 		case 1237:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1238
 			default:
@@ -8297,7 +8295,7 @@ func match(s string) int {
 			}
 
 		case 1238:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1239
 			default:
@@ -8305,7 +8303,7 @@ func match(s string) int {
 			}
 
 		case 1239:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1240
 			default:
@@ -8313,7 +8311,7 @@ func match(s string) int {
 			}
 
 		case 1240:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 1241
@@ -8322,7 +8320,7 @@ func match(s string) int {
 			}
 
 		case 1243:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1244
@@ -8333,7 +8331,7 @@ func match(s string) int {
 			}
 
 		case 1245:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1246
@@ -8342,7 +8340,7 @@ func match(s string) int {
 			}
 
 		case 1248:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1249
 			default:
@@ -8350,7 +8348,7 @@ func match(s string) int {
 			}
 
 		case 1249:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1250
 			default:
@@ -8358,7 +8356,7 @@ func match(s string) int {
 			}
 
 		case 1250:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1251
@@ -8367,7 +8365,7 @@ func match(s string) int {
 			}
 
 		case 1253:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1254
@@ -8414,7 +8412,7 @@ func match(s string) int {
 			}
 
 		case 1254:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1255
 			case 'n':
@@ -8429,7 +8427,7 @@ func match(s string) int {
 			}
 
 		case 1255:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1256
 			default:
@@ -8437,7 +8435,7 @@ func match(s string) int {
 			}
 
 		case 1256:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1257
 			default:
@@ -8445,7 +8443,7 @@ func match(s string) int {
 			}
 
 		case 1257:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				st = 1258
 			default:
@@ -8453,7 +8451,7 @@ func match(s string) int {
 			}
 
 		case 1258:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1259
@@ -8462,7 +8460,7 @@ func match(s string) int {
 			}
 
 		case 1260:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1261
@@ -8471,7 +8469,7 @@ func match(s string) int {
 			}
 
 		case 1262:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1263
 			default:
@@ -8479,7 +8477,7 @@ func match(s string) int {
 			}
 
 		case 1263:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1264
 			default:
@@ -8487,7 +8485,7 @@ func match(s string) int {
 			}
 
 		case 1264:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1265
 			default:
@@ -8495,7 +8493,7 @@ func match(s string) int {
 			}
 
 		case 1265:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1266
@@ -8504,7 +8502,7 @@ func match(s string) int {
 			}
 
 		case 1267:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 1268
 			default:
@@ -8512,7 +8510,7 @@ func match(s string) int {
 			}
 
 		case 1268:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1269
 			default:
@@ -8520,7 +8518,7 @@ func match(s string) int {
 			}
 
 		case 1269:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1270
@@ -8529,7 +8527,7 @@ func match(s string) int {
 			}
 
 		case 1273:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1274
@@ -8538,7 +8536,7 @@ func match(s string) int {
 			}
 
 		case 1275:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1276
 			case 'c':
@@ -8550,7 +8548,7 @@ func match(s string) int {
 			}
 
 		case 1276:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1277
 			default:
@@ -8558,7 +8556,7 @@ func match(s string) int {
 			}
 
 		case 1277:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1278
@@ -8567,7 +8565,7 @@ func match(s string) int {
 			}
 
 		case 1279:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1280
 			default:
@@ -8575,7 +8573,7 @@ func match(s string) int {
 			}
 
 		case 1280:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1281
 			default:
@@ -8583,7 +8581,7 @@ func match(s string) int {
 			}
 
 		case 1281:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1282
 			default:
@@ -8591,7 +8589,7 @@ func match(s string) int {
 			}
 
 		case 1282:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1283
@@ -8600,7 +8598,7 @@ func match(s string) int {
 			}
 
 		case 1284:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1285
 			default:
@@ -8608,7 +8606,7 @@ func match(s string) int {
 			}
 
 		case 1285:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1286
@@ -8617,7 +8615,7 @@ func match(s string) int {
 			}
 
 		case 1287:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1288
 			default:
@@ -8625,7 +8623,7 @@ func match(s string) int {
 			}
 
 		case 1288:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1289
@@ -8634,7 +8632,7 @@ func match(s string) int {
 			}
 
 		case 1290:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1291
 			case 'd':
@@ -8652,7 +8650,7 @@ func match(s string) int {
 			}
 
 		case 1291:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1292
 			default:
@@ -8660,7 +8658,7 @@ func match(s string) int {
 			}
 
 		case 1292:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1293
 			default:
@@ -8668,7 +8666,7 @@ func match(s string) int {
 			}
 
 		case 1293:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1294
 			default:
@@ -8676,7 +8674,7 @@ func match(s string) int {
 			}
 
 		case 1294:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1295
@@ -8685,7 +8683,7 @@ func match(s string) int {
 			}
 
 		case 1296:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1297
@@ -8694,7 +8692,7 @@ func match(s string) int {
 			}
 
 		case 1298:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1299
@@ -8703,7 +8701,7 @@ func match(s string) int {
 			}
 
 		case 1300:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1301
 			default:
@@ -8711,7 +8709,7 @@ func match(s string) int {
 			}
 
 		case 1301:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1302
 			default:
@@ -8719,7 +8717,7 @@ func match(s string) int {
 			}
 
 		case 1302:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1303
 			default:
@@ -8727,7 +8725,7 @@ func match(s string) int {
 			}
 
 		case 1303:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1304
 			default:
@@ -8735,7 +8733,7 @@ func match(s string) int {
 			}
 
 		case 1304:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1305
@@ -8744,7 +8742,7 @@ func match(s string) int {
 			}
 
 		case 1306:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1307
 			case 'o':
@@ -8755,7 +8753,7 @@ func match(s string) int {
 			}
 
 		case 1307:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1308
 			default:
@@ -8763,7 +8761,7 @@ func match(s string) int {
 			}
 
 		case 1308:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1309
 			default:
@@ -8771,7 +8769,7 @@ func match(s string) int {
 			}
 
 		case 1309:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1310
@@ -8780,7 +8778,7 @@ func match(s string) int {
 			}
 
 		case 1312:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 1313
@@ -8789,7 +8787,7 @@ func match(s string) int {
 			}
 
 		case 1315:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1316
 			case 'c':
@@ -8808,7 +8806,7 @@ func match(s string) int {
 			}
 
 		case 1316:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1317
@@ -8817,7 +8815,7 @@ func match(s string) int {
 			}
 
 		case 1317:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1318
@@ -8826,7 +8824,7 @@ func match(s string) int {
 			}
 
 		case 1319:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1320
 			default:
@@ -8834,7 +8832,7 @@ func match(s string) int {
 			}
 
 		case 1320:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1321
@@ -8843,7 +8841,7 @@ func match(s string) int {
 			}
 
 		case 1323:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1324
 			default:
@@ -8851,7 +8849,7 @@ func match(s string) int {
 			}
 
 		case 1324:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1325
 			default:
@@ -8859,7 +8857,7 @@ func match(s string) int {
 			}
 
 		case 1325:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1326
@@ -8868,7 +8866,7 @@ func match(s string) int {
 			}
 
 		case 1327:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1328
 			default:
@@ -8876,7 +8874,7 @@ func match(s string) int {
 			}
 
 		case 1328:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1329
@@ -8888,7 +8886,7 @@ func match(s string) int {
 			}
 
 		case 1331:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1332
@@ -8897,7 +8895,7 @@ func match(s string) int {
 			}
 
 		case 1335:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1336
 			default:
@@ -8905,7 +8903,7 @@ func match(s string) int {
 			}
 
 		case 1336:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1337
@@ -8914,7 +8912,7 @@ func match(s string) int {
 			}
 
 		case 1338:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1339
 			case 'x':
@@ -8924,7 +8922,7 @@ func match(s string) int {
 			}
 
 		case 1339:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1340
 			default:
@@ -8932,7 +8930,7 @@ func match(s string) int {
 			}
 
 		case 1340:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1341
@@ -8941,7 +8939,7 @@ func match(s string) int {
 			}
 
 		case 1342:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1343
@@ -8952,7 +8950,7 @@ func match(s string) int {
 			}
 
 		case 1344:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1345
 			default:
@@ -8960,7 +8958,7 @@ func match(s string) int {
 			}
 
 		case 1345:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1346
@@ -8969,7 +8967,7 @@ func match(s string) int {
 			}
 
 		case 1349:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1350
@@ -9045,7 +9043,7 @@ func match(s string) int {
 			}
 
 		case 1350:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1351
 			case 'i':
@@ -9059,7 +9057,7 @@ func match(s string) int {
 			}
 
 		case 1351:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1352
 			default:
@@ -9067,7 +9065,7 @@ func match(s string) int {
 			}
 
 		case 1352:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1353
 			default:
@@ -9075,7 +9073,7 @@ func match(s string) int {
 			}
 
 		case 1353:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1354
@@ -9084,7 +9082,7 @@ func match(s string) int {
 			}
 
 		case 1355:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				length = i + 1
 				st = 1356
@@ -9095,7 +9093,7 @@ func match(s string) int {
 			}
 
 		case 1357:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1358
 			default:
@@ -9103,7 +9101,7 @@ func match(s string) int {
 			}
 
 		case 1358:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1359
@@ -9112,7 +9110,7 @@ func match(s string) int {
 			}
 
 		case 1360:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1361
 			case 'g':
@@ -9122,7 +9120,7 @@ func match(s string) int {
 			}
 
 		case 1361:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1362
 			default:
@@ -9130,7 +9128,7 @@ func match(s string) int {
 			}
 
 		case 1362:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1363
 			default:
@@ -9138,7 +9136,7 @@ func match(s string) int {
 			}
 
 		case 1363:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1364
 			default:
@@ -9146,7 +9144,7 @@ func match(s string) int {
 			}
 
 		case 1364:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1365
 			default:
@@ -9154,7 +9152,7 @@ func match(s string) int {
 			}
 
 		case 1365:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1366
 			default:
@@ -9162,7 +9160,7 @@ func match(s string) int {
 			}
 
 		case 1366:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1367
@@ -9171,7 +9169,7 @@ func match(s string) int {
 			}
 
 		case 1368:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1369
@@ -9180,7 +9178,7 @@ func match(s string) int {
 			}
 
 		case 1370:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1371
 			case 'r':
@@ -9190,7 +9188,7 @@ func match(s string) int {
 			}
 
 		case 1371:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1372
 			default:
@@ -9198,7 +9196,7 @@ func match(s string) int {
 			}
 
 		case 1372:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1373
@@ -9207,7 +9205,7 @@ func match(s string) int {
 			}
 
 		case 1373:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1374
 			case 's':
@@ -9218,7 +9216,7 @@ func match(s string) int {
 			}
 
 		case 1374:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1375
 			default:
@@ -9226,7 +9224,7 @@ func match(s string) int {
 			}
 
 		case 1375:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1376
@@ -9235,7 +9233,7 @@ func match(s string) int {
 			}
 
 		case 1378:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1379
 			default:
@@ -9243,7 +9241,7 @@ func match(s string) int {
 			}
 
 		case 1379:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1380
 			default:
@@ -9251,7 +9249,7 @@ func match(s string) int {
 			}
 
 		case 1380:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1381
 			default:
@@ -9259,7 +9257,7 @@ func match(s string) int {
 			}
 
 		case 1381:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1382
@@ -9268,7 +9266,7 @@ func match(s string) int {
 			}
 
 		case 1383:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1384
@@ -9277,7 +9275,7 @@ func match(s string) int {
 			}
 
 		case 1387:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1388
 			case 'e':
@@ -9294,7 +9292,7 @@ func match(s string) int {
 			}
 
 		case 1388:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1389
 			default:
@@ -9302,7 +9300,7 @@ func match(s string) int {
 			}
 
 		case 1389:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1390
@@ -9311,7 +9309,7 @@ func match(s string) int {
 			}
 
 		case 1391:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1392
@@ -9320,7 +9318,7 @@ func match(s string) int {
 			}
 
 		case 1393:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1394
 			default:
@@ -9328,7 +9326,7 @@ func match(s string) int {
 			}
 
 		case 1394:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1395
 			default:
@@ -9336,7 +9334,7 @@ func match(s string) int {
 			}
 
 		case 1395:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1396
 			default:
@@ -9344,7 +9342,7 @@ func match(s string) int {
 			}
 
 		case 1396:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1397
 			default:
@@ -9352,7 +9350,7 @@ func match(s string) int {
 			}
 
 		case 1397:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1398
 			default:
@@ -9360,7 +9358,7 @@ func match(s string) int {
 			}
 
 		case 1398:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1399
@@ -9369,7 +9367,7 @@ func match(s string) int {
 			}
 
 		case 1400:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1401
@@ -9380,7 +9378,7 @@ func match(s string) int {
 			}
 
 		case 1402:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1403
 			default:
@@ -9388,7 +9386,7 @@ func match(s string) int {
 			}
 
 		case 1403:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1404
 			default:
@@ -9396,7 +9394,7 @@ func match(s string) int {
 			}
 
 		case 1404:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1405
 			default:
@@ -9404,7 +9402,7 @@ func match(s string) int {
 			}
 
 		case 1405:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1406
@@ -9413,7 +9411,7 @@ func match(s string) int {
 			}
 
 		case 1407:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 1408
@@ -9422,7 +9420,7 @@ func match(s string) int {
 			}
 
 		case 1411:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1412
 			case 'l':
@@ -9435,7 +9433,7 @@ func match(s string) int {
 			}
 
 		case 1412:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1413
 			default:
@@ -9443,7 +9441,7 @@ func match(s string) int {
 			}
 
 		case 1413:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1414
@@ -9452,7 +9450,7 @@ func match(s string) int {
 			}
 
 		case 1416:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1417
@@ -9461,7 +9459,7 @@ func match(s string) int {
 			}
 
 		case 1420:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1421
@@ -9470,7 +9468,7 @@ func match(s string) int {
 			}
 
 		case 1423:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1424
 			case 'd':
@@ -9494,7 +9492,7 @@ func match(s string) int {
 			}
 
 		case 1424:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1425
@@ -9503,7 +9501,7 @@ func match(s string) int {
 			}
 
 		case 1426:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1427
@@ -9512,7 +9510,7 @@ func match(s string) int {
 			}
 
 		case 1429:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1430
 			case 'e':
@@ -9522,7 +9520,7 @@ func match(s string) int {
 			}
 
 		case 1430:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1431
 			default:
@@ -9530,7 +9528,7 @@ func match(s string) int {
 			}
 
 		case 1431:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 1432
@@ -9539,7 +9537,7 @@ func match(s string) int {
 			}
 
 		case 1433:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1434
@@ -9548,7 +9546,7 @@ func match(s string) int {
 			}
 
 		case 1435:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1436
 			case 't':
@@ -9558,7 +9556,7 @@ func match(s string) int {
 			}
 
 		case 1436:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1437
 			default:
@@ -9566,7 +9564,7 @@ func match(s string) int {
 			}
 
 		case 1437:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1438
@@ -9575,7 +9573,7 @@ func match(s string) int {
 			}
 
 		case 1439:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1440
 			default:
@@ -9583,7 +9581,7 @@ func match(s string) int {
 			}
 
 		case 1440:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1441
 			default:
@@ -9591,7 +9589,7 @@ func match(s string) int {
 			}
 
 		case 1441:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1442
 			default:
@@ -9599,7 +9597,7 @@ func match(s string) int {
 			}
 
 		case 1442:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1443
@@ -9608,7 +9606,7 @@ func match(s string) int {
 			}
 
 		case 1444:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1445
 			default:
@@ -9616,7 +9614,7 @@ func match(s string) int {
 			}
 
 		case 1445:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1446
 			default:
@@ -9624,7 +9622,7 @@ func match(s string) int {
 			}
 
 		case 1446:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				length = i + 1
 				st = 1447
@@ -9633,7 +9631,7 @@ func match(s string) int {
 			}
 
 		case 1448:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1449
 			default:
@@ -9641,7 +9639,7 @@ func match(s string) int {
 			}
 
 		case 1449:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1450
 			default:
@@ -9649,7 +9647,7 @@ func match(s string) int {
 			}
 
 		case 1450:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1451
 			default:
@@ -9657,7 +9655,7 @@ func match(s string) int {
 			}
 
 		case 1451:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 1452
 			default:
@@ -9665,7 +9663,7 @@ func match(s string) int {
 			}
 
 		case 1452:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1453
 			default:
@@ -9673,7 +9671,7 @@ func match(s string) int {
 			}
 
 		case 1453:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1454
 			default:
@@ -9681,7 +9679,7 @@ func match(s string) int {
 			}
 
 		case 1454:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1455
 			default:
@@ -9689,7 +9687,7 @@ func match(s string) int {
 			}
 
 		case 1455:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1456
@@ -9698,7 +9696,7 @@ func match(s string) int {
 			}
 
 		case 1457:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1458
 			default:
@@ -9706,7 +9704,7 @@ func match(s string) int {
 			}
 
 		case 1458:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1459
@@ -9715,7 +9713,7 @@ func match(s string) int {
 			}
 
 		case 1464:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1465
@@ -9726,7 +9724,7 @@ func match(s string) int {
 			}
 
 		case 1466:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1467
@@ -9735,7 +9733,7 @@ func match(s string) int {
 			}
 
 		case 1468:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1469
 			default:
@@ -9743,7 +9741,7 @@ func match(s string) int {
 			}
 
 		case 1469:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1470
 			default:
@@ -9751,7 +9749,7 @@ func match(s string) int {
 			}
 
 		case 1470:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1471
 			default:
@@ -9759,7 +9757,7 @@ func match(s string) int {
 			}
 
 		case 1471:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 1472
@@ -9768,7 +9766,7 @@ func match(s string) int {
 			}
 
 		case 1478:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1479
@@ -9816,7 +9814,7 @@ func match(s string) int {
 			}
 
 		case 1479:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1480
 			case 'g':
@@ -9830,7 +9828,7 @@ func match(s string) int {
 			}
 
 		case 1480:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1481
 			default:
@@ -9838,7 +9836,7 @@ func match(s string) int {
 			}
 
 		case 1481:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 1482
@@ -9847,7 +9845,7 @@ func match(s string) int {
 			}
 
 		case 1483:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1484
 			default:
@@ -9855,7 +9853,7 @@ func match(s string) int {
 			}
 
 		case 1484:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 1485
 			default:
@@ -9863,7 +9861,7 @@ func match(s string) int {
 			}
 
 		case 1485:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1486
@@ -9872,7 +9870,7 @@ func match(s string) int {
 			}
 
 		case 1487:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1488
@@ -9881,7 +9879,7 @@ func match(s string) int {
 			}
 
 		case 1489:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1490
@@ -9890,7 +9888,7 @@ func match(s string) int {
 			}
 
 		case 1492:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1493
@@ -9909,7 +9907,7 @@ func match(s string) int {
 			}
 
 		case 1494:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				st = 1495
 			default:
@@ -9917,7 +9915,7 @@ func match(s string) int {
 			}
 
 		case 1495:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1496
 			default:
@@ -9925,7 +9923,7 @@ func match(s string) int {
 			}
 
 		case 1496:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1497
 			default:
@@ -9933,7 +9931,7 @@ func match(s string) int {
 			}
 
 		case 1497:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 1498
@@ -9942,7 +9940,7 @@ func match(s string) int {
 			}
 
 		case 1499:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1500
 			default:
@@ -9950,7 +9948,7 @@ func match(s string) int {
 			}
 
 		case 1500:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1501
 			default:
@@ -9958,7 +9956,7 @@ func match(s string) int {
 			}
 
 		case 1501:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1502
 			default:
@@ -9966,7 +9964,7 @@ func match(s string) int {
 			}
 
 		case 1502:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1503
@@ -9975,7 +9973,7 @@ func match(s string) int {
 			}
 
 		case 1504:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1505
@@ -9984,7 +9982,7 @@ func match(s string) int {
 			}
 
 		case 1506:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1507
 			default:
@@ -9992,7 +9990,7 @@ func match(s string) int {
 			}
 
 		case 1507:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1508
@@ -10001,7 +9999,7 @@ func match(s string) int {
 			}
 
 		case 1510:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1511
@@ -10010,7 +10008,7 @@ func match(s string) int {
 			}
 
 		case 1512:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 1513
@@ -10019,7 +10017,7 @@ func match(s string) int {
 			}
 
 		case 1514:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1515
 			case 'n':
@@ -10031,7 +10029,7 @@ func match(s string) int {
 			}
 
 		case 1515:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1516
@@ -10040,7 +10038,7 @@ func match(s string) int {
 			}
 
 		case 1517:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'j':
 				st = 1518
 			default:
@@ -10048,7 +10046,7 @@ func match(s string) int {
 			}
 
 		case 1518:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1519
@@ -10057,7 +10055,7 @@ func match(s string) int {
 			}
 
 		case 1520:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1521
 			default:
@@ -10065,7 +10063,7 @@ func match(s string) int {
 			}
 
 		case 1521:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1522
 			default:
@@ -10073,7 +10071,7 @@ func match(s string) int {
 			}
 
 		case 1522:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1523
@@ -10082,7 +10080,7 @@ func match(s string) int {
 			}
 
 		case 1527:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1528
@@ -10094,7 +10092,7 @@ func match(s string) int {
 			}
 
 		case 1530:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1531
@@ -10103,7 +10101,7 @@ func match(s string) int {
 			}
 
 		case 1533:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1534
@@ -10112,7 +10110,7 @@ func match(s string) int {
 			}
 
 		case 1536:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1537
 			case 'm':
@@ -10135,7 +10133,7 @@ func match(s string) int {
 			}
 
 		case 1537:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1538
 			default:
@@ -10143,7 +10141,7 @@ func match(s string) int {
 			}
 
 		case 1538:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1539
 			default:
@@ -10151,7 +10149,7 @@ func match(s string) int {
 			}
 
 		case 1539:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1540
 			default:
@@ -10159,7 +10157,7 @@ func match(s string) int {
 			}
 
 		case 1540:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				st = 1541
 			default:
@@ -10167,7 +10165,7 @@ func match(s string) int {
 			}
 
 		case 1541:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1542
@@ -10176,7 +10174,7 @@ func match(s string) int {
 			}
 
 		case 1544:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1545
@@ -10193,7 +10191,7 @@ func match(s string) int {
 			}
 
 		case 1547:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1548
 			default:
@@ -10201,7 +10199,7 @@ func match(s string) int {
 			}
 
 		case 1548:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1549
@@ -10210,7 +10208,7 @@ func match(s string) int {
 			}
 
 		case 1550:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1551
 			default:
@@ -10218,7 +10216,7 @@ func match(s string) int {
 			}
 
 		case 1551:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1552
 			default:
@@ -10226,7 +10224,7 @@ func match(s string) int {
 			}
 
 		case 1552:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1553
@@ -10235,7 +10233,7 @@ func match(s string) int {
 			}
 
 		case 1554:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1555
@@ -10244,7 +10242,7 @@ func match(s string) int {
 			}
 
 		case 1556:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1557
 			case 'g':
@@ -10255,7 +10253,7 @@ func match(s string) int {
 			}
 
 		case 1557:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1558
 			default:
@@ -10263,7 +10261,7 @@ func match(s string) int {
 			}
 
 		case 1558:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1559
 			default:
@@ -10271,7 +10269,7 @@ func match(s string) int {
 			}
 
 		case 1559:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1560
@@ -10280,7 +10278,7 @@ func match(s string) int {
 			}
 
 		case 1561:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1562
 			default:
@@ -10288,7 +10286,7 @@ func match(s string) int {
 			}
 
 		case 1562:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1563
 			default:
@@ -10296,7 +10294,7 @@ func match(s string) int {
 			}
 
 		case 1563:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1564
 			default:
@@ -10304,7 +10302,7 @@ func match(s string) int {
 			}
 
 		case 1564:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1565
@@ -10313,7 +10311,7 @@ func match(s string) int {
 			}
 
 		case 1566:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1567
 			default:
@@ -10321,7 +10319,7 @@ func match(s string) int {
 			}
 
 		case 1567:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1568
 			default:
@@ -10329,7 +10327,7 @@ func match(s string) int {
 			}
 
 		case 1568:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1569
@@ -10338,7 +10336,7 @@ func match(s string) int {
 			}
 
 		case 1570:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1571
 			default:
@@ -10346,7 +10344,7 @@ func match(s string) int {
 			}
 
 		case 1571:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1572
 			default:
@@ -10354,7 +10352,7 @@ func match(s string) int {
 			}
 
 		case 1572:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1573
 			default:
@@ -10362,7 +10360,7 @@ func match(s string) int {
 			}
 
 		case 1573:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1574
@@ -10371,7 +10369,7 @@ func match(s string) int {
 			}
 
 		case 1575:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 1576
@@ -10380,7 +10378,7 @@ func match(s string) int {
 			}
 
 		case 1577:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1578
@@ -10434,7 +10432,7 @@ func match(s string) int {
 			}
 
 		case 1578:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1579
 			case 'n':
@@ -10446,7 +10444,7 @@ func match(s string) int {
 			}
 
 		case 1579:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1580
@@ -10455,7 +10453,7 @@ func match(s string) int {
 			}
 
 		case 1581:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1582
 			default:
@@ -10463,7 +10461,7 @@ func match(s string) int {
 			}
 
 		case 1582:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1583
 			default:
@@ -10471,7 +10469,7 @@ func match(s string) int {
 			}
 
 		case 1583:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1584
 			default:
@@ -10479,7 +10477,7 @@ func match(s string) int {
 			}
 
 		case 1584:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1585
@@ -10488,7 +10486,7 @@ func match(s string) int {
 			}
 
 		case 1586:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1587
 			case 't':
@@ -10498,7 +10496,7 @@ func match(s string) int {
 			}
 
 		case 1587:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1588
@@ -10507,7 +10505,7 @@ func match(s string) int {
 			}
 
 		case 1589:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1590
 			case 's':
@@ -10521,7 +10519,7 @@ func match(s string) int {
 			}
 
 		case 1590:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1591
 			default:
@@ -10529,7 +10527,7 @@ func match(s string) int {
 			}
 
 		case 1591:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1592
 			default:
@@ -10537,7 +10535,7 @@ func match(s string) int {
 			}
 
 		case 1592:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1593
@@ -10546,7 +10544,7 @@ func match(s string) int {
 			}
 
 		case 1599:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1600
 			case 'i':
@@ -10560,7 +10558,7 @@ func match(s string) int {
 			}
 
 		case 1600:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1601
 			default:
@@ -10568,7 +10566,7 @@ func match(s string) int {
 			}
 
 		case 1601:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1602
 			default:
@@ -10576,7 +10574,7 @@ func match(s string) int {
 			}
 
 		case 1602:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1603
 			default:
@@ -10584,7 +10582,7 @@ func match(s string) int {
 			}
 
 		case 1603:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1604
 			default:
@@ -10592,7 +10590,7 @@ func match(s string) int {
 			}
 
 		case 1604:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1605
@@ -10601,7 +10599,7 @@ func match(s string) int {
 			}
 
 		case 1606:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1607
 			default:
@@ -10609,7 +10607,7 @@ func match(s string) int {
 			}
 
 		case 1607:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1608
 			default:
@@ -10617,7 +10615,7 @@ func match(s string) int {
 			}
 
 		case 1608:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1609
 			default:
@@ -10625,7 +10623,7 @@ func match(s string) int {
 			}
 
 		case 1609:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1610
@@ -10634,7 +10632,7 @@ func match(s string) int {
 			}
 
 		case 1611:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1612
 			default:
@@ -10642,7 +10640,7 @@ func match(s string) int {
 			}
 
 		case 1612:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1613
@@ -10651,7 +10649,7 @@ func match(s string) int {
 			}
 
 		case 1613:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1614
 			case 's':
@@ -10662,7 +10660,7 @@ func match(s string) int {
 			}
 
 		case 1614:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1615
 			default:
@@ -10670,7 +10668,7 @@ func match(s string) int {
 			}
 
 		case 1615:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1616
 			default:
@@ -10678,7 +10676,7 @@ func match(s string) int {
 			}
 
 		case 1616:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1617
 			default:
@@ -10686,7 +10684,7 @@ func match(s string) int {
 			}
 
 		case 1617:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1618
 			default:
@@ -10694,7 +10692,7 @@ func match(s string) int {
 			}
 
 		case 1618:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1619
@@ -10703,7 +10701,7 @@ func match(s string) int {
 			}
 
 		case 1621:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1622
 			default:
@@ -10711,7 +10709,7 @@ func match(s string) int {
 			}
 
 		case 1622:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1623
 			default:
@@ -10719,7 +10717,7 @@ func match(s string) int {
 			}
 
 		case 1623:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1624
@@ -10728,7 +10726,7 @@ func match(s string) int {
 			}
 
 		case 1625:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1626
 			case 'c':
@@ -10742,7 +10740,7 @@ func match(s string) int {
 			}
 
 		case 1626:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1627
 			default:
@@ -10750,7 +10748,7 @@ func match(s string) int {
 			}
 
 		case 1627:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1628
 			default:
@@ -10758,7 +10756,7 @@ func match(s string) int {
 			}
 
 		case 1628:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1629
@@ -10767,7 +10765,7 @@ func match(s string) int {
 			}
 
 		case 1630:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1631
@@ -10778,7 +10776,7 @@ func match(s string) int {
 			}
 
 		case 1632:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1633
 			case 'u':
@@ -10788,7 +10786,7 @@ func match(s string) int {
 			}
 
 		case 1633:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1634
@@ -10797,7 +10795,7 @@ func match(s string) int {
 			}
 
 		case 1635:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1636
 			default:
@@ -10805,7 +10803,7 @@ func match(s string) int {
 			}
 
 		case 1636:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1637
 			default:
@@ -10813,7 +10811,7 @@ func match(s string) int {
 			}
 
 		case 1637:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1638
@@ -10822,7 +10820,7 @@ func match(s string) int {
 			}
 
 		case 1639:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 1640
@@ -10831,7 +10829,7 @@ func match(s string) int {
 			}
 
 		case 1641:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				st = 1642
 			default:
@@ -10839,7 +10837,7 @@ func match(s string) int {
 			}
 
 		case 1642:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1643
@@ -10848,7 +10846,7 @@ func match(s string) int {
 			}
 
 		case 1645:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1646
 			case 'u':
@@ -10858,7 +10856,7 @@ func match(s string) int {
 			}
 
 		case 1646:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1647
 			default:
@@ -10866,7 +10864,7 @@ func match(s string) int {
 			}
 
 		case 1647:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1648
@@ -10875,7 +10873,7 @@ func match(s string) int {
 			}
 
 		case 1649:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1650
 			case 's':
@@ -10886,7 +10884,7 @@ func match(s string) int {
 			}
 
 		case 1650:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1651
 			default:
@@ -10894,7 +10892,7 @@ func match(s string) int {
 			}
 
 		case 1651:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1652
 			default:
@@ -10902,7 +10900,7 @@ func match(s string) int {
 			}
 
 		case 1652:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1653
 			default:
@@ -10910,7 +10908,7 @@ func match(s string) int {
 			}
 
 		case 1653:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1654
@@ -10919,7 +10917,7 @@ func match(s string) int {
 			}
 
 		case 1658:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1659
 			case 'k':
@@ -10933,7 +10931,7 @@ func match(s string) int {
 			}
 
 		case 1659:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1660
@@ -10942,7 +10940,7 @@ func match(s string) int {
 			}
 
 		case 1661:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1662
 			default:
@@ -10950,7 +10948,7 @@ func match(s string) int {
 			}
 
 		case 1662:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1663
@@ -10959,7 +10957,7 @@ func match(s string) int {
 			}
 
 		case 1664:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1665
@@ -10968,7 +10966,7 @@ func match(s string) int {
 			}
 
 		case 1666:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1667
@@ -10977,7 +10975,7 @@ func match(s string) int {
 			}
 
 		case 1668:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1669
 			case 'e':
@@ -10990,7 +10988,7 @@ func match(s string) int {
 			}
 
 		case 1669:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				st = 1670
 			default:
@@ -10998,7 +10996,7 @@ func match(s string) int {
 			}
 
 		case 1670:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1671
@@ -11007,7 +11005,7 @@ func match(s string) int {
 			}
 
 		case 1672:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1673
 			default:
@@ -11015,7 +11013,7 @@ func match(s string) int {
 			}
 
 		case 1673:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1674
@@ -11024,7 +11022,7 @@ func match(s string) int {
 			}
 
 		case 1675:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1676
@@ -11038,7 +11036,7 @@ func match(s string) int {
 			}
 
 		case 1676:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1677
 			default:
@@ -11046,7 +11044,7 @@ func match(s string) int {
 			}
 
 		case 1677:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1678
 			default:
@@ -11054,7 +11052,7 @@ func match(s string) int {
 			}
 
 		case 1678:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1679
 			default:
@@ -11062,7 +11060,7 @@ func match(s string) int {
 			}
 
 		case 1679:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1680
 			default:
@@ -11070,7 +11068,7 @@ func match(s string) int {
 			}
 
 		case 1680:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1681
 			default:
@@ -11078,7 +11076,7 @@ func match(s string) int {
 			}
 
 		case 1681:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1682
 			default:
@@ -11086,7 +11084,7 @@ func match(s string) int {
 			}
 
 		case 1682:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1683
@@ -11095,7 +11093,7 @@ func match(s string) int {
 			}
 
 		case 1685:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1686
 			default:
@@ -11103,7 +11101,7 @@ func match(s string) int {
 			}
 
 		case 1686:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1687
 			default:
@@ -11111,7 +11109,7 @@ func match(s string) int {
 			}
 
 		case 1687:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1688
 			default:
@@ -11119,7 +11117,7 @@ func match(s string) int {
 			}
 
 		case 1688:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1689
 			case 'y':
@@ -11130,7 +11128,7 @@ func match(s string) int {
 			}
 
 		case 1689:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1690
 			default:
@@ -11138,7 +11136,7 @@ func match(s string) int {
 			}
 
 		case 1690:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1691
@@ -11147,7 +11145,7 @@ func match(s string) int {
 			}
 
 		case 1695:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 1696
@@ -11156,7 +11154,7 @@ func match(s string) int {
 			}
 
 		case 1699:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1700
@@ -11169,7 +11167,7 @@ func match(s string) int {
 			}
 
 		case 1701:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1702
 			default:
@@ -11177,7 +11175,7 @@ func match(s string) int {
 			}
 
 		case 1702:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1703
@@ -11186,7 +11184,7 @@ func match(s string) int {
 			}
 
 		case 1704:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1705
 			default:
@@ -11194,7 +11192,7 @@ func match(s string) int {
 			}
 
 		case 1705:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1706
 			default:
@@ -11202,7 +11200,7 @@ func match(s string) int {
 			}
 
 		case 1706:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1707
 			default:
@@ -11210,7 +11208,7 @@ func match(s string) int {
 			}
 
 		case 1707:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 1708
@@ -11219,7 +11217,7 @@ func match(s string) int {
 			}
 
 		case 1709:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1710
 			case 'e':
@@ -11246,7 +11244,7 @@ func match(s string) int {
 			}
 
 		case 1710:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1711
 			default:
@@ -11254,7 +11252,7 @@ func match(s string) int {
 			}
 
 		case 1711:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1712
 			default:
@@ -11262,7 +11260,7 @@ func match(s string) int {
 			}
 
 		case 1712:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1713
 			default:
@@ -11270,7 +11268,7 @@ func match(s string) int {
 			}
 
 		case 1713:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1714
@@ -11279,7 +11277,7 @@ func match(s string) int {
 			}
 
 		case 1715:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1716
 			case 'c':
@@ -11305,7 +11303,7 @@ func match(s string) int {
 			}
 
 		case 1716:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1717
 			default:
@@ -11313,7 +11311,7 @@ func match(s string) int {
 			}
 
 		case 1717:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1718
 			default:
@@ -11321,7 +11319,7 @@ func match(s string) int {
 			}
 
 		case 1718:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1719
 			default:
@@ -11329,7 +11327,7 @@ func match(s string) int {
 			}
 
 		case 1719:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1720
@@ -11338,7 +11336,7 @@ func match(s string) int {
 			}
 
 		case 1721:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1722
 			default:
@@ -11346,7 +11344,7 @@ func match(s string) int {
 			}
 
 		case 1722:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1723
 			default:
@@ -11354,7 +11352,7 @@ func match(s string) int {
 			}
 
 		case 1723:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1724
 			default:
@@ -11362,7 +11360,7 @@ func match(s string) int {
 			}
 
 		case 1724:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1725
@@ -11371,7 +11369,7 @@ func match(s string) int {
 			}
 
 		case 1726:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1727
 			default:
@@ -11379,7 +11377,7 @@ func match(s string) int {
 			}
 
 		case 1727:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1728
 			default:
@@ -11387,7 +11385,7 @@ func match(s string) int {
 			}
 
 		case 1728:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1729
 			default:
@@ -11395,7 +11393,7 @@ func match(s string) int {
 			}
 
 		case 1729:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1730
 			default:
@@ -11403,7 +11401,7 @@ func match(s string) int {
 			}
 
 		case 1730:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1731
@@ -11412,7 +11410,7 @@ func match(s string) int {
 			}
 
 		case 1732:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1733
 			default:
@@ -11420,7 +11418,7 @@ func match(s string) int {
 			}
 
 		case 1733:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				length = i + 1
 				st = 1734
@@ -11429,7 +11427,7 @@ func match(s string) int {
 			}
 
 		case 1735:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1736
 			case 't':
@@ -11440,7 +11438,7 @@ func match(s string) int {
 			}
 
 		case 1736:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1737
@@ -11449,7 +11447,7 @@ func match(s string) int {
 			}
 
 		case 1737:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1738
@@ -11458,7 +11456,7 @@ func match(s string) int {
 			}
 
 		case 1740:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1741
@@ -11467,7 +11465,7 @@ func match(s string) int {
 			}
 
 		case 1741:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1742
 			default:
@@ -11475,7 +11473,7 @@ func match(s string) int {
 			}
 
 		case 1742:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1743
 			default:
@@ -11483,7 +11481,7 @@ func match(s string) int {
 			}
 
 		case 1743:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1744
@@ -11492,7 +11490,7 @@ func match(s string) int {
 			}
 
 		case 1745:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1746
 			case 'o':
@@ -11504,7 +11502,7 @@ func match(s string) int {
 			}
 
 		case 1746:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1747
 			default:
@@ -11512,7 +11510,7 @@ func match(s string) int {
 			}
 
 		case 1747:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1748
@@ -11521,7 +11519,7 @@ func match(s string) int {
 			}
 
 		case 1749:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1750
 			default:
@@ -11529,7 +11527,7 @@ func match(s string) int {
 			}
 
 		case 1750:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1751
@@ -11538,7 +11536,7 @@ func match(s string) int {
 			}
 
 		case 1752:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1753
 			default:
@@ -11546,7 +11544,7 @@ func match(s string) int {
 			}
 
 		case 1753:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1754
 			default:
@@ -11554,7 +11552,7 @@ func match(s string) int {
 			}
 
 		case 1754:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1755
 			default:
@@ -11562,7 +11560,7 @@ func match(s string) int {
 			}
 
 		case 1755:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1756
 			default:
@@ -11570,7 +11568,7 @@ func match(s string) int {
 			}
 
 		case 1756:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1757
 			default:
@@ -11578,7 +11576,7 @@ func match(s string) int {
 			}
 
 		case 1757:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 1758
@@ -11587,7 +11585,7 @@ func match(s string) int {
 			}
 
 		case 1759:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1760
@@ -11596,7 +11594,7 @@ func match(s string) int {
 			}
 
 		case 1760:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1761
 			default:
@@ -11604,7 +11602,7 @@ func match(s string) int {
 			}
 
 		case 1761:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1762
 			default:
@@ -11612,7 +11610,7 @@ func match(s string) int {
 			}
 
 		case 1762:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1763
 			default:
@@ -11620,7 +11618,7 @@ func match(s string) int {
 			}
 
 		case 1763:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1764
 			default:
@@ -11628,7 +11626,7 @@ func match(s string) int {
 			}
 
 		case 1764:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1765
 			default:
@@ -11636,7 +11634,7 @@ func match(s string) int {
 			}
 
 		case 1765:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1766
@@ -11645,7 +11643,7 @@ func match(s string) int {
 			}
 
 		case 1767:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1768
 			default:
@@ -11653,7 +11651,7 @@ func match(s string) int {
 			}
 
 		case 1768:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1769
 			default:
@@ -11661,7 +11659,7 @@ func match(s string) int {
 			}
 
 		case 1769:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				length = i + 1
 				st = 1770
@@ -11670,7 +11668,7 @@ func match(s string) int {
 			}
 
 		case 1770:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1771
@@ -11679,7 +11677,7 @@ func match(s string) int {
 			}
 
 		case 1772:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1773
 			case 'o':
@@ -11693,7 +11691,7 @@ func match(s string) int {
 			}
 
 		case 1773:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 1774
@@ -11702,7 +11700,7 @@ func match(s string) int {
 			}
 
 		case 1777:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1778
 			case 'd':
@@ -11712,7 +11710,7 @@ func match(s string) int {
 			}
 
 		case 1778:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1779
 			default:
@@ -11720,7 +11718,7 @@ func match(s string) int {
 			}
 
 		case 1779:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1780
@@ -11729,7 +11727,7 @@ func match(s string) int {
 			}
 
 		case 1781:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1782
 			default:
@@ -11737,7 +11735,7 @@ func match(s string) int {
 			}
 
 		case 1782:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1783
@@ -11746,7 +11744,7 @@ func match(s string) int {
 			}
 
 		case 1784:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 1785
 			default:
@@ -11754,7 +11752,7 @@ func match(s string) int {
 			}
 
 		case 1785:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 1786
@@ -11763,7 +11761,7 @@ func match(s string) int {
 			}
 
 		case 1787:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1788
 			case 'n':
@@ -11774,7 +11772,7 @@ func match(s string) int {
 			}
 
 		case 1788:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1789
@@ -11783,7 +11781,7 @@ func match(s string) int {
 			}
 
 		case 1792:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1793
 			default:
@@ -11791,7 +11789,7 @@ func match(s string) int {
 			}
 
 		case 1793:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1794
 			default:
@@ -11799,7 +11797,7 @@ func match(s string) int {
 			}
 
 		case 1794:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 1795
 			default:
@@ -11807,7 +11805,7 @@ func match(s string) int {
 			}
 
 		case 1795:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 1796
@@ -11816,7 +11814,7 @@ func match(s string) int {
 			}
 
 		case 1797:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1798
@@ -11889,7 +11887,7 @@ func match(s string) int {
 			}
 
 		case 1798:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1799
 			case 'l':
@@ -11910,7 +11908,7 @@ func match(s string) int {
 			}
 
 		case 1799:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1800
 			default:
@@ -11918,7 +11916,7 @@ func match(s string) int {
 			}
 
 		case 1800:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1801
 			default:
@@ -11926,7 +11924,7 @@ func match(s string) int {
 			}
 
 		case 1801:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1802
 			default:
@@ -11934,7 +11932,7 @@ func match(s string) int {
 			}
 
 		case 1802:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1803
 			default:
@@ -11942,7 +11940,7 @@ func match(s string) int {
 			}
 
 		case 1803:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 1804
@@ -11951,7 +11949,7 @@ func match(s string) int {
 			}
 
 		case 1805:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1806
@@ -11960,7 +11958,7 @@ func match(s string) int {
 			}
 
 		case 1807:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1808
 			default:
@@ -11968,7 +11966,7 @@ func match(s string) int {
 			}
 
 		case 1808:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1809
 			default:
@@ -11976,7 +11974,7 @@ func match(s string) int {
 			}
 
 		case 1809:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1810
 			default:
@@ -11984,7 +11982,7 @@ func match(s string) int {
 			}
 
 		case 1810:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1811
@@ -11993,7 +11991,7 @@ func match(s string) int {
 			}
 
 		case 1812:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1813
 			default:
@@ -12001,7 +11999,7 @@ func match(s string) int {
 			}
 
 		case 1813:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 1814
 			default:
@@ -12009,7 +12007,7 @@ func match(s string) int {
 			}
 
 		case 1814:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1815
 			default:
@@ -12017,7 +12015,7 @@ func match(s string) int {
 			}
 
 		case 1815:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 1816
@@ -12026,7 +12024,7 @@ func match(s string) int {
 			}
 
 		case 1816:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1817
 			default:
@@ -12034,7 +12032,7 @@ func match(s string) int {
 			}
 
 		case 1817:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1818
 			default:
@@ -12042,7 +12040,7 @@ func match(s string) int {
 			}
 
 		case 1818:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1819
 			default:
@@ -12050,7 +12048,7 @@ func match(s string) int {
 			}
 
 		case 1819:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1820
 			default:
@@ -12058,7 +12056,7 @@ func match(s string) int {
 			}
 
 		case 1820:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1821
 			default:
@@ -12066,7 +12064,7 @@ func match(s string) int {
 			}
 
 		case 1821:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1822
 			default:
@@ -12074,7 +12072,7 @@ func match(s string) int {
 			}
 
 		case 1822:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1823
 			default:
@@ -12082,7 +12080,7 @@ func match(s string) int {
 			}
 
 		case 1823:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1824
@@ -12091,7 +12089,7 @@ func match(s string) int {
 			}
 
 		case 1826:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1827
@@ -12100,7 +12098,7 @@ func match(s string) int {
 			}
 
 		case 1828:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 1829
@@ -12109,7 +12107,7 @@ func match(s string) int {
 			}
 
 		case 1831:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1832
@@ -12127,7 +12125,7 @@ func match(s string) int {
 			}
 
 		case 1834:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 1835
 			case 'o':
@@ -12141,7 +12139,7 @@ func match(s string) int {
 			}
 
 		case 1835:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1836
 			default:
@@ -12149,7 +12147,7 @@ func match(s string) int {
 			}
 
 		case 1836:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1837
 			default:
@@ -12157,7 +12155,7 @@ func match(s string) int {
 			}
 
 		case 1837:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1838
@@ -12166,7 +12164,7 @@ func match(s string) int {
 			}
 
 		case 1839:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1840
 			case 'o':
@@ -12176,7 +12174,7 @@ func match(s string) int {
 			}
 
 		case 1840:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1841
 			default:
@@ -12184,7 +12182,7 @@ func match(s string) int {
 			}
 
 		case 1841:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1842
 			default:
@@ -12192,7 +12190,7 @@ func match(s string) int {
 			}
 
 		case 1842:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1843
 			default:
@@ -12200,7 +12198,7 @@ func match(s string) int {
 			}
 
 		case 1843:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1844
 			default:
@@ -12208,7 +12206,7 @@ func match(s string) int {
 			}
 
 		case 1844:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1845
 			default:
@@ -12216,7 +12214,7 @@ func match(s string) int {
 			}
 
 		case 1845:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1846
 			default:
@@ -12224,7 +12222,7 @@ func match(s string) int {
 			}
 
 		case 1846:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1847
@@ -12233,7 +12231,7 @@ func match(s string) int {
 			}
 
 		case 1848:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1849
@@ -12242,7 +12240,7 @@ func match(s string) int {
 			}
 
 		case 1850:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1851
 			default:
@@ -12250,7 +12248,7 @@ func match(s string) int {
 			}
 
 		case 1851:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1852
@@ -12259,7 +12257,7 @@ func match(s string) int {
 			}
 
 		case 1853:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1854
 			default:
@@ -12267,7 +12265,7 @@ func match(s string) int {
 			}
 
 		case 1854:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1855
 			default:
@@ -12275,7 +12273,7 @@ func match(s string) int {
 			}
 
 		case 1855:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				length = i + 1
 				st = 1856
@@ -12284,7 +12282,7 @@ func match(s string) int {
 			}
 
 		case 1857:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1858
 			default:
@@ -12292,7 +12290,7 @@ func match(s string) int {
 			}
 
 		case 1858:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1859
 			default:
@@ -12300,7 +12298,7 @@ func match(s string) int {
 			}
 
 		case 1859:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1860
 			default:
@@ -12308,7 +12306,7 @@ func match(s string) int {
 			}
 
 		case 1860:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1861
@@ -12317,7 +12315,7 @@ func match(s string) int {
 			}
 
 		case 1862:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1863
@@ -12326,7 +12324,7 @@ func match(s string) int {
 			}
 
 		case 1865:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1866
 			case 'n':
@@ -12344,7 +12342,7 @@ func match(s string) int {
 			}
 
 		case 1866:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1867
@@ -12353,7 +12351,7 @@ func match(s string) int {
 			}
 
 		case 1868:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1869
 			default:
@@ -12361,7 +12359,7 @@ func match(s string) int {
 			}
 
 		case 1869:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1870
@@ -12370,7 +12368,7 @@ func match(s string) int {
 			}
 
 		case 1871:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 1872
 			default:
@@ -12378,7 +12376,7 @@ func match(s string) int {
 			}
 
 		case 1872:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1873
 			default:
@@ -12386,7 +12384,7 @@ func match(s string) int {
 			}
 
 		case 1873:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1874
 			default:
@@ -12394,7 +12392,7 @@ func match(s string) int {
 			}
 
 		case 1874:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1875
 			default:
@@ -12402,7 +12400,7 @@ func match(s string) int {
 			}
 
 		case 1875:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1876
@@ -12411,7 +12409,7 @@ func match(s string) int {
 			}
 
 		case 1878:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1879
@@ -12420,7 +12418,7 @@ func match(s string) int {
 			}
 
 		case 1881:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1882
 			case 'o':
@@ -12432,7 +12430,7 @@ func match(s string) int {
 			}
 
 		case 1882:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1883
 			default:
@@ -12440,7 +12438,7 @@ func match(s string) int {
 			}
 
 		case 1883:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1884
 			default:
@@ -12448,7 +12446,7 @@ func match(s string) int {
 			}
 
 		case 1884:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 1885
 			default:
@@ -12456,7 +12454,7 @@ func match(s string) int {
 			}
 
 		case 1885:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 1886
@@ -12465,7 +12463,7 @@ func match(s string) int {
 			}
 
 		case 1887:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1888
 			case 'w':
@@ -12476,7 +12474,7 @@ func match(s string) int {
 			}
 
 		case 1888:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1889
@@ -12485,7 +12483,7 @@ func match(s string) int {
 			}
 
 		case 1891:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1892
 			default:
@@ -12493,7 +12491,7 @@ func match(s string) int {
 			}
 
 		case 1892:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1893
 			default:
@@ -12501,7 +12499,7 @@ func match(s string) int {
 			}
 
 		case 1893:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1894
 			default:
@@ -12509,7 +12507,7 @@ func match(s string) int {
 			}
 
 		case 1894:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 1895
@@ -12518,7 +12516,7 @@ func match(s string) int {
 			}
 
 		case 1896:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1897
 			case 't':
@@ -12528,7 +12526,7 @@ func match(s string) int {
 			}
 
 		case 1897:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1898
 			default:
@@ -12536,7 +12534,7 @@ func match(s string) int {
 			}
 
 		case 1898:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1899
 			default:
@@ -12544,7 +12542,7 @@ func match(s string) int {
 			}
 
 		case 1899:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1900
 			default:
@@ -12552,7 +12550,7 @@ func match(s string) int {
 			}
 
 		case 1900:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1901
@@ -12561,7 +12559,7 @@ func match(s string) int {
 			}
 
 		case 1902:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1903
@@ -12570,7 +12568,7 @@ func match(s string) int {
 			}
 
 		case 1905:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1906
@@ -12582,7 +12580,7 @@ func match(s string) int {
 			}
 
 		case 1910:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1911
 			default:
@@ -12590,7 +12588,7 @@ func match(s string) int {
 			}
 
 		case 1911:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				length = i + 1
 				st = 1912
@@ -12599,7 +12597,7 @@ func match(s string) int {
 			}
 
 		case 1913:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1914
 			case 'f':
@@ -12618,7 +12616,7 @@ func match(s string) int {
 			}
 
 		case 1914:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1915
 			case 'i':
@@ -12628,7 +12626,7 @@ func match(s string) int {
 			}
 
 		case 1915:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1916
 			default:
@@ -12636,7 +12634,7 @@ func match(s string) int {
 			}
 
 		case 1916:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1917
@@ -12645,7 +12643,7 @@ func match(s string) int {
 			}
 
 		case 1918:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1919
 			default:
@@ -12653,7 +12651,7 @@ func match(s string) int {
 			}
 
 		case 1919:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1920
@@ -12662,7 +12660,7 @@ func match(s string) int {
 			}
 
 		case 1921:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1922
 			default:
@@ -12670,7 +12668,7 @@ func match(s string) int {
 			}
 
 		case 1922:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				st = 1923
 			default:
@@ -12678,7 +12676,7 @@ func match(s string) int {
 			}
 
 		case 1923:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1924
 			default:
@@ -12686,7 +12684,7 @@ func match(s string) int {
 			}
 
 		case 1924:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1925
 			default:
@@ -12694,7 +12692,7 @@ func match(s string) int {
 			}
 
 		case 1925:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1926
@@ -12703,7 +12701,7 @@ func match(s string) int {
 			}
 
 		case 1927:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				length = i + 1
 				st = 1928
@@ -12712,7 +12710,7 @@ func match(s string) int {
 			}
 
 		case 1929:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1930
 			case 'u':
@@ -12722,7 +12720,7 @@ func match(s string) int {
 			}
 
 		case 1930:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 1931
@@ -12731,7 +12729,7 @@ func match(s string) int {
 			}
 
 		case 1932:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1933
 			default:
@@ -12739,7 +12737,7 @@ func match(s string) int {
 			}
 
 		case 1933:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1934
 			default:
@@ -12747,7 +12745,7 @@ func match(s string) int {
 			}
 
 		case 1934:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 1935
 			default:
@@ -12755,7 +12753,7 @@ func match(s string) int {
 			}
 
 		case 1935:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1936
 			default:
@@ -12763,7 +12761,7 @@ func match(s string) int {
 			}
 
 		case 1936:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1937
@@ -12772,7 +12770,7 @@ func match(s string) int {
 			}
 
 		case 1938:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1939
@@ -12781,7 +12779,7 @@ func match(s string) int {
 			}
 
 		case 1941:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1942
 			case 'i':
@@ -12793,7 +12791,7 @@ func match(s string) int {
 			}
 
 		case 1942:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1943
 			default:
@@ -12801,7 +12799,7 @@ func match(s string) int {
 			}
 
 		case 1943:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1944
@@ -12810,7 +12808,7 @@ func match(s string) int {
 			}
 
 		case 1945:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1946
 			default:
@@ -12818,7 +12816,7 @@ func match(s string) int {
 			}
 
 		case 1946:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 1947
 			default:
@@ -12826,7 +12824,7 @@ func match(s string) int {
 			}
 
 		case 1947:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1948
 			default:
@@ -12834,7 +12832,7 @@ func match(s string) int {
 			}
 
 		case 1948:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 1949
@@ -12843,7 +12841,7 @@ func match(s string) int {
 			}
 
 		case 1950:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1951
 			default:
@@ -12851,7 +12849,7 @@ func match(s string) int {
 			}
 
 		case 1951:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 1952
 			default:
@@ -12859,7 +12857,7 @@ func match(s string) int {
 			}
 
 		case 1952:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1953
 			default:
@@ -12867,7 +12865,7 @@ func match(s string) int {
 			}
 
 		case 1953:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 1954
 			default:
@@ -12875,7 +12873,7 @@ func match(s string) int {
 			}
 
 		case 1954:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1955
 			default:
@@ -12883,7 +12881,7 @@ func match(s string) int {
 			}
 
 		case 1955:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1956
 			default:
@@ -12891,7 +12889,7 @@ func match(s string) int {
 			}
 
 		case 1956:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 1957
 			default:
@@ -12899,7 +12897,7 @@ func match(s string) int {
 			}
 
 		case 1957:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1958
 			default:
@@ -12907,7 +12905,7 @@ func match(s string) int {
 			}
 
 		case 1958:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 1959
 			default:
@@ -12915,7 +12913,7 @@ func match(s string) int {
 			}
 
 		case 1959:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 1960
@@ -12924,7 +12922,7 @@ func match(s string) int {
 			}
 
 		case 1962:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1963
 			case 'y':
@@ -12934,7 +12932,7 @@ func match(s string) int {
 			}
 
 		case 1963:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 1964
 			default:
@@ -12942,7 +12940,7 @@ func match(s string) int {
 			}
 
 		case 1964:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1965
@@ -12951,7 +12949,7 @@ func match(s string) int {
 			}
 
 		case 1966:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1967
 			default:
@@ -12959,7 +12957,7 @@ func match(s string) int {
 			}
 
 		case 1967:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 1968
@@ -12968,7 +12966,7 @@ func match(s string) int {
 			}
 
 		case 1969:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 1970
 			case 'p':
@@ -12982,7 +12980,7 @@ func match(s string) int {
 			}
 
 		case 1970:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1971
 			default:
@@ -12990,7 +12988,7 @@ func match(s string) int {
 			}
 
 		case 1971:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1972
@@ -12999,7 +12997,7 @@ func match(s string) int {
 			}
 
 		case 1973:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 1974
 			default:
@@ -13007,7 +13005,7 @@ func match(s string) int {
 			}
 
 		case 1974:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 1975
 			case 'o':
@@ -13017,7 +13015,7 @@ func match(s string) int {
 			}
 
 		case 1975:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1976
 			case 'y':
@@ -13028,7 +13026,7 @@ func match(s string) int {
 			}
 
 		case 1976:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1977
 			default:
@@ -13036,7 +13034,7 @@ func match(s string) int {
 			}
 
 		case 1977:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1978
@@ -13045,7 +13043,7 @@ func match(s string) int {
 			}
 
 		case 1980:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1981
 			default:
@@ -13053,7 +13051,7 @@ func match(s string) int {
 			}
 
 		case 1981:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 1982
@@ -13062,7 +13060,7 @@ func match(s string) int {
 			}
 
 		case 1983:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'f':
 				length = i + 1
 				st = 1984
@@ -13073,7 +13071,7 @@ func match(s string) int {
 			}
 
 		case 1985:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 1986
 			default:
@@ -13081,7 +13079,7 @@ func match(s string) int {
 			}
 
 		case 1986:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 1987
 			default:
@@ -13089,7 +13087,7 @@ func match(s string) int {
 			}
 
 		case 1987:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 1988
@@ -13098,7 +13096,7 @@ func match(s string) int {
 			}
 
 		case 1989:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 1990
 			default:
@@ -13106,7 +13104,7 @@ func match(s string) int {
 			}
 
 		case 1990:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 1991
 			default:
@@ -13114,7 +13112,7 @@ func match(s string) int {
 			}
 
 		case 1991:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 1992
@@ -13123,7 +13121,7 @@ func match(s string) int {
 			}
 
 		case 1994:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 1995
 			default:
@@ -13131,7 +13129,7 @@ func match(s string) int {
 			}
 
 		case 1995:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 1996
 			default:
@@ -13139,7 +13137,7 @@ func match(s string) int {
 			}
 
 		case 1996:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 1997
@@ -13148,7 +13146,7 @@ func match(s string) int {
 			}
 
 		case 1999:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2000
 			case 's':
@@ -13158,7 +13156,7 @@ func match(s string) int {
 			}
 
 		case 2000:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2001
 			default:
@@ -13166,7 +13164,7 @@ func match(s string) int {
 			}
 
 		case 2001:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2002
 			default:
@@ -13174,7 +13172,7 @@ func match(s string) int {
 			}
 
 		case 2002:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2003
@@ -13183,7 +13181,7 @@ func match(s string) int {
 			}
 
 		case 2004:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2005
 			default:
@@ -13191,7 +13189,7 @@ func match(s string) int {
 			}
 
 		case 2005:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2006
 			default:
@@ -13199,7 +13197,7 @@ func match(s string) int {
 			}
 
 		case 2006:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 2007
 			default:
@@ -13207,7 +13205,7 @@ func match(s string) int {
 			}
 
 		case 2007:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2008
@@ -13216,7 +13214,7 @@ func match(s string) int {
 			}
 
 		case 2010:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2011
 			case 'c':
@@ -13278,7 +13276,7 @@ func match(s string) int {
 			}
 
 		case 2011:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2012
 			case 't':
@@ -13291,7 +13289,7 @@ func match(s string) int {
 			}
 
 		case 2012:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				st = 2013
 			default:
@@ -13299,7 +13297,7 @@ func match(s string) int {
 			}
 
 		case 2013:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2014
 			default:
@@ -13307,7 +13305,7 @@ func match(s string) int {
 			}
 
 		case 2014:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 2015
@@ -13316,7 +13314,7 @@ func match(s string) int {
 			}
 
 		case 2016:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2017
 			case 't':
@@ -13326,7 +13324,7 @@ func match(s string) int {
 			}
 
 		case 2017:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 2018
@@ -13335,7 +13333,7 @@ func match(s string) int {
 			}
 
 		case 2019:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2020
 			default:
@@ -13343,7 +13341,7 @@ func match(s string) int {
 			}
 
 		case 2020:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 2021
@@ -13352,7 +13350,7 @@ func match(s string) int {
 			}
 
 		case 2022:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 2023
@@ -13361,7 +13359,7 @@ func match(s string) int {
 			}
 
 		case 2026:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2027
 			case 'c':
@@ -13378,7 +13376,7 @@ func match(s string) int {
 			}
 
 		case 2027:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 2028
@@ -13387,7 +13385,7 @@ func match(s string) int {
 			}
 
 		case 2029:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 2030
@@ -13396,7 +13394,7 @@ func match(s string) int {
 			}
 
 		case 2030:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2031
 			default:
@@ -13404,7 +13402,7 @@ func match(s string) int {
 			}
 
 		case 2031:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2032
 			default:
@@ -13412,7 +13410,7 @@ func match(s string) int {
 			}
 
 		case 2032:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2033
 			default:
@@ -13420,7 +13418,7 @@ func match(s string) int {
 			}
 
 		case 2033:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2034
 			default:
@@ -13428,7 +13426,7 @@ func match(s string) int {
 			}
 
 		case 2034:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 2035
 			default:
@@ -13436,7 +13434,7 @@ func match(s string) int {
 			}
 
 		case 2035:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2036
@@ -13445,7 +13443,7 @@ func match(s string) int {
 			}
 
 		case 2038:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2039
 			default:
@@ -13453,7 +13451,7 @@ func match(s string) int {
 			}
 
 		case 2039:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2040
 			default:
@@ -13461,7 +13459,7 @@ func match(s string) int {
 			}
 
 		case 2040:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2041
 			default:
@@ -13469,7 +13467,7 @@ func match(s string) int {
 			}
 
 		case 2041:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 2042
@@ -13478,7 +13476,7 @@ func match(s string) int {
 			}
 
 		case 2043:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2044
 			default:
@@ -13486,7 +13484,7 @@ func match(s string) int {
 			}
 
 		case 2044:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2045
 			default:
@@ -13494,7 +13492,7 @@ func match(s string) int {
 			}
 
 		case 2045:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2046
@@ -13503,7 +13501,7 @@ func match(s string) int {
 			}
 
 		case 2049:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 2050
@@ -13514,7 +13512,7 @@ func match(s string) int {
 			}
 
 		case 2051:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2052
 			default:
@@ -13522,7 +13520,7 @@ func match(s string) int {
 			}
 
 		case 2052:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2053
 			default:
@@ -13530,7 +13528,7 @@ func match(s string) int {
 			}
 
 		case 2053:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2054
 			default:
@@ -13538,7 +13536,7 @@ func match(s string) int {
 			}
 
 		case 2054:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 2055
@@ -13547,7 +13545,7 @@ func match(s string) int {
 			}
 
 		case 2056:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2057
 			case 'e':
@@ -13561,7 +13559,7 @@ func match(s string) int {
 			}
 
 		case 2057:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 2058
 			default:
@@ -13569,7 +13567,7 @@ func match(s string) int {
 			}
 
 		case 2058:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2059
 			default:
@@ -13577,7 +13575,7 @@ func match(s string) int {
 			}
 
 		case 2059:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2060
 			default:
@@ -13585,7 +13583,7 @@ func match(s string) int {
 			}
 
 		case 2060:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2061
@@ -13594,7 +13592,7 @@ func match(s string) int {
 			}
 
 		case 2062:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2063
 			default:
@@ -13602,7 +13600,7 @@ func match(s string) int {
 			}
 
 		case 2063:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2064
 			default:
@@ -13610,7 +13608,7 @@ func match(s string) int {
 			}
 
 		case 2064:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2065
@@ -13619,7 +13617,7 @@ func match(s string) int {
 			}
 
 		case 2066:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2067
@@ -13628,7 +13626,7 @@ func match(s string) int {
 			}
 
 		case 2068:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2069
 			case 'o':
@@ -13638,7 +13636,7 @@ func match(s string) int {
 			}
 
 		case 2069:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2070
@@ -13647,7 +13645,7 @@ func match(s string) int {
 			}
 
 		case 2071:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 2072
@@ -13656,7 +13654,7 @@ func match(s string) int {
 			}
 
 		case 2078:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2079
 			case 'k':
@@ -13681,7 +13679,7 @@ func match(s string) int {
 			}
 
 		case 2079:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2080
 			default:
@@ -13689,7 +13687,7 @@ func match(s string) int {
 			}
 
 		case 2080:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2081
@@ -13698,7 +13696,7 @@ func match(s string) int {
 			}
 
 		case 2082:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				st = 2083
 			default:
@@ -13706,7 +13704,7 @@ func match(s string) int {
 			}
 
 		case 2083:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 2084
@@ -13715,7 +13713,7 @@ func match(s string) int {
 			}
 
 		case 2085:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2086
 			default:
@@ -13723,7 +13721,7 @@ func match(s string) int {
 			}
 
 		case 2086:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2087
@@ -13732,7 +13730,7 @@ func match(s string) int {
 			}
 
 		case 2089:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2090
 			default:
@@ -13740,7 +13738,7 @@ func match(s string) int {
 			}
 
 		case 2090:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2091
@@ -13749,7 +13747,7 @@ func match(s string) int {
 			}
 
 		case 2092:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2093
 			default:
@@ -13757,7 +13755,7 @@ func match(s string) int {
 			}
 
 		case 2093:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2094
 			default:
@@ -13765,7 +13763,7 @@ func match(s string) int {
 			}
 
 		case 2094:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2095
 			default:
@@ -13773,7 +13771,7 @@ func match(s string) int {
 			}
 
 		case 2095:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2096
@@ -13782,7 +13780,7 @@ func match(s string) int {
 			}
 
 		case 2097:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2098
 			default:
@@ -13790,7 +13788,7 @@ func match(s string) int {
 			}
 
 		case 2098:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2099
@@ -13799,7 +13797,7 @@ func match(s string) int {
 			}
 
 		case 2100:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 2101
@@ -13808,7 +13806,7 @@ func match(s string) int {
 			}
 
 		case 2102:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2103
@@ -13817,7 +13815,7 @@ func match(s string) int {
 			}
 
 		case 2104:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2105
 			case 'u':
@@ -13827,7 +13825,7 @@ func match(s string) int {
 			}
 
 		case 2105:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2106
 			case 'i':
@@ -13839,7 +13837,7 @@ func match(s string) int {
 			}
 
 		case 2106:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2107
@@ -13850,7 +13848,7 @@ func match(s string) int {
 			}
 
 		case 2108:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2109
 			default:
@@ -13858,7 +13856,7 @@ func match(s string) int {
 			}
 
 		case 2109:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2110
@@ -13867,7 +13865,7 @@ func match(s string) int {
 			}
 
 		case 2111:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2112
 			default:
@@ -13875,7 +13873,7 @@ func match(s string) int {
 			}
 
 		case 2112:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2113
 			default:
@@ -13883,7 +13881,7 @@ func match(s string) int {
 			}
 
 		case 2113:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2114
 			default:
@@ -13891,7 +13889,7 @@ func match(s string) int {
 			}
 
 		case 2114:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2115
@@ -13900,7 +13898,7 @@ func match(s string) int {
 			}
 
 		case 2116:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2117
 			default:
@@ -13908,7 +13906,7 @@ func match(s string) int {
 			}
 
 		case 2117:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 2118
@@ -13917,7 +13915,7 @@ func match(s string) int {
 			}
 
 		case 2119:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2120
 			default:
@@ -13925,7 +13923,7 @@ func match(s string) int {
 			}
 
 		case 2120:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				length = i + 1
 				st = 2121
@@ -13934,7 +13932,7 @@ func match(s string) int {
 			}
 
 		case 2123:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 2124
@@ -13943,7 +13941,7 @@ func match(s string) int {
 			}
 
 		case 2128:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2129
@@ -13971,7 +13969,7 @@ func match(s string) int {
 			}
 
 		case 2132:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2133
 			case 'o':
@@ -13982,7 +13980,7 @@ func match(s string) int {
 			}
 
 		case 2133:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'v':
 				st = 2134
 			default:
@@ -13990,7 +13988,7 @@ func match(s string) int {
 			}
 
 		case 2134:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2135
 			default:
@@ -13998,7 +13996,7 @@ func match(s string) int {
 			}
 
 		case 2135:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2136
 			default:
@@ -14006,7 +14004,7 @@ func match(s string) int {
 			}
 
 		case 2136:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2137
 			default:
@@ -14014,7 +14012,7 @@ func match(s string) int {
 			}
 
 		case 2137:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2138
 			default:
@@ -14022,7 +14020,7 @@ func match(s string) int {
 			}
 
 		case 2138:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2139
 			default:
@@ -14030,7 +14028,7 @@ func match(s string) int {
 			}
 
 		case 2139:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2140
@@ -14039,7 +14037,7 @@ func match(s string) int {
 			}
 
 		case 2142:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 2143
@@ -14048,7 +14046,7 @@ func match(s string) int {
 			}
 
 		case 2147:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2148
@@ -14079,7 +14077,7 @@ func match(s string) int {
 			}
 
 		case 2148:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2149
 			default:
@@ -14087,7 +14085,7 @@ func match(s string) int {
 			}
 
 		case 2149:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2150
 			default:
@@ -14095,7 +14093,7 @@ func match(s string) int {
 			}
 
 		case 2150:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2151
 			default:
@@ -14103,7 +14101,7 @@ func match(s string) int {
 			}
 
 		case 2151:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2152
 			default:
@@ -14111,7 +14109,7 @@ func match(s string) int {
 			}
 
 		case 2152:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2153
 			default:
@@ -14119,7 +14117,7 @@ func match(s string) int {
 			}
 
 		case 2153:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2154
 			default:
@@ -14127,7 +14125,7 @@ func match(s string) int {
 			}
 
 		case 2154:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2155
@@ -14136,7 +14134,7 @@ func match(s string) int {
 			}
 
 		case 2157:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 2158
 			case 'n':
@@ -14151,7 +14149,7 @@ func match(s string) int {
 			}
 
 		case 2158:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2159
 			default:
@@ -14159,7 +14157,7 @@ func match(s string) int {
 			}
 
 		case 2159:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2160
@@ -14168,7 +14166,7 @@ func match(s string) int {
 			}
 
 		case 2161:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2162
 			default:
@@ -14176,7 +14174,7 @@ func match(s string) int {
 			}
 
 		case 2162:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 2163
 			default:
@@ -14184,7 +14182,7 @@ func match(s string) int {
 			}
 
 		case 2163:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2164
 			default:
@@ -14192,7 +14190,7 @@ func match(s string) int {
 			}
 
 		case 2164:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2165
 			default:
@@ -14200,7 +14198,7 @@ func match(s string) int {
 			}
 
 		case 2165:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2166
@@ -14209,7 +14207,7 @@ func match(s string) int {
 			}
 
 		case 2167:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2168
 			default:
@@ -14217,7 +14215,7 @@ func match(s string) int {
 			}
 
 		case 2168:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2169
 			default:
@@ -14225,7 +14223,7 @@ func match(s string) int {
 			}
 
 		case 2169:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2170
 			default:
@@ -14233,7 +14231,7 @@ func match(s string) int {
 			}
 
 		case 2170:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2171
 			default:
@@ -14241,7 +14239,7 @@ func match(s string) int {
 			}
 
 		case 2171:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2172
 			default:
@@ -14249,7 +14247,7 @@ func match(s string) int {
 			}
 
 		case 2172:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2173
 			default:
@@ -14257,7 +14255,7 @@ func match(s string) int {
 			}
 
 		case 2173:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 2174
 			default:
@@ -14265,7 +14263,7 @@ func match(s string) int {
 			}
 
 		case 2174:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2175
 			default:
@@ -14273,7 +14271,7 @@ func match(s string) int {
 			}
 
 		case 2175:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2176
@@ -14282,7 +14280,7 @@ func match(s string) int {
 			}
 
 		case 2179:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2180
 			case 'd':
@@ -14296,7 +14294,7 @@ func match(s string) int {
 			}
 
 		case 2180:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'j':
 				st = 2181
 			default:
@@ -14304,7 +14302,7 @@ func match(s string) int {
 			}
 
 		case 2181:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2182
 			default:
@@ -14312,7 +14310,7 @@ func match(s string) int {
 			}
 
 		case 2182:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2183
@@ -14321,7 +14319,7 @@ func match(s string) int {
 			}
 
 		case 2184:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2185
 			default:
@@ -14329,7 +14327,7 @@ func match(s string) int {
 			}
 
 		case 2185:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 2186
@@ -14338,7 +14336,7 @@ func match(s string) int {
 			}
 
 		case 2187:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2188
 			default:
@@ -14346,7 +14344,7 @@ func match(s string) int {
 			}
 
 		case 2188:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2189
 			default:
@@ -14354,7 +14352,7 @@ func match(s string) int {
 			}
 
 		case 2189:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2190
@@ -14363,7 +14361,7 @@ func match(s string) int {
 			}
 
 		case 2191:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2192
 			default:
@@ -14371,7 +14369,7 @@ func match(s string) int {
 			}
 
 		case 2192:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2193
 			default:
@@ -14379,7 +14377,7 @@ func match(s string) int {
 			}
 
 		case 2193:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 2194
@@ -14388,7 +14386,7 @@ func match(s string) int {
 			}
 
 		case 2195:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2196
 			default:
@@ -14396,7 +14394,7 @@ func match(s string) int {
 			}
 
 		case 2196:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2197
 			default:
@@ -14404,7 +14402,7 @@ func match(s string) int {
 			}
 
 		case 2197:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2198
 			default:
@@ -14412,7 +14410,7 @@ func match(s string) int {
 			}
 
 		case 2198:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2199
 			default:
@@ -14420,7 +14418,7 @@ func match(s string) int {
 			}
 
 		case 2199:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2200
 			default:
@@ -14428,7 +14426,7 @@ func match(s string) int {
 			}
 
 		case 2200:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2201
 			default:
@@ -14436,7 +14434,7 @@ func match(s string) int {
 			}
 
 		case 2201:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2202
 			default:
@@ -14444,7 +14442,7 @@ func match(s string) int {
 			}
 
 		case 2202:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 2203
@@ -14453,7 +14451,7 @@ func match(s string) int {
 			}
 
 		case 2205:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2206
 			case 't':
@@ -14465,7 +14463,7 @@ func match(s string) int {
 			}
 
 		case 2206:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				st = 2207
 			default:
@@ -14473,7 +14471,7 @@ func match(s string) int {
 			}
 
 		case 2207:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2208
@@ -14482,7 +14480,7 @@ func match(s string) int {
 			}
 
 		case 2209:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2210
@@ -14496,7 +14494,7 @@ func match(s string) int {
 			}
 
 		case 2211:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2212
 			default:
@@ -14504,7 +14502,7 @@ func match(s string) int {
 			}
 
 		case 2212:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2213
@@ -14513,7 +14511,7 @@ func match(s string) int {
 			}
 
 		case 2215:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2216
 			default:
@@ -14521,7 +14519,7 @@ func match(s string) int {
 			}
 
 		case 2216:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				st = 2217
 			default:
@@ -14529,7 +14527,7 @@ func match(s string) int {
 			}
 
 		case 2217:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2218
@@ -14538,7 +14536,7 @@ func match(s string) int {
 			}
 
 		case 2220:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2221
 			case 'e':
@@ -14564,7 +14562,7 @@ func match(s string) int {
 			}
 
 		case 2221:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2222
 			case 'n':
@@ -14576,7 +14574,7 @@ func match(s string) int {
 			}
 
 		case 2222:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2223
 			case 't':
@@ -14586,7 +14584,7 @@ func match(s string) int {
 			}
 
 		case 2223:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2224
@@ -14595,7 +14593,7 @@ func match(s string) int {
 			}
 
 		case 2225:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2226
 			default:
@@ -14603,7 +14601,7 @@ func match(s string) int {
 			}
 
 		case 2226:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 2227
@@ -14612,7 +14610,7 @@ func match(s string) int {
 			}
 
 		case 2228:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2229
@@ -14621,7 +14619,7 @@ func match(s string) int {
 			}
 
 		case 2230:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2231
 			default:
@@ -14629,7 +14627,7 @@ func match(s string) int {
 			}
 
 		case 2231:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 2232
@@ -14638,7 +14636,7 @@ func match(s string) int {
 			}
 
 		case 2233:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2234
 			case 'd':
@@ -14651,7 +14649,7 @@ func match(s string) int {
 			}
 
 		case 2234:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2235
 			case 's':
@@ -14661,7 +14659,7 @@ func match(s string) int {
 			}
 
 		case 2235:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2236
 			default:
@@ -14669,7 +14667,7 @@ func match(s string) int {
 			}
 
 		case 2236:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				length = i + 1
 				st = 2237
@@ -14678,7 +14676,7 @@ func match(s string) int {
 			}
 
 		case 2238:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2239
 			default:
@@ -14686,7 +14684,7 @@ func match(s string) int {
 			}
 
 		case 2239:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2240
 			default:
@@ -14694,7 +14692,7 @@ func match(s string) int {
 			}
 
 		case 2240:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2241
@@ -14703,7 +14701,7 @@ func match(s string) int {
 			}
 
 		case 2242:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2243
 			default:
@@ -14711,7 +14709,7 @@ func match(s string) int {
 			}
 
 		case 2243:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2244
 			default:
@@ -14719,7 +14717,7 @@ func match(s string) int {
 			}
 
 		case 2244:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2245
 			default:
@@ -14727,7 +14725,7 @@ func match(s string) int {
 			}
 
 		case 2245:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'g':
 				length = i + 1
 				st = 2246
@@ -14736,7 +14734,7 @@ func match(s string) int {
 			}
 
 		case 2247:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				length = i + 1
 				st = 2248
@@ -14745,7 +14743,7 @@ func match(s string) int {
 			}
 
 		case 2250:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2251
 			default:
@@ -14753,7 +14751,7 @@ func match(s string) int {
 			}
 
 		case 2251:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2252
 			default:
@@ -14761,7 +14759,7 @@ func match(s string) int {
 			}
 
 		case 2252:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'w':
 				st = 2253
 			default:
@@ -14769,7 +14767,7 @@ func match(s string) int {
 			}
 
 		case 2253:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2254
 			default:
@@ -14777,7 +14775,7 @@ func match(s string) int {
 			}
 
 		case 2254:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				length = i + 1
 				st = 2255
@@ -14786,7 +14784,7 @@ func match(s string) int {
 			}
 
 		case 2256:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2257
 			case 'k':
@@ -14801,7 +14799,7 @@ func match(s string) int {
 			}
 
 		case 2257:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 2258
@@ -14810,7 +14808,7 @@ func match(s string) int {
 			}
 
 		case 2259:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 2260
@@ -14819,7 +14817,7 @@ func match(s string) int {
 			}
 
 		case 2261:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2262
 			default:
@@ -14827,7 +14825,7 @@ func match(s string) int {
 			}
 
 		case 2262:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2263
 			default:
@@ -14835,7 +14833,7 @@ func match(s string) int {
 			}
 
 		case 2263:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2264
 			default:
@@ -14843,7 +14841,7 @@ func match(s string) int {
 			}
 
 		case 2264:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 2265
 			default:
@@ -14851,7 +14849,7 @@ func match(s string) int {
 			}
 
 		case 2265:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2266
 			default:
@@ -14859,7 +14857,7 @@ func match(s string) int {
 			}
 
 		case 2266:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2267
 			default:
@@ -14867,7 +14865,7 @@ func match(s string) int {
 			}
 
 		case 2267:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				st = 2268
 			default:
@@ -14875,7 +14873,7 @@ func match(s string) int {
 			}
 
 		case 2268:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'l':
 				length = i + 1
 				st = 2269
@@ -14884,7 +14882,7 @@ func match(s string) int {
 			}
 
 		case 2271:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2272
@@ -14893,7 +14891,7 @@ func match(s string) int {
 			}
 
 		case 2273:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2274
 			default:
@@ -14901,7 +14899,7 @@ func match(s string) int {
 			}
 
 		case 2274:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'k':
 				length = i + 1
 				st = 2275
@@ -14912,7 +14910,7 @@ func match(s string) int {
 			}
 
 		case 2275:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2276
@@ -14921,7 +14919,7 @@ func match(s string) int {
 			}
 
 		case 2277:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				length = i + 1
 				st = 2278
@@ -14930,7 +14928,7 @@ func match(s string) int {
 			}
 
 		case 2280:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				length = i + 1
 				st = 2281
@@ -14942,7 +14940,7 @@ func match(s string) int {
 			}
 
 		case 2283:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2284
 			case 'e':
@@ -14960,7 +14958,7 @@ func match(s string) int {
 			}
 
 		case 2284:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2285
 			default:
@@ -14968,7 +14966,7 @@ func match(s string) int {
 			}
 
 		case 2285:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 2286
@@ -14977,7 +14975,7 @@ func match(s string) int {
 			}
 
 		case 2287:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2288
 			default:
@@ -14985,7 +14983,7 @@ func match(s string) int {
 			}
 
 		case 2288:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2289
 			default:
@@ -14993,7 +14991,7 @@ func match(s string) int {
 			}
 
 		case 2289:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 2290
@@ -15002,7 +15000,7 @@ func match(s string) int {
 			}
 
 		case 2291:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				length = i + 1
 				st = 2292
@@ -15011,7 +15009,7 @@ func match(s string) int {
 			}
 
 		case 2293:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 2294
@@ -15020,7 +15018,7 @@ func match(s string) int {
 			}
 
 		case 2295:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'z':
 				length = i + 1
 				st = 2296
@@ -15029,7 +15027,7 @@ func match(s string) int {
 			}
 
 		case 2297:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2298
 			case 'e':
@@ -15045,7 +15043,7 @@ func match(s string) int {
 			}
 
 		case 2298:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2299
 			case 'n':
@@ -15055,7 +15053,7 @@ func match(s string) int {
 			}
 
 		case 2299:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2300
 			default:
@@ -15063,7 +15061,7 @@ func match(s string) int {
 			}
 
 		case 2300:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2301
 			default:
@@ -15071,7 +15069,7 @@ func match(s string) int {
 			}
 
 		case 2301:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				length = i + 1
 				st = 2302
@@ -15080,7 +15078,7 @@ func match(s string) int {
 			}
 
 		case 2303:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2304
 			default:
@@ -15088,7 +15086,7 @@ func match(s string) int {
 			}
 
 		case 2304:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2305
 			default:
@@ -15096,7 +15094,7 @@ func match(s string) int {
 			}
 
 		case 2305:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'x':
 				length = i + 1
 				st = 2306
@@ -15105,7 +15103,7 @@ func match(s string) int {
 			}
 
 		case 2308:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'd':
 				st = 2309
 			case 'g':
@@ -15119,7 +15117,7 @@ func match(s string) int {
 			}
 
 		case 2309:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2310
 			default:
@@ -15127,7 +15125,7 @@ func match(s string) int {
 			}
 
 		case 2310:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2311
 			default:
@@ -15135,7 +15133,7 @@ func match(s string) int {
 			}
 
 		case 2311:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2312
 			default:
@@ -15143,7 +15141,7 @@ func match(s string) int {
 			}
 
 		case 2312:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 's':
 				st = 2313
 			default:
@@ -15151,7 +15149,7 @@ func match(s string) int {
 			}
 
 		case 2313:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2314
 			default:
@@ -15159,7 +15157,7 @@ func match(s string) int {
 			}
 
 		case 2314:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				length = i + 1
 				st = 2315
@@ -15168,7 +15166,7 @@ func match(s string) int {
 			}
 
 		case 2316:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2317
@@ -15177,7 +15175,7 @@ func match(s string) int {
 			}
 
 		case 2318:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'o':
 				st = 2319
 			default:
@@ -15185,7 +15183,7 @@ func match(s string) int {
 			}
 
 		case 2319:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				st = 2320
 			default:
@@ -15193,7 +15191,7 @@ func match(s string) int {
 			}
 
 		case 2320:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				st = 2321
 			default:
@@ -15201,7 +15199,7 @@ func match(s string) int {
 			}
 
 		case 2321:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'm':
 				st = 2322
 			default:
@@ -15209,7 +15207,7 @@ func match(s string) int {
 			}
 
 		case 2322:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2323
@@ -15218,7 +15216,7 @@ func match(s string) int {
 			}
 
 		case 2324:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 't':
 				st = 2325
 			default:
@@ -15226,7 +15224,7 @@ func match(s string) int {
 			}
 
 		case 2325:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'u':
 				st = 2326
 			default:
@@ -15234,7 +15232,7 @@ func match(s string) int {
 			}
 
 		case 2326:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'b':
 				st = 2327
 			default:
@@ -15242,7 +15240,7 @@ func match(s string) int {
 			}
 
 		case 2327:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2328
@@ -15251,7 +15249,7 @@ func match(s string) int {
 			}
 
 		case 2330:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'a':
 				length = i + 1
 				st = 2331
@@ -15274,7 +15272,7 @@ func match(s string) int {
 			}
 
 		case 2332:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'p':
 				length = i + 1
 				st = 2333
@@ -15283,7 +15281,7 @@ func match(s string) int {
 			}
 
 		case 2334:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2335
 			default:
@@ -15291,7 +15289,7 @@ func match(s string) int {
 			}
 
 		case 2335:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'y':
 				length = i + 1
 				st = 2336
@@ -15300,7 +15298,7 @@ func match(s string) int {
 			}
 
 		case 2338:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'n':
 				st = 2339
 			default:
@@ -15308,7 +15306,7 @@ func match(s string) int {
 			}
 
 		case 2339:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				length = i + 1
 				st = 2340
@@ -15317,7 +15315,7 @@ func match(s string) int {
 			}
 
 		case 2341:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'e':
 				st = 2342
 			default:
@@ -15325,7 +15323,7 @@ func match(s string) int {
 			}
 
 		case 2342:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'r':
 				st = 2343
 			default:
@@ -15333,7 +15331,7 @@ func match(s string) int {
 			}
 
 		case 2343:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'i':
 				st = 2344
 			default:
@@ -15341,7 +15339,7 @@ func match(s string) int {
 			}
 
 		case 2344:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'c':
 				st = 2345
 			default:
@@ -15349,7 +15347,7 @@ func match(s string) int {
 			}
 
 		case 2345:
-			switch byteutil.ByteToLower(b) {
+			switch byteToLower(b) {
 			case 'h':
 				length = i + 1
 				st = 2346
