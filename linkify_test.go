@@ -1,3 +1,7 @@
+// Copyright 2015 The Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 package linkify
 
 import (
@@ -254,7 +258,7 @@ func TestLinks(t *testing.T) {
 		{":00", nil},
 		{"skype://nickname", nil},
 		{"SKYPE://NICKNAME", nil},
-		{"XXX http://google.com r@golang.org localhost:80 mailto:r@golang.org //google.com XXX", []Link{Link{Scheme: "http:", Start: 4, End: 21}, {Scheme: "mailto:", Start: 22, End: 34}, {Scheme: "", Start: 35, End: 47}, {Scheme: "mailto:", Start: 48, End: 67}, {Scheme: "//", Start: 68, End: 80}}},
+		{"XXX http://google.com r@golang.org localhost:80 mailto:r@golang.org //google.com XXX", []Link{{Scheme: "http:", Start: 4, End: 21}, {Scheme: "mailto:", Start: 22, End: 34}, {Scheme: "", Start: 35, End: 47}, {Scheme: "mailto:", Start: 48, End: 67}, {Scheme: "//", Start: 68, End: 80}}},
 
 		// from twitter-text
 

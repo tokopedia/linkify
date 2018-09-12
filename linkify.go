@@ -1,23 +1,13 @@
-// This program is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option)
-// any later version.
-//
-// This program is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-// Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along
-// with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Copyright 2015 The Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
 // Package linkify provides a way to find links in plain text.
 package linkify
 
 import (
+	"strings"
 	"unicode/utf8"
-
-	"github.com/opennota/byteutil"
 )
 
 // Link represents a link found in a string with a schema and a position in the string.
@@ -48,11 +38,11 @@ func Links(s string) (links []Link) {
 					if pos >= len(s) {
 						continue // . at the end of line
 					}
-					if !byteutil.IsDigit(s[i-1]) {
+					if !digit(s[i-1]) {
 						i = pos
 						continue // . should be preceded by a digit
 					}
-					if !byteutil.IsDigit(s[pos]) {
+					if !digit(s[pos]) {
 						i = pos
 						continue // . should be followed by a digit
 					}
@@ -60,7 +50,7 @@ func Links(s string) (links []Link) {
 					// find the start of the IP address
 					j := i - 2
 					m := max(0, j-3)
-					for j >= m && byteutil.IsDigit(s[j]) {
+					for j >= m && digit(s[j]) {
 						j--
 					}
 					if i-2-j > 2 {
@@ -253,7 +243,7 @@ func Links(s string) (links []Link) {
 
 			if i >= 9 && s[i-1] == 't' && s[i-9:i] == "localhost" {
 				j := i - 9
-				if !byteutil.IsDigit(s[j+10]) {
+				if !digit(s[j+10]) {
 					continue
 				}
 				if j > 0 {
@@ -297,7 +287,7 @@ func Links(s string) (links []Link) {
 			var start int
 			var schema string
 
-			switch byteutil.ByteToLower(s[j]) {
+			switch byteToLower(s[j]) {
 			case 'o': // mailto
 				if j < 5 {
 					continue // too short for mailto
@@ -305,7 +295,7 @@ func Links(s string) (links []Link) {
 				if len(s)-j < 8 {
 					continue // insufficient length after
 				}
-				if byteutil.ToLower(s[j-5:j+2]) != "mailto:" {
+				if strings.ToLower(s[j-5:j+2]) != "mailto:" {
 					continue
 				}
 				r, _ := utf8.DecodeLastRuneInString(s[:j-5])
@@ -335,9 +325,9 @@ func Links(s string) (links []Link) {
 				if len(s)-j < 8 {
 					continue // insufficient length after
 				}
-				switch byteutil.ByteToLower(s[j-2]) {
+				switch byteToLower(s[j-2]) {
 				case 'f':
-					if byteutil.ToLower(s[j-2:j+4]) != "ftp://" {
+					if strings.ToLower(s[j-2:j+4]) != "ftp://" {
 						continue
 					}
 					start = j - 2
@@ -346,7 +336,7 @@ func Links(s string) (links []Link) {
 					if j < 3 {
 						continue
 					}
-					if byteutil.ToLower(s[j-3:j+4]) != "http://" {
+					if strings.ToLower(s[j-3:j+4]) != "http://" {
 						continue
 					}
 					start = j - 3
@@ -363,7 +353,7 @@ func Links(s string) (links []Link) {
 					continue // insufficient length after
 				}
 				start = j - 4
-				if byteutil.ToLower(s[start:j+4]) != "https://" {
+				if strings.ToLower(s[start:j+4]) != "https://" {
 					continue
 				}
 				schema = "https:"
