@@ -314,6 +314,9 @@ loop:
 			if nHyphen > 0 {
 				return
 			}
+			if lastDot == true {
+				return end + 1, true
+			}
 			lastDot = true
 		case r == '-':
 			if end == start {
